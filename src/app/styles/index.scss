@@ -1,0 +1,18 @@
+@import "./reset.scss";
+@import "./global.scss";
+
+a {
+  color: $color4;
+}
+
+.flex {
+  display: flex;
+}
+
+h2 {
+  font-size: 36px;
+}
+
+h3 {
+  font-size: 24px;
+}
