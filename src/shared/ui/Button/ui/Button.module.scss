@@ -1,7 +1,11 @@
 @import "@styles/global.scss";
 
 .button {
-  background-color: $color2;
+  width: 100%;
+  background-color: $color1;
+  border-radius: 6px;
+  border: none;
+  padding: 10px 20px;
 }
 
 .primary {

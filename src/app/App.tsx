@@ -6,7 +6,7 @@ function App() {
 
   return (
     <>
-      <div className="container">
+      <div>
         <Suspense fallback={<div>Loading...</div>}>
           <Router />
         </Suspense>
