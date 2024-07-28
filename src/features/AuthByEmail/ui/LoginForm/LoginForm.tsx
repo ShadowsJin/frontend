@@ -6,6 +6,7 @@ import style from "./LoginForm.module.scss";
 
 import Button from "@/shared/ui/Button/index";
 import Input from "@/shared/ui/Input/index";
+import useUserStore from "@/entities/User/model/slice/UserSlice";
 
 type Inputs = {
   email: string;
@@ -13,6 +14,8 @@ type Inputs = {
 };
 
 const LoginForm = () => {
+  const { Login }: any = useUserStore();
+
   const {
     register,
     handleSubmit,
@@ -21,7 +24,8 @@ const LoginForm = () => {
   const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    navigate("/");
+    Login(data.email, data.password);
+
     console.log(data);
   };
 

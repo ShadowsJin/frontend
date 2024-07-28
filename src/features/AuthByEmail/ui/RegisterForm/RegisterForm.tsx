@@ -6,6 +6,7 @@ import style from "./RegisterForm.module.scss";
 
 import Button from "@/shared/ui/Button/index";
 import Input from "@/shared/ui/Input/index";
+import useUserStore from "@/entities/User/model/slice/UserSlice";
 
 type Inputs = {
   firstName: string;
@@ -15,6 +16,8 @@ type Inputs = {
 };
 
 const RegisterForm = () => {
+  const { Register }: any = useUserStore();
+
   const {
     register,
     handleSubmit,
@@ -23,7 +26,8 @@ const RegisterForm = () => {
   const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    navigate("/");
+    const fullname = data.firstName + data.lastName;
+    Register(fullname, data.email, data.password);
     console.log(data);
   };
 
