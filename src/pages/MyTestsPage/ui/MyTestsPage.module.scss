@@ -1,0 +1,11 @@
+@import "@styles/global.scss";
+.MyTestsPage {
+  width: 100%;
+  .Buttons {
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 20px;
+  }
+}

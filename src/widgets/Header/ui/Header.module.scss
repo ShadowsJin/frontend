@@ -1,13 +1,16 @@
-.header {
+@import "@styles/global.scss";
+.Header {
   width: 100%;
-  padding: 40px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-
-  .nav {
+  justify-content: space-between;
+  border-bottom: solid 1px $color5;
+  padding-bottom: 20px;
+  .RightBlock {
+    width: 30%;
+    gap: 20px;
     display: flex;
     align-items: center;
-    gap: 20px;
+    justify-content: space-between;
   }
 }

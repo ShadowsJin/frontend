@@ -1,16 +1,18 @@
-import { NavLink } from "react-router-dom";
+import Avatar from "@/entities/User/ui/Avatar";
+import Input from "@/shared/ui/Input";
 import style from "./Header.module.scss";
-const Header = () => {
+interface HeaderProps {
+  title: string;
+}
+const Header = ({ title }: HeaderProps) => {
   return (
-    <div className={style.header}>
-      <p>Название</p>
-      <nav className={style.nav}>
-        <NavLink to="/">Главная</NavLink>
-        <NavLink to="/aboutUs">О нас</NavLink>
-        <NavLink to="/features">Особенности</NavLink>
-        <NavLink to="/сontacts">Контакты</NavLink>
-      </nav>
-    </div>
+    <header className={style.Header}>
+      <h2>{title}</h2>
+      <div className={style.RightBlock}>
+        <Input placeholder="Поиск" />
+        <Avatar />
+      </div>
+    </header>
   );
 };
 

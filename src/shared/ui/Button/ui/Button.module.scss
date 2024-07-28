@@ -1,7 +1,7 @@
 @import "@styles/global.scss";
 
 .button {
-  min-width: 100%;
+  width: 100%;
   background-color: $color1;
   border-radius: 6px;
   border: none;
@@ -9,9 +9,9 @@
 }
 
 .primary {
-  background-color: $color4;
+  background-color: $color2;
 }
 
 .text {
-  background-color: $color1;
+  background-color: transparent;
 }

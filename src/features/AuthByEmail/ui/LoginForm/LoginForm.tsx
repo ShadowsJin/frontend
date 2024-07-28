@@ -25,7 +25,7 @@ const LoginForm = () => {
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     Login(data.email, data.password);
-
+    navigate("/mytests");
     console.log(data);
   };
 
@@ -48,7 +48,7 @@ const LoginForm = () => {
         {errors.password && <p className={style.errorMsg}>Введите пароль</p>}
       </div>
       <Button type="submit">Войти</Button>
-      <Link to="/">Забыли пароль?</Link>
+      <Link to="/register">Забыли пароль?</Link>
     </form>
   );
 };

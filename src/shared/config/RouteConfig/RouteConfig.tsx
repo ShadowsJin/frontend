@@ -3,10 +3,13 @@ import { MainPage } from "@/pages/MainPage";
 import NotFoundPage from "@/pages/NotFoundPage";
 import { LoginPage } from "@/pages/LoginPage";
 import { RegisterPage } from "@/pages/RegisterPage";
+import { MyTestsPage } from "@/pages/MyTestsPage";
+import { SupportPage } from "@/pages/SupportPage";
 
 export interface IListRoutes {
   element: ReactNode;
   path: string;
+  sidebar?: boolean;
 }
 
 export const ListRoutes: IListRoutes[] = [
@@ -21,6 +24,16 @@ export const ListRoutes: IListRoutes[] = [
   {
     element: <RegisterPage />,
     path: "/register",
+  },
+  {
+    element: <MyTestsPage />,
+    path: "/mytests",
+    sidebar: true,
+  },
+  {
+    element: <SupportPage />,
+    path: "/support",
+    sidebar: true,
   },
 
   {

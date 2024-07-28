@@ -1,0 +1,11 @@
+@import "@styles/global.scss";
+.TestCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 20px;
+  background-color: $color2;
+  cursor: pointer;
+}

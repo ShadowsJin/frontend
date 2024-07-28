@@ -1,7 +1,16 @@
+import NotFoundImg from "@/shared/assets/NotFoundImg.jpg";
+import Button from "@/shared/ui/Button";
+import style from "./NotFoundPage.module.scss";
+import { useNavigate } from "react-router-dom";
 const NotFoundPage = () => {
+  const navigate = useNavigate();
   return (
-    <div>
-      <h2>Страница не найдена</h2>
+    <div className={style.NotFoundPage}>
+      <img src={NotFoundImg} alt="404" />
+      <h2>Кажется такой страницы нет(</h2>
+      <div>
+        <Button onClick={() => navigate(-1)}>Вернуться на назад</Button>
+      </div>
     </div>
   );
 };

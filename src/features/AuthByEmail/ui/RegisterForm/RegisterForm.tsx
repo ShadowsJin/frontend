@@ -26,6 +26,7 @@ const RegisterForm = () => {
   const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    navigate("/mytests");
     const fullname = data.firstName + data.lastName;
     Register(fullname, data.email, data.password);
     console.log(data);

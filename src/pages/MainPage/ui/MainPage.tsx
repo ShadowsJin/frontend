@@ -1,13 +1,13 @@
 import Button from "@/shared/ui/Button";
 import { Link } from "react-router-dom";
 import style from "./MainPage.module.scss";
-import Header from "@/widgets/Header";
+import NavBar from "@/widgets/NavBar";
 import classNames from "classnames";
 
 const MainPage = () => {
   return (
     <div className={classNames("container", style.MainPage)}>
-      <Header />
+      <NavBar />
       <div className={style.container}>
         <h2>ПЛАТФОРМА ДЛЯ СОЗДАНИЯ ТЕСТОВ И ПРОВЕРОЧНЫХ РАБОТ</h2>
         <p>
