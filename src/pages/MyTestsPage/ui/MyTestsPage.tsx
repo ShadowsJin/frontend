@@ -39,7 +39,10 @@ const MyTestsPage = () => {
         </Button>
       </div>
 
-      <TestCards cards={created ? CreatedCardArray : PassedCardArray} />
+      <TestCards
+        newTest={created ? true : false}
+        cards={created ? CreatedCardArray : PassedCardArray}
+      />
     </div>
   );
 };

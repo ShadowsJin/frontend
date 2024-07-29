@@ -6,7 +6,7 @@ import { create } from "zustand";
 const cookies = new Cookies();
 
 const useUserStore = create((set) => ({
-  user: null,
+  user: { firstName: "Александр", lastName: "Гренкин" },
   token: cookies.get("token") || null,
   Login: async (email: string, password: string) => {
     try {

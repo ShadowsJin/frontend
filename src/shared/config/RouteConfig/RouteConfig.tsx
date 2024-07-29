@@ -5,6 +5,7 @@ import { LoginPage } from "@/pages/LoginPage";
 import { RegisterPage } from "@/pages/RegisterPage";
 import { MyTestsPage } from "@/pages/MyTestsPage";
 import { SupportPage } from "@/pages/SupportPage";
+import { ProfilePage } from "@/pages/ProfilePage";
 
 export interface IListRoutes {
   element: ReactNode;
@@ -33,6 +34,11 @@ export const ListRoutes: IListRoutes[] = [
   {
     element: <SupportPage />,
     path: "/support",
+    sidebar: true,
+  },
+  {
+    element: <ProfilePage />,
+    path: "/profile",
     sidebar: true,
   },
 
