@@ -4,7 +4,7 @@ import Button from "@/shared/ui/Button";
 import useUserStore from "../model/slice/UserSlice";
 import Modal from "@/shared/ui/Modal";
 import { useState } from "react";
-import DeleteForm from "@/shared/ui/DeleteForm";
+import DeleteForm from "@/widgets/DeleteForm";
 const ProfileCard = () => {
   const [openModal, setOpenModal] = useState(false);
   const user = useUserStore((state) => state.user);

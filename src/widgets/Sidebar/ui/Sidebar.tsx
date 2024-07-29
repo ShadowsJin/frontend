@@ -38,7 +38,7 @@ const Sidebar = () => {
       </NavLink>
       <NavLink
         className={({ isActive }) => (isActive ? style.activeLink : style.link)}
-        to="/сontacts"
+        to="/"
       >
         Выйти
       </NavLink>
