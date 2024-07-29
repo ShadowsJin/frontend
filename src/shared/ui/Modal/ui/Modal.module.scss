@@ -1,0 +1,78 @@
+@import "@styles/global.scss";
+
+.modal {
+  pointer-events: none;
+
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  opacity: 0;
+
+  .content {
+    transform: scale(0.5);
+    transition: 0.2s transform;
+  }
+}
+
+.content {
+  min-width: 350px;
+  padding: 20px 20px 28px 20px;
+  border-radius: 15px;
+  background-color: $color2;
+}
+
+.header {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 20px;
+}
+
+.closeBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-left: auto;
+  padding: 0;
+
+  background-color: transparent;
+  border: none;
+  outline: none;
+
+  transition: $transition;
+}
+
+.opened {
+  pointer-events: auto;
+  opacity: 1;
+
+  .content {
+    transform: scale(1);
+    transition: 0.4s transform;
+  }
+}
+
+.closing {
+  .content {
+    transform: scale(0.5);
+    transition: 0.3s transform;
+  }
+}
+
+.overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+
+  backdrop-filter: blur(5px);
+}
