@@ -1,7 +1,7 @@
 import Header from "@/widgets/Header";
 import style from "./MyTestsPage.module.scss";
 import classNames from "classnames";
-import { Link, NavLink } from "react-router-dom";
+
 import TestCards from "@/widgets/TestCards/ui/TestCards";
 import Button from "@/shared/ui/Button";
 import { useState } from "react";
@@ -40,6 +40,7 @@ const MyTestsPage = () => {
       </div>
 
       <TestCards
+        created={created}
         newTest={created ? true : false}
         cards={created ? CreatedCardArray : PassedCardArray}
       />
