@@ -3,9 +3,10 @@ import style from "./QuestionBlock.module.scss";
 import Button from "@/shared/ui/Button";
 import { useEffect, useState } from "react";
 import useTestConstructor from "@/entities/TestConstructor/model/TestConstructorSlice";
+import { Console } from "console";
 
 const QuestionBlock = ({ id }: { id: number }) => {
-  const { questions, setAnswers, addAnswer, setQuestion } =
+  const { questions, setAnswers, addAnswer, setQuestion, setTrueAnswer } =
     useTestConstructor();
   const ChangeAnswers = (answer: string, id: number) => {
     const answers = [...questions.answers];
@@ -33,6 +34,7 @@ const QuestionBlock = ({ id }: { id: number }) => {
               value={answer}
               onChange={(e) => setAnswers(id, AnswId, e.target.value)}
             />
+            <Input type="checkbox" onClick={() => setTrueAnswer(id, AnswId)} />
           </li>
         ))}
       </ul>

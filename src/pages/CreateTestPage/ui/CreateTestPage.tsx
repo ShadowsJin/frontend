@@ -12,7 +12,8 @@ const CreateTestPage = () => {
   const { questions, addTitle, addQuestion, deleteTest } = useTestConstructor();
   useEffect(() => {
     addTitle(title);
-  });
+    deleteTest();
+  }, []);
   return (
     <div className={classNames("section", style.CreateTestPage)}>
       <Header title={`ТЕСТ: ${title}`} />

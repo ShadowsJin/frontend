@@ -5,7 +5,7 @@ import { immer } from "zustand/middleware/immer";
 const useTestConstructor = create(
   immer((set) => ({
     title: "",
-    questions: [{ question: "", answers: [""], trueAnswer: 0 }],
+    questions: [{ question: "", answers: [""], trueAnswers: [] }],
     addTitle: (title: string) => {
       set((state) => {
         state.title = title;
@@ -16,7 +16,7 @@ const useTestConstructor = create(
         const newQuestion = {
           question: "",
           answers: [""],
-          trueAnswer: 0,
+          trueAnswers: [0],
         };
         state.questions.push(newQuestion);
       });
@@ -37,9 +37,14 @@ const useTestConstructor = create(
       });
     },
 
-    setTrueAnswer: (id: number, trueAnswer: number) => {
+    setTrueAnswer: (id: number, idAnswer: number) => {
       set((state) => {
-        state.trueAnswer[id].trueAnswer = trueAnswer;
+        if (state.questions[id]?.trueAnswers.includes(idAnswer)) {
+          let index = state.questions[id]?.trueAnswers.indexOf(idAnswer);
+          state.questions[id]?.trueAnswers.splice(index, 1);
+        } else {
+          state.questions[id]?.trueAnswers?.push(idAnswer);
+        }
       });
     },
 
@@ -52,7 +57,7 @@ const useTestConstructor = create(
     deleteTest: () => {
       set((state) => {
         state.title = "";
-        state.questions = [{ question: "", answers: [""], trueAnswer: 0 }];
+        state.questions = [{ question: "", answers: [""], trueAnswers: [] }];
       });
     },
   }))
