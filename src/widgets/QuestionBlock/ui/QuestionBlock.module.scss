@@ -1,0 +1,27 @@
+@import "@styles/global.scss";
+.questionBlock {
+  width: 100%;
+  padding: 20px;
+  background-color: $color2;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  .question {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 10px;
+  }
+  .answers {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .answer {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 10px;
+  }
+}
