@@ -2,10 +2,10 @@
 
 .button {
   width: 100%;
-  background-color: $color1;
+  background-color: $color3;
   border-radius: 6px;
-  border: none;
-  padding: 10px 20px;
+  border: 1px solid $color1;
+  padding: 15px;
 }
 
 .primary {

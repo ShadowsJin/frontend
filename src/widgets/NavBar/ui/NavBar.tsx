@@ -3,7 +3,7 @@ import style from "./NavBar.module.scss";
 const NavBar = () => {
   return (
     <div className={style.NavBar}>
-      <p>Название</p>
+      <p>ЛОГО</p>
       <nav className={style.nav}>
         <NavLink to="/">Главная</NavLink>
         <NavLink to="/aboutUs">О нас</NavLink>
