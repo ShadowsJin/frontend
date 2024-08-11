@@ -7,6 +7,7 @@ import { MyTestsPage } from "@/pages/MyTestsPage";
 import { SupportPage } from "@/pages/SupportPage";
 import { ProfilePage } from "@/pages/ProfilePage";
 import { CreateTestPage } from "@/pages/CreateTestPage";
+import { PassingTestPage } from "@/pages/PassingTestPage";
 
 export interface IListRoutes {
   element: ReactNode;
@@ -35,6 +36,11 @@ export const ListRoutes: IListRoutes[] = [
   {
     element: <CreateTestPage />,
     path: "/createtest/:title",
+    sidebar: true,
+  },
+  {
+    element: <PassingTestPage />,
+    path: "/passingtest/:id",
     sidebar: true,
   },
   {

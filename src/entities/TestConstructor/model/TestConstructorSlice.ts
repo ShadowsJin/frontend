@@ -1,4 +1,3 @@
-import { title } from "process";
 import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
 
@@ -16,7 +15,7 @@ const useTestConstructor = create(
         const newQuestion = {
           question: "",
           answers: [""],
-          trueAnswers: [0],
+          trueAnswers: [],
         };
         state.questions.push(newQuestion);
       });
