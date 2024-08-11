@@ -11,7 +11,7 @@ import Airplane from "@/shared/assets/airplane.svg";
 
 const MainPage = () => {
   return (
-    <div className={classNames("background-cells", style.MainPage)}>
+    <div className={style.MainPage}>
       <div className={classNames(style.picture, style.checklist)}>
         <Chacklist />
       </div>

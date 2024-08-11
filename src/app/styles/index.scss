@@ -32,8 +32,7 @@ h4 {
   min-height: 100vh;
 }
 
-.background-cells {
-  position: absolute;
+body {
   width: 100%;
   height: 100vh;
   background: linear-gradient(rgb($color5, 0.1), transparent 1px),
