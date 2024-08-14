@@ -7,10 +7,16 @@ import style from "./RegisterForm.module.scss";
 import Button from "@/shared/ui/Button/index";
 import Input from "@/shared/ui/Input/index";
 import useUserStore from "@/entities/User/model/slice/UserSlice";
+import LikeHand from "@/shared/assets/LikeHand.svg";
+import User from "@/shared/assets/user.svg";
+import Dog from "@/shared/assets/Dog.svg";
+import Lock from "@/shared/assets/Lock.svg";
+import Apple from "@/shared/assets/Apple.svg";
+import Google from "@/shared/assets/Google.svg";
+import Telegram from "@/shared/assets/Telegram.svg";
 
 type Inputs = {
-  firstName: string;
-  lastName: string;
+  fullname: string;
   email: string;
   password: string;
 };
@@ -27,39 +33,36 @@ const RegisterForm = () => {
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     navigate("/mytests");
-    const fullname = data.firstName + data.lastName;
-    Register(fullname, data.email, data.password);
+    Register(data.fullname, data.email, data.password);
     console.log(data);
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={style.RegisterForm}>
-      <h2>Регистация</h2>
-
-      <div className={style.InputBlocks}>
-        <div className={style.InputBlock}>
-          <label>Имя:</label>
-          <Input
-            {...register("firstName", {
-              required: true,
-            })}
-          />
-          {errors.firstName && <p className={style.errorMsg}>Введите имя</p>}
-        </div>
-        <div className={style.InputBlock}>
-          <label>Фамилия:</label>
-          <Input
-            {...register("lastName", {
-              required: true,
-            })}
-          />
-          {errors.lastName && <p className={style.errorMsg}>Введите фамилию</p>}
-        </div>
+      <div className={style.title}>
+        <h2>
+          Зарегистрируйся! <LikeHand />
+        </h2>
+        <p>
+          Открой для себя лучшее приложение для создания и прохождения
+          проверочных работ
+        </p>
       </div>
 
       <div className={style.InputBlock}>
+        <label>ФИО:</label>
+        <Input
+          icon={<User />}
+          {...register("fullname", {
+            required: true,
+          })}
+        />
+        {errors.email && <p className={style.errorMsg}>Введите email</p>}
+      </div>
+      <div className={style.InputBlock}>
         <label>Почта:</label>
         <Input
+          icon={<Dog />}
           {...register("email", {
             required: true,
           })}
@@ -68,11 +71,33 @@ const RegisterForm = () => {
       </div>
       <div className={style.InputBlock}>
         <label>Пароль:</label>
-        <Input type="password" {...register("password", { required: true })} />
+        <Input
+          icon={<Lock />}
+          type="password"
+          {...register("password", { required: true })}
+        />
         {errors.password && <p className={style.errorMsg}>Введите пароль</p>}
       </div>
-      <Button type="submit">Зарегистрироваться</Button>
-      <Link to={"/login"}>Уже есть аккаунт? Войдите в него!</Link>
+      <div className={style.Button}>
+        <Button type="submit">Создать аккаунт</Button>
+      </div>
+
+      <div className={style.or}>
+        <hr />
+        Или с помощью
+        <hr />
+      </div>
+
+      <div className={style.Icons}>
+        <Apple />
+        <Google />
+        <Telegram />
+      </div>
+
+      <Link to={"/login"}>
+        Уже есть аккаунт?
+        <span className={style.AccentColor}>Авторизуйся!</span>
+      </Link>
     </form>
   );
 };

@@ -1,15 +1,24 @@
 @import "@styles/global.scss";
 .LoginForm {
   border-radius: 6px;
-  background-color: $color2;
+  background-color: $color1;
   width: 30%;
   min-width: 300px;
-  max-height: 700px;
+
   padding: 50px;
   display: flex;
   align-items: center;
   flex-direction: column;
-  gap: 40px;
+  gap: 30px;
+  border-radius: 6px;
+
+  box-shadow: 4px 4px 6px 0px rgba(0, 0, 0, 0.25);
+  .title {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+  }
   .InputBlock {
     display: flex;
     flex-direction: column;
@@ -18,5 +27,32 @@
   }
   .errorMsg {
     color: red;
+  }
+  a {
+    font-weight: 600;
+  }
+  .Button {
+    margin-top: 10px;
+    width: 40%;
+  }
+  .or {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    color: $color4;
+    white-space: nowrap;
+    hr {
+      width: 32%;
+    }
+  }
+  .Icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .AccentColor {
+    color: $color8;
   }
 }

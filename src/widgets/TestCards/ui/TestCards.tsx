@@ -26,11 +26,10 @@ const TestCards = ({ cards, newTest, created }: TestCardsProps) => {
           }}
         />
       ))}
-      {created && (
-        <Modal isOpened={openModal} onClose={() => setOpenModal(false)}>
-          <TestInfoForm title={title} />
-        </Modal>
-      )}
+
+      <Modal isOpened={openModal} onClose={() => setOpenModal(false)}>
+        <TestInfoForm title={title} />
+      </Modal>
     </div>
   );
 };

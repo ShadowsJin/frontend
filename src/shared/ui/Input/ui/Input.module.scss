@@ -5,14 +5,12 @@
   align-items: center;
 
   width: 100%;
-  background-color: $color3;
+  background-color: $color2;
   border-radius: 6px;
   input {
     width: 100%;
     margin: 12px 15px;
-
     line-height: 24px;
-
     background-color: transparent;
     border: none;
     outline: none;
@@ -25,6 +23,9 @@
     -o-transform: scale(2);
     transform: scale(2);
     padding: 10px;
+  }
+  .icon {
+    margin: 10px 0 10px 15px;
   }
 }
 .checkbox {
