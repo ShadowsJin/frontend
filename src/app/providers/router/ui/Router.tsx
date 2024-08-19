@@ -1,4 +1,5 @@
 import { ListRoutes } from "@/shared/config/RouteConfig/RouteConfig";
+import Loader from "@/shared/ui/Loader";
 import Sidebar from "@/widgets/Sidebar";
 import { Suspense } from "react";
 import { Route, RouteProps, Routes } from "react-router-dom";
@@ -13,7 +14,7 @@ const Router = () => {
           element={
             <div className="flexPage">
               {sidebar && <Sidebar />}
-              <Suspense fallback={<div>Loading...</div>}>{element}</Suspense>
+              <Suspense fallback={<Loader />}>{element}</Suspense>
             </div>
           }
         />
