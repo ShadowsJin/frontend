@@ -3,27 +3,27 @@ import { Link } from "react-router-dom";
 import style from "./MainPage.module.scss";
 import NavBar from "@/widgets/NavBar";
 import classNames from "classnames";
-import Chacklist from "@/shared/assets/checklist.svg";
-import LaughEmoji from "@/shared/assets/laughEmoji.svg";
-import Diamond from "@/shared/assets/Diamond.svg";
-import Crown from "@/shared/assets/crown.svg";
-import Airplane from "@/shared/assets/airplane.svg";
+import ChacklistIcon from "@/shared/assets/checklist.svg";
+import LaughEmojiIcon from "@/shared/assets/laughEmoji.svg";
+import DiamondIcon from "@/shared/assets/Diamond.svg";
+import CrownIcon from "@/shared/assets/crown.svg";
+import AirplaneIcon from "@/shared/assets/airplane.svg";
 
 const MainPage = () => {
   return (
     <div className={style.MainPage}>
       <div className={classNames(style.picture, style.checklist)}>
-        <Chacklist />
+        <ChacklistIcon />
       </div>
       <div className={classNames(style.picture, style.diamond)}>
-        <Diamond />
+        <DiamondIcon />
       </div>
       <NavBar />
       <div className="container">
         <div className={style.content}>
           <h1>
             <div className={classNames(style.picture, style.crown)}>
-              <Crown />
+              <CrownIcon />
             </div>
             Платформа для создания тестов и проверочных работ
           </h1>
@@ -44,10 +44,10 @@ const MainPage = () => {
         </div>
       </div>
       <div className={classNames(style.picture, style.emoji)}>
-        <LaughEmoji />
+        <LaughEmojiIcon />
       </div>
       <div className={classNames(style.picture, style.airplane)}>
-        <Airplane />
+        <AirplaneIcon />
       </div>
     </div>
   );

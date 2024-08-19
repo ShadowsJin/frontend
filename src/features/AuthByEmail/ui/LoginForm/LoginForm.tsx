@@ -7,12 +7,12 @@ import style from "./LoginForm.module.scss";
 import Button from "@/shared/ui/Button/index";
 import Input from "@/shared/ui/Input/index";
 import useUserStore from "@/entities/User/model/slice/UserSlice";
-import LoginHand from "@/shared/assets/LoginHand.svg";
-import Dog from "@/shared/assets/Dog.svg";
-import Lock from "@/shared/assets/Lock.svg";
-import Apple from "@/shared/assets/Apple.svg";
-import Google from "@/shared/assets/Google.svg";
-import Telegram from "@/shared/assets/Telegram.svg";
+import LoginHandIcon from "@/shared/assets/LoginHand.svg";
+import DogIcon from "@/shared/assets/Dog.svg";
+import LockIcon from "@/shared/assets/Lock.svg";
+import AppleIcon from "@/shared/assets/Apple.svg";
+import GoogleIcon from "@/shared/assets/Google.svg";
+import TelegramIcon from "@/shared/assets/Telegram.svg";
 
 type Inputs = {
   email: string;
@@ -39,7 +39,7 @@ const LoginForm = () => {
     <form onSubmit={handleSubmit(onSubmit)} className={style.LoginForm}>
       <div className={style.title}>
         <h2>
-          С возвращением! <LoginHand />
+          С возвращением! <LoginHandIcon />
         </h2>
         <p>
           Открой для себя лучшее приложение для создания и прохождения
@@ -48,24 +48,29 @@ const LoginForm = () => {
       </div>
 
       <div className={style.InputBlock}>
-        <label>Почта:</label>
+        <div className={style.InputBlockHeader}>
+          <label>Почта:</label>
+          {errors.email && <p className={style.errorMsg}>Введите почту</p>}
+        </div>
         <Input
-          icon={<Dog />}
+          icon={<DogIcon />}
           {...register("email", {
             required: true,
           })}
         />
-        {errors.email && <p className={style.errorMsg}>Введите логин</p>}
       </div>
       <div className={style.InputBlock}>
-        <label>Пароль:</label>
+        <div className={style.InputBlockHeader}>
+          <label>Пароль:</label>
+          {errors.password && <p className={style.errorMsg}>Введите пароль</p>}
+        </div>
+
         <Input
-          icon={<Lock />}
+          icon={<LockIcon />}
           type="password"
           {...register("password", { required: true })}
         />
         <Link to="/register">Забыли пароль?</Link>
-        {errors.password && <p className={style.errorMsg}>Введите пароль</p>}
       </div>
       <div className={style.Button}>
         <Button type="submit">Войти</Button>
@@ -77,9 +82,9 @@ const LoginForm = () => {
       </div>
 
       <div className={style.Icons}>
-        <Apple />
-        <Google />
-        <Telegram />
+        <AppleIcon />
+        <GoogleIcon />
+        <TelegramIcon />
       </div>
 
       <Link to="/register">
