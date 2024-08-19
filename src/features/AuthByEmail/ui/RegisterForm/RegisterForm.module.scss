@@ -29,9 +29,14 @@
     flex-direction: column;
     gap: 10px;
     width: 100%;
+    .InputBlockHeader {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
   }
   .errorMsg {
-    color: red;
+    color: $color10;
   }
   .AccentColor {
     color: $color9;
