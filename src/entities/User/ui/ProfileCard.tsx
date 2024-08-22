@@ -4,7 +4,7 @@ import Button from "@/shared/ui/Button";
 import useUserStore from "../model/slice/UserSlice";
 import Modal from "@/shared/ui/Modal";
 import { useState } from "react";
-import DeleteForm from "@/widgets/DeleteForm";
+import LogoutForm from "@/features/AuthByEmail/ui/LogoutForm";
 const ProfileCard = () => {
   const [openModal, setOpenModal] = useState(false);
   const user = useUserStore((state) => state.user);
@@ -21,10 +21,10 @@ const ProfileCard = () => {
       <div className={style.ButtonsBlock}>
         <Button>Редактировать профиль</Button>
         <Button>Сохранить</Button>
-        <Button onClick={() => setOpenModal(true)}>Удалить Профиль</Button>
+        <Button onClick={() => setOpenModal(true)}>Выйти из профиля</Button>
       </div>
       <Modal isOpened={openModal} onClose={() => setOpenModal(false)}>
-        <DeleteForm />
+        <LogoutForm />
       </Modal>
     </div>
   );

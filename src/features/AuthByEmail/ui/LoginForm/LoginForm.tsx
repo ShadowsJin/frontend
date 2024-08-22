@@ -13,6 +13,7 @@ import LockIcon from "@/shared/assets/Lock.svg";
 import AppleIcon from "@/shared/assets/Apple.svg";
 import GoogleIcon from "@/shared/assets/Google.svg";
 import TelegramIcon from "@/shared/assets/Telegram.svg";
+import useAuthByEmailStore from "../../model/services/AuthByEmail/AuthByEmail";
 
 type Inputs = {
   email: string;
@@ -20,7 +21,7 @@ type Inputs = {
 };
 
 const LoginForm = () => {
-  const { Login }: any = useUserStore();
+  const { Login }: any = useAuthByEmailStore();
 
   const {
     register,
@@ -30,9 +31,9 @@ const LoginForm = () => {
   const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    Login(data.email, data.password);
-    navigate("/mytests");
-    console.log(data);
+    Login(data.email, data.password).then((res: boolean) => {
+      res && navigate("/mytests");
+    });
   };
 
   return (

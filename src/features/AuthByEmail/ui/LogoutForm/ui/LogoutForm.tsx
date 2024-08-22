@@ -1,18 +1,21 @@
 import { useNavigate } from "react-router-dom";
-import style from "./DeleteForm.module.scss";
+import style from "./LogoutForm.module.scss";
 import Button from "@/shared/ui/Button";
+import { useAuthByEmailStore } from "@/features/AuthByEmail";
 
-const DeleteForm = () => {
+const LogoutForm = () => {
   const navigate = useNavigate();
+  const { Logout }: any = useAuthByEmailStore();
   const deleteProfile = () => {
+    Logout();
     navigate("/");
   };
   return (
     <div>
-      <div className={style.DeleteForm}>
+      <div className={style.LogoutForm}>
         <h3>Вы уверенны?</h3>
         <div className={style.Buttons}>
-          <Button onClick={deleteProfile}>Удалить</Button>
+          <Button onClick={deleteProfile}>Выйти</Button>
           <Button>Отмена</Button>
         </div>
       </div>
@@ -20,4 +23,4 @@ const DeleteForm = () => {
   );
 };
 
-export default DeleteForm;
+export default LogoutForm;
