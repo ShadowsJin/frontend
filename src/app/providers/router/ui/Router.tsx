@@ -1,22 +1,21 @@
 import { ListRoutes } from "@/shared/config/RouteConfig/RouteConfig";
 import Loader from "@/shared/ui/Loader";
-import Sidebar from "@/widgets/Sidebar";
+
 import { Suspense } from "react";
-import { Route, RouteProps, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
 const Router = () => {
   return (
     <Routes>
-      {Object.values(ListRoutes).map(({ path, element, sidebar }) => (
+      {ListRoutes.map((route) => (
         <Route
-          key={path}
-          path={path}
+          key={route.path}
           element={
             <div className="flexPage">
-              {sidebar && <Sidebar />}
-              <Suspense fallback={<Loader />}>{element}</Suspense>
+              <Suspense fallback={<Loader />}>{route.element}</Suspense>
             </div>
           }
+          path={route.path}
         />
       ))}
     </Routes>

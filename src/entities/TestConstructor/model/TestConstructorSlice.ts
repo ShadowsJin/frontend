@@ -4,6 +4,7 @@ import { immer } from "zustand/middleware/immer";
 const useTestConstructor = create(
   immer((set) => ({
     title: "",
+    description: "",
     questions: [{ question: "", answers: [""], trueAnswers: [] }],
     addTitle: (title: string) => {
       set((state) => {

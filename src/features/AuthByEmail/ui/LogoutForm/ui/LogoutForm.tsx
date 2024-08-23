@@ -8,7 +8,6 @@ const LogoutForm = () => {
   const { Logout }: any = useAuthByEmailStore();
   const deleteProfile = () => {
     Logout();
-    navigate("/");
   };
   return (
     <div>

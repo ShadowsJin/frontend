@@ -6,7 +6,6 @@ import style from "./RegisterForm.module.scss";
 
 import Button from "@/shared/ui/Button/index";
 import Input from "@/shared/ui/Input/index";
-import useUserStore from "@/entities/User/model/slice/UserSlice";
 import LikeHandIcon from "@/shared/assets/LikeHand.svg";
 import UserIcon from "@/shared/assets/user.svg";
 import DogIcon from "@/shared/assets/Dog.svg";
@@ -33,9 +32,7 @@ const RegisterForm = () => {
   const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    Register(data.fullname, data.email, data.password).then((res: boolean) => {
-      res && navigate("/mytests");
-    });
+    Register(data.fullname, data.email, data.password);
   };
 
   return (
