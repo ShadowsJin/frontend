@@ -1,12 +1,26 @@
 import style from "./TestCard.module.scss";
+import EditIcon from "@/shared/assets/Edit.svg";
+import LinkIcon from "@/shared/assets/Link.svg";
 export interface TestCardType {
   title: string;
+  description?: string;
   onClick?: () => void;
 }
-const TestCard = ({ title, onClick }: TestCardType) => {
+const TestCard = ({ title, description, onClick }: TestCardType) => {
   return (
     <div className={style.TestCard} onClick={onClick}>
-      <p>{title}</p>
+      <div className={style.header}>
+        <h2>“{title}“</h2>
+        <p>{description}</p>
+      </div>
+
+      <div className={style.bottom}>
+        <div className={style.tools}>
+          <EditIcon />
+          <LinkIcon />
+        </div>
+        <p>23.08.2024</p>
+      </div>
     </div>
   );
 };

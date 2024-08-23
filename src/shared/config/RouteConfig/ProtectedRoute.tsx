@@ -15,7 +15,7 @@ export const OnlyAuth = ({ component, onlyAuth = true }: IProtected) => {
 
   if (!onlyAuth && token) {
     const { from } = location?.state || {
-      from: { pathname: "/mytest" },
+      from: { pathname: "/mytests" },
     };
     return <Navigate to={from} />;
   }

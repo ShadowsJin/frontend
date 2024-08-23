@@ -11,6 +11,11 @@ const useTestConstructor = create(
         state.title = title;
       });
     },
+    addDescription: (description: string) => {
+      set((state) => {
+        state.description = description;
+      });
+    },
     addQuestion: () => {
       set((state) => {
         const newQuestion = {

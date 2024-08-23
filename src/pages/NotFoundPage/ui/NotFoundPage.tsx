@@ -9,7 +9,7 @@ const NotFoundPage = () => {
       <img src={NotFoundImg} alt="404" />
       <h2>Кажется такой страницы нет(</h2>
       <div>
-        <Button onClick={() => navigate(-1)}>Вернуться на назад</Button>
+        <Button onClick={() => navigate("/mytests")}>Вернуться на назад</Button>
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import Avatar from "@/entities/User/ui/Avatar";
 import Input from "@/shared/ui/Input";
+import SearchIcon from "@/shared/assets/search.svg";
 import style from "./Header.module.scss";
 interface HeaderProps {
   title: string;
@@ -7,9 +8,9 @@ interface HeaderProps {
 const Header = ({ title }: HeaderProps) => {
   return (
     <header className={style.Header}>
-      <h2>{title}</h2>
+      <h3>ЛОГО</h3>
       <div className={style.RightBlock}>
-        <Input placeholder="Поиск" />
+        <Input placeholder="Поиск..." icon={<SearchIcon />} />
         <Avatar />
       </div>
     </header>
