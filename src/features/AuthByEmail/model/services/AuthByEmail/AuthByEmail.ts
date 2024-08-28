@@ -1,7 +1,7 @@
 import axiosInstance from "@/shared/config/ApiConfig/ApiConfig";
 import { create } from "zustand";
 
-const isToken = document.cookie.includes("access_token") ? true : false;
+const isToken = document.cookie.includes("access_token");
 
 const useAuthByEmailStore = create((set) => ({
   isToken: isToken,

@@ -16,8 +16,12 @@ const TestCard = ({ title, description, onClick }: TestCardType) => {
 
       <div className={style.bottom}>
         <div className={style.tools}>
-          <EditIcon />
-          <LinkIcon />
+          <div className={style.tool}>
+            <EditIcon />
+          </div>
+          <div className={style.tool}>
+            <LinkIcon />
+          </div>
         </div>
         <p>23.08.2024</p>
       </div>

@@ -32,7 +32,7 @@ const LoginForm = () => {
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     Login(data.email, data.password);
-    console.log(document.cookie.includes("access_token"));
+    console.log(document.cookie.indexOf("access_token"));
   };
 
   return (
