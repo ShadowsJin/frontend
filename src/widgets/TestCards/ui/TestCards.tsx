@@ -1,4 +1,4 @@
-import TestCard, { TestCardType } from "@/shared/ui/TestCard";
+import TestCard, { TestCardType } from "@/features/TestsOperations";
 import style from "./TestCards.module.scss";
 
 interface TestCardsProps {
