@@ -1,3 +1,4 @@
+import axiosInstance from "@/shared/config/ApiConfig/ApiConfig";
 import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
 
@@ -64,6 +65,24 @@ const useTestConstructor = create(
         state.title = "";
         state.questions = [{ question: "", answers: [""], trueAnswers: [] }];
       });
+    },
+
+    createTest: async (
+      title: string,
+      description: string,
+      questions: string
+    ) => {
+      try {
+        const response = await axiosInstance.post("/quizes/new", {
+          title,
+          description,
+          questions,
+        });
+        return true;
+      } catch (e) {
+        console.log(e);
+        return false;
+      }
     },
   }))
 );

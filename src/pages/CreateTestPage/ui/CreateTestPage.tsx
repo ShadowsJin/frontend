@@ -6,10 +6,12 @@ import { useEffect } from "react";
 import useTestConstructor from "@/entities/TestConstructor/model/TestConstructorSlice";
 import Button from "@/shared/ui/Button";
 import CreateQuestionBlock from "@/widgets/CreateQuestionBlock";
+import { createTest } from "@/features/CreatingTest";
 
 const CreateTestPage = () => {
   const { title } = useParams();
-  const { questions, addTitle, addQuestion, deleteTest } = useTestConstructor();
+  const { questions, description, addTitle, addQuestion, deleteTest } =
+    useTestConstructor();
   useEffect(() => {
     addTitle(title);
     deleteTest();
@@ -26,7 +28,9 @@ const CreateTestPage = () => {
             <h3>Добавить +</h3>
           </div>
           <div className={style.buttons}>
-            <Button onClick={() => console.log(questions)}>Сохранить</Button>
+            <Button onClick={() => createTest(title, description, questions)}>
+              Сохранить
+            </Button>
             <Button>Завершить</Button>
             <Button onClick={deleteTest}>Удалить</Button>
           </div>

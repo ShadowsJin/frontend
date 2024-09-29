@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import style from "./PassingTestPage.module.scss";
 import QuestionBlock from "@/widgets/QuestionBlock";
+import Button from "@/shared/ui/Button";
 
 const PassingTestPage = () => {
   const { id } = useParams();
@@ -45,8 +46,9 @@ const PassingTestPage = () => {
     <div className={classNames("section", style.PassingTestPage)}>
       <Header title="Прохождение Теста" />
       {data.map(({ question, answers }, id) => (
-        <QuestionBlock key={id} question={question} answers={answers} />
+        <QuestionBlock id={id} key={id} question={question} answers={answers} />
       ))}
+      <Button>Закончить</Button>
     </div>
   );
 };

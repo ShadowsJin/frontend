@@ -3,6 +3,7 @@ import { Cookies } from "react-cookie";
 
 const axiosInstance = axios.create({
   baseURL: "http://176.109.100.162/api",
+  withCredentials: true,
 });
 
 axiosInstance.interceptors.request.use((config) => {
