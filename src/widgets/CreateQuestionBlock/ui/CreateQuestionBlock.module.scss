@@ -2,7 +2,10 @@
 .questionBlock {
   width: 100%;
   padding: 20px;
-  background-color: $color2;
+  background-color: $color1;
+  box-shadow: $blocksShadow;
+  border: 1px solid $color2;
+  border-radius: 6px;
 
   display: flex;
   flex-direction: column;

@@ -1,5 +1,7 @@
+@import "@styles/global.scss";
 .CreatingTestForm {
   padding: 40px 20px;
+  background-color: $color1;
   display: flex;
   flex-direction: column;
   align-items: center;
