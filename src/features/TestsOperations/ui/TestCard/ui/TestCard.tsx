@@ -1,12 +1,11 @@
+import { TestCardType } from "@/features/TestsOperations/model/TestOperationsTypes";
 import style from "./TestCard.module.scss";
 import EditIcon from "@/shared/assets/Edit.svg";
 import LinkIcon from "@/shared/assets/Link.svg";
-export interface TestCardType {
-  title: string;
-  description?: string;
+export interface TestCardProps extends TestCardType {
   onClick?: () => void;
 }
-const TestCard = ({ title, description, onClick }: TestCardType) => {
+const TestCard = ({ title, description, onClick }: TestCardProps) => {
   return (
     <div className={style.TestCard} onClick={onClick}>
       <div className={style.header}>

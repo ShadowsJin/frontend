@@ -1,5 +1,6 @@
-import TestCard, { TestCardType } from "@/features/TestsOperations";
+import TestCard from "@/features/TestsOperations";
 import style from "./TestCards.module.scss";
+import { TestCardType } from "@/features/TestsOperations/model/TestOperationsTypes";
 
 interface TestCardsProps {
   cards: TestCardType[];

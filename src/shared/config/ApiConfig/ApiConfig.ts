@@ -2,13 +2,13 @@ import axios from "axios";
 import { Cookies } from "react-cookie";
 
 const axiosInstance = axios.create({
-  baseURL: "http://176.109.100.162/api",
+  baseURL: "http://localhost:8080/api",
   withCredentials: true,
 });
 
 axiosInstance.interceptors.request.use((config) => {
   const cookie = new Cookies();
-  const token = cookie.get("jwt_token");
+  const token = cookie.get("access_token");
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }

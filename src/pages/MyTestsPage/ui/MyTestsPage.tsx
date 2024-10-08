@@ -2,43 +2,23 @@ import Header from "@/widgets/Header";
 import style from "./MyTestsPage.module.scss";
 import classNames from "classnames";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TestCards from "@/widgets/TestCards/ui/TestCards";
 import CreatingTestBlock from "@/features/TestsOperations/ui/CreatingTestBlock";
+import { getCreatedTests, getPassedTests } from "@/features/TestsOperations";
+import { TestCardType } from "@/features/TestsOperations/model/TestOperationsTypes";
 
 const MyTestsPage = () => {
   const [created, setCreated] = useState(true);
-  const CreatedCardArray = [
-    {
-      title: "Кто ты из Бравл Старс?",
-      description:
-        "Этот тест даст вам понять, каким персонажем из Бравл Старс вы являетесь. Может быть в душе вы Леон или Спайк? Узнайте это благодаря нашему тесту",
-    },
-    {
-      title: "Логарифмы",
-      description: "Тест даст вам понять, какие логарифмы вы изучаете.",
-    },
-    {
-      title: "Части речи",
-      description:
-        "Данный тест проверяет ваши знания частей речи русского языка!",
-    },
+  const [createdTestsArray, setCreatedTestsArray] = useState<TestCardType[]>(
+    []
+  );
+  const [passedTestsArray, setPassedTestsArray] = useState<TestCardType[]>([]);
 
-    { title: "Части речи" },
-    { title: "Логарифмы" },
-    {
-      title: "Кто ты из Бравл Старс?",
-      description:
-        "Этот тест даст вам понять, каким персонажем из Бравл Старс вы являетесь. Может быть в душе вы Леон или Спайк? Узнайте это благодаря нашему тесту",
-    },
-  ];
-  const PassedCardArray = [
-    { title: "Тест какой ты батон?" },
-    { title: "Проверочная “Алканы“" },
-    { title: "Тест кто ты из телепузиков?" },
-    { title: "Самостоятельная “Логарифмы“" },
-    { title: "Тест на знание заклинаний из Гарри Потера" },
-  ];
+  useEffect(() => {
+    getCreatedTests().then((res) => setCreatedTestsArray(res || []));
+    getPassedTests().then((res) => setPassedTestsArray(res || []));
+  }, []);
   return (
     <div className={classNames("section", style.MyTestsPage)}>
       <Header title="МОИ ТЕСТЫ" />
@@ -63,7 +43,7 @@ const MyTestsPage = () => {
 
       <TestCards
         created={created}
-        cards={created ? CreatedCardArray : PassedCardArray}
+        cards={created ? createdTestsArray : passedTestsArray}
       />
     </div>
   );

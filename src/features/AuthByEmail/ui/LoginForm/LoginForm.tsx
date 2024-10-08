@@ -30,10 +30,8 @@ const LoginForm = () => {
   const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    navigate("/");
-    Login(data.email, data.password);
-
-    console.log(document.cookie.indexOf("access_token"));
+    await Login(data.email, data.password);
+    navigate("/mytests");
   };
 
   return (

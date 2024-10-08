@@ -1,7 +1,7 @@
 import { Navigate, useLocation } from "react-router-dom";
 
 import { ReactNode } from "react";
-import { useAuthByEmailStore } from "@/features/AuthByEmail";
+import { Cookies } from "react-cookie";
 
 interface IProtected {
   onlyAuth?: boolean;
@@ -10,8 +10,8 @@ interface IProtected {
 
 export const OnlyAuth = ({ component, onlyAuth = true }: IProtected) => {
   const location = useLocation();
-
-  const token = useAuthByEmailStore((state) => state.isToken);
+  const cookie = new Cookies();
+  const token = cookie.get("access_token");
 
   if (!onlyAuth && token) {
     const { from } = location?.state || {

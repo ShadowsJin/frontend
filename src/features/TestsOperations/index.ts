@@ -1,4 +1,9 @@
-import TestCard, { TestCardType } from "./ui/TestCard/ui/TestCard";
+import {
+  createTest,
+  getCreatedTests,
+  getPassedTests,
+} from "./model/TestsOperations";
+import TestCard from "./ui/TestCard/ui/TestCard";
 
 export default TestCard;
-export type { TestCardType };
+export { createTest, getCreatedTests, getPassedTests };

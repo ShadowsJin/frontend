@@ -15,7 +15,7 @@ export interface IListRoutes {
   path: string;
 }
 
-export const onlyAuthRoutes: IListRoutes[] = [
+const onlyAuthRoutes: IListRoutes[] = [
   {
     element: <MyTestsPage />,
     path: "/mytests",
@@ -38,7 +38,7 @@ export const onlyAuthRoutes: IListRoutes[] = [
   },
 ];
 
-export const onlyUnAuthRoutes: IListRoutes[] = [
+const onlyUnAuthRoutes: IListRoutes[] = [
   {
     element: <MainPage />,
     path: "/",

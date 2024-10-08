@@ -32,7 +32,8 @@ const RegisterForm = () => {
   const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    Register(data.fullname, data.email, data.password);
+    await Register(data.fullname, data.email, data.password);
+    navigate("/mytests");
   };
 
   return (

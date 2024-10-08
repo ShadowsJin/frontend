@@ -1,4 +1,9 @@
 import axiosInstance from "@/shared/config/ApiConfig/ApiConfig";
+import {
+  getCreatedTestsType,
+  getPassedTestsType,
+  TestCardType,
+} from "./TestOperationsTypes";
 
 export const createTest = async (
   title?: string,
@@ -12,6 +17,28 @@ export const createTest = async (
       questions,
     });
     return true;
+  } catch (e) {
+    console.log(e);
+    return false;
+  }
+};
+
+export const getCreatedTests: getCreatedTestsType = async () => {
+  try {
+    const response = await axiosInstance.get<TestCardType[]>("/quizes/created");
+    return response?.data;
+  } catch (e) {
+    console.log(e);
+    return false;
+  }
+};
+
+export const getPassedTests: getPassedTestsType = async () => {
+  try {
+    const response = await axiosInstance.get<TestCardType[]>(
+      "/quizes/completed"
+    );
+    return response?.data;
   } catch (e) {
     console.log(e);
     return false;
