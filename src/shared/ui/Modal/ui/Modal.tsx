@@ -6,18 +6,10 @@ import { createPortal } from "react-dom";
 
 interface ModalProps {
   isOpened: boolean;
-  title?: ReactNode;
-  icon?: ReactNode;
   children: ReactNode;
   onClose?: () => void;
 }
-const Modal = ({
-  isOpened = false,
-  title,
-  icon,
-  children,
-  onClose,
-}: ModalProps) => {
+const Modal = ({ isOpened = false, children, onClose }: ModalProps) => {
   const [closing, setClosing] = useState(false);
 
   const onContentClick = (e: React.MouseEvent) => {

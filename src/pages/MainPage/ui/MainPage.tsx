@@ -1,5 +1,5 @@
 import Button from "@/shared/ui/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import style from "./MainPage.module.scss";
 import NavBar from "@/widgets/NavBar";
 import classNames from "classnames";
@@ -10,6 +10,7 @@ import CrownIcon from "@/shared/assets/crown.svg";
 import AirplaneIcon from "@/shared/assets/airplane.svg";
 
 const MainPage = () => {
+  const navigate = useNavigate();
   return (
     <div className={style.MainPage}>
       <div className={classNames(style.picture, style.checklist)}>
@@ -34,12 +35,8 @@ const MainPage = () => {
             оффлайн
           </h3>
           <div className={style.authBlock}>
-            <Link to="/login" className={style.ButtonLink}>
-              <Button>Войти</Button>
-            </Link>
-            <Link to="/register" className={style.ButtonLink}>
-              <Button>Регистрация</Button>
-            </Link>
+            <Button onClick={() => navigate("/login")}>Войти</Button>
+            <Button onClick={() => navigate("/register")}>Регистрация</Button>
           </div>
         </div>
       </div>

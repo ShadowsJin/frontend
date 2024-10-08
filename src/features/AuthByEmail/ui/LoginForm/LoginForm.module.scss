@@ -5,11 +5,11 @@
   width: 30%;
   min-width: 550px;
 
-  padding: 50px;
+  padding: 3.5rem;
   display: inline-flex;
   align-items: center;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
 
   box-shadow: $blocksShadow;
   .title {
@@ -35,9 +35,9 @@
   a {
     font-weight: 600;
   }
-  .Button {
+  button {
     margin-top: 10px;
-    width: 40%;
+    width: 100%;
   }
   .or {
     width: 100%;

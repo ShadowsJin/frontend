@@ -8,7 +8,13 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "text";
 }
 
-const Button = ({ children, variant, className, ...props }: ButtonProps) => {
+const Button = ({
+  children,
+  variant,
+  className,
+  type = "button",
+  ...props
+}: ButtonProps) => {
   return (
     <button
       className={cn(style.button, className, {

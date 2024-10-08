@@ -71,9 +71,9 @@ const LoginForm = () => {
         />
         <Link to="/register">Забыли пароль?</Link>
       </div>
-      <div className={style.Button}>
-        <Button type="submit">Войти</Button>
-      </div>
+
+      <Button type="submit">Войти</Button>
+
       <div className={style.or}>
         <hr />
         Или с помощью
