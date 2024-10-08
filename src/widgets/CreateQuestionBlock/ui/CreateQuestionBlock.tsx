@@ -1,11 +1,11 @@
 import Input from "@/shared/ui/Input";
 import style from "./CreateQuestionBlock.module.scss";
 import Button from "@/shared/ui/Button";
-import useTestConstructor from "@/entities/TestConstructor/model/TestConstructorSlice";
+import useNewTest from "@/entities/NewTest/model/NewTest";
 
 const CreateQuestionBlock = ({ id }: { id: number }) => {
   const { questions, setAnswers, addAnswer, setQuestion, setTrueAnswer } =
-    useTestConstructor();
+    useNewTest();
   const ChangeAnswers = (answer: string, id: number) => {
     const answers = [...questions.answers];
     answers[id] = answers[id] + answer;

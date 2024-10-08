@@ -2,7 +2,7 @@ import axiosInstance from "@/shared/config/ApiConfig/ApiConfig";
 import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
 
-const useTestConstructor = create(
+const useNewTest = create(
   immer((set) => ({
     title: "",
     description: "",
@@ -87,4 +87,4 @@ const useTestConstructor = create(
   }))
 );
 
-export default useTestConstructor;
+export default useNewTest;

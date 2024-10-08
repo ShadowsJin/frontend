@@ -6,7 +6,6 @@ import style from "./LoginForm.module.scss";
 
 import Button from "@/shared/ui/Button/index";
 import Input from "@/shared/ui/Input/index";
-import useUserStore from "@/entities/User/model/slice/UserSlice";
 import LoginHandIcon from "@/shared/assets/LoginHand.svg";
 import DogIcon from "@/shared/assets/Dog.svg";
 import LockIcon from "@/shared/assets/Lock.svg";
@@ -31,7 +30,9 @@ const LoginForm = () => {
   const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    navigate("/");
     Login(data.email, data.password);
+
     console.log(document.cookie.indexOf("access_token"));
   };
 

@@ -3,12 +3,12 @@ import Input from "@/shared/ui/Input";
 import style from "./CreatingTestForm.module.scss";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import useTestConstructor from "@/entities/TestConstructor/model/TestConstructorSlice";
+import useNewTest from "@/entities/NewTest/model/NewTest";
 
 const CreatingTestForm = () => {
   const navigate = useNavigate();
   const [title, setTitle] = useState("");
-  const { setDescription } = useTestConstructor();
+  const { setDescription } = useNewTest();
   return (
     <form className={style.CreatingTestForm}>
       <h3>Создание теста</h3>

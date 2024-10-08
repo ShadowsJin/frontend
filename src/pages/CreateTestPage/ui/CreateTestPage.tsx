@@ -3,15 +3,15 @@ import style from "./CreateTestPage.module.scss";
 import Header from "@/widgets/Header";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
-import useTestConstructor from "@/entities/TestConstructor/model/TestConstructorSlice";
+import useNewTest from "@/entities/NewTest/model/NewTest";
 import Button from "@/shared/ui/Button";
 import CreateQuestionBlock from "@/widgets/CreateQuestionBlock";
-import { createTest } from "@/features/CreatingTest";
+import { createTest } from "@/features/TestsOperations/model/TestsOperations";
 
 const CreateTestPage = () => {
   const { title } = useParams();
   const { questions, description, addTitle, addQuestion, deleteTest } =
-    useTestConstructor();
+    useNewTest();
   useEffect(() => {
     addTitle(title);
     deleteTest();

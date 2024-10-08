@@ -2,9 +2,9 @@ import Header from "@/widgets/Header";
 import style from "./MyTestsPage.module.scss";
 import classNames from "classnames";
 
-import TestCards from "@/widgets/TestCards/ui/TestCards";
 import { useState } from "react";
-import { CreatingTestBlock } from "@/features/CreatingTest";
+import TestCards from "@/widgets/TestCards/ui/TestCards";
+import CreatingTestBlock from "@/features/TestsOperations/ui/CreatingTestBlock";
 
 const MyTestsPage = () => {
   const [created, setCreated] = useState(true);
