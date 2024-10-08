@@ -13,7 +13,7 @@ const CreateTestPage = () => {
   const { questions, description, addTitle, addQuestion, deleteTest } =
     useNewTest();
   useEffect(() => {
-    addTitle(title);
+    addTitle(title || "");
     deleteTest();
   }, []);
   return (

@@ -4,11 +4,12 @@ import {
   getPassedTestsType,
   TestCardType,
 } from "./TestOperationsTypes";
+import { QuestionType } from "@/entities/NewTest/model/NewTestTypes";
 
 export const createTest = async (
   title?: string,
   description?: string,
-  questions?: string
+  questions?: QuestionType[]
 ) => {
   try {
     const response = await axiosInstance.post("/quizes/new", {

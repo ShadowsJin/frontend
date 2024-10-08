@@ -1,9 +1,10 @@
 import axiosInstance from "@/shared/config/ApiConfig/ApiConfig";
 import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
+import { newTestType, QuestionType } from "./NewTestTypes";
 
 const useNewTest = create(
-  immer((set) => ({
+  immer<newTestType>((set) => ({
     title: "",
     description: "",
     questions: [{ question: "", answers: [""], trueAnswers: [] }],
@@ -70,7 +71,7 @@ const useNewTest = create(
     createTest: async (
       title: string,
       description: string,
-      questions: string
+      questions: QuestionType[]
     ) => {
       try {
         const response = await axiosInstance.post("/quizes/new", {
