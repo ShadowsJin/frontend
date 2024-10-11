@@ -13,7 +13,7 @@ import LockIcon from "@/shared/assets/Lock.svg";
 import AppleIcon from "@/shared/assets/Apple.svg";
 import GoogleIcon from "@/shared/assets/Google.svg";
 import TelegramIcon from "@/shared/assets/Telegram.svg";
-import useAuthByEmailStore from "../../model/services/AuthByEmail/AuthByEmail";
+import { registerFetch } from "../../model/services/AuthByEmail/AuthByEmail";
 
 type Inputs = {
   fullname: string;
@@ -22,8 +22,6 @@ type Inputs = {
 };
 
 const RegisterForm = () => {
-  const { Register }: any = useAuthByEmailStore();
-
   const {
     register,
     handleSubmit,
@@ -32,8 +30,9 @@ const RegisterForm = () => {
   const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    await Register(data.fullname, data.email, data.password);
-    navigate("/mytests");
+    await registerFetch(data.fullname, data.email, data.password).then(
+      (res) => res && navigate("/mytests")
+    );
   };
 
   return (

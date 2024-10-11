@@ -3,13 +3,13 @@
   border-radius: 20px;
   background-color: $color1;
   width: 30%;
-  min-width: 300px;
+  min-width: 550px;
 
-  padding: 50px;
-  display: flex;
+  padding: 3.5rem;
+  display: inline-flex;
   align-items: center;
   flex-direction: column;
-  gap: 30px;
+  gap: 1.5rem;
 
   box-shadow: $blocksShadow;
   .title {
