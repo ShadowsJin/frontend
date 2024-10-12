@@ -28,9 +28,8 @@ const LoginForm = () => {
   const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    await loginFetch(data.email, data.password).then(
-      (res) => res && navigate("/mytests")
-    );
+    let res = await loginFetch(data.email, data.password);
+    if (res) navigate("/mytests");
   };
 
   return (

@@ -30,9 +30,8 @@ const RegisterForm = () => {
   const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    await registerFetch(data.fullname, data.email, data.password).then(
-      (res) => res && navigate("/mytests")
-    );
+    let res = await registerFetch(data.fullname, data.email, data.password);
+    if (res) navigate("/mytests");
   };
 
   return (

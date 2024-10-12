@@ -10,7 +10,7 @@ export const loginFetch = async (email: string, password: string) => {
       },
       { headers: { "Content-Type": "application/json" } }
     );
-    return response.data;
+    return true;
   } catch (e) {
     console.log(e);
     return false;
@@ -29,9 +29,12 @@ export const registerFetch = async (
         email,
         password,
       },
-      { headers: { "Content-Type": "application/json" } }
+      {
+        headers: { "Content-Type": "application/json" },
+      }
     );
-    return response.data;
+
+    return true;
   } catch (e) {
     console.log(e);
     return false;
@@ -40,7 +43,7 @@ export const registerFetch = async (
 export const logout = async () => {
   try {
     const response = await axiosInstance.get("/users/logout");
-    return response.data;
+    return true;
   } catch (e) {
     console.log(e);
   }
