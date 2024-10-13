@@ -2,7 +2,9 @@ import axiosInstance from "@/shared/config/ApiConfig/ApiConfig";
 import {
   getCreatedTestsType,
   getPassedTestsType,
+  getPassingTestType,
   TestCardType,
+  TestPassingType,
 } from "./TestOperationsTypes";
 import { QuestionType } from "@/entities/NewTest/model/NewTestTypes";
 
@@ -19,7 +21,6 @@ export const createTest = async (
     });
     return true;
   } catch (e) {
-    console.log(e);
     return false;
   }
 };
@@ -41,7 +42,17 @@ export const getPassedTests: getPassedTestsType = async () => {
     );
     return response?.data;
   } catch (e) {
-    console.log(e);
+    return false;
+  }
+};
+
+export const getPassingTest: getPassingTestType = async (idTest: string) => {
+  try {
+    const response = await axiosInstance.get<TestPassingType>(
+      `/quizes/${idTest}`
+    );
+    return response?.data;
+  } catch (e) {
     return false;
   }
 };
