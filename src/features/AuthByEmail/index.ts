@@ -1,3 +1,7 @@
-import useAuthByEmailStore from "./model/services/AuthByEmail/AuthByEmail";
+import {
+  loginFetch,
+  logout,
+  registerFetch,
+} from "./model/services/AuthByEmail/AuthByEmail";
 
-export { useAuthByEmailStore };
+export { loginFetch, registerFetch, logout };

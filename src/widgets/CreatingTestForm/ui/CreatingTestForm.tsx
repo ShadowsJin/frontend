@@ -18,7 +18,7 @@ interface CreatingTestFormProps {
 const CreatingTestForm = ({ closeModal }: CreatingTestFormProps) => {
   const navigate = useNavigate();
   const [title, setTitle] = useState("");
-  const { setDescription } = useNewTest();
+  const { addDescription } = useNewTest();
 
   const {
     register,
@@ -34,32 +34,30 @@ const CreatingTestForm = ({ closeModal }: CreatingTestFormProps) => {
     <form onSubmit={handleSubmit(onSubmit)} className={style.CreatingTestForm}>
       <h3>Создание теста</h3>
 
-      <div className={style.InputBlock}>
-        <div className={style.Inputs}>
-          <p>Название:</p>{" "}
-          <Input
-            {...register("title", {
-              required: true,
-            })}
-            onChange={(e) => setTitle(e.target.value)}
-          />
-        </div>
+      <div className={style.Inputs}>
+        <p>Название:</p>{" "}
         {errors.title && <p className={style.errorMsg}>Введите название</p>}
+        <Input
+          {...register("title", {
+            required: true,
+          })}
+          onChange={(e) => setTitle(e.target.value)}
+        />
       </div>
-      <div className={style.InputBlock}>
-        <div className={style.Inputs}>
-          <p>Описание:</p>{" "}
-          <Input
-            {...register("description", {
-              required: true,
-            })}
-            onChange={(e) => setDescription(e.target.value)}
-          />
-        </div>
+
+      <div className={style.Inputs}>
+        <p>Описание:</p>{" "}
         {errors.description && (
           <p className={style.errorMsg}>Введите описание</p>
         )}
+        <Input
+          {...register("description", {
+            required: true,
+          })}
+          onChange={(e) => addDescription(e.target.value)}
+        />
       </div>
+
       <div className={style.Buttons}>
         <Button type="button" onClick={closeModal}>
           Отмена

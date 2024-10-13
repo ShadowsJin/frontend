@@ -14,7 +14,9 @@ const ProfileCard = () => {
     <div className={style.ProfileCard}>
       <div className={style.Header}>
         <h2>Профиль</h2>
-        <TrashIcon />
+        <div className={style.trashIcon} onClick={() => setOpenModal(true)}>
+          <TrashIcon />
+        </div>
       </div>
       <div className={style.AvatarBlock}>
         <img src={AvatarImage} alt="" />

@@ -1,14 +1,15 @@
 @import "@styles/global.scss";
 .ProfileCard {
   height: 80vh;
-  min-width: 50%;
+  min-width: 400px;
+  width: 50vw;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   box-shadow: $blocksShadow;
   border: 1px solid rgba(0, 0, 0, 0.1);
   background-color: $color1;
-  padding: 50px;
+  padding: 2.5rem;
   border-radius: 15px;
   .Header {
     width: 100%;
@@ -20,8 +21,10 @@
   .AvatarBlock {
     display: flex;
     align-items: center;
-    gap: 10px;
-    width: 60%;
+    justify-content: left;
+    gap: 20px;
+    width: 100%;
+    min-width: 300px;
   }
   .NameBlock {
     display: inline-flex;
@@ -41,4 +44,8 @@
     align-items: center;
     width: 50%;
   }
+}
+
+.trashIcon {
+  cursor: pointer;
 }
