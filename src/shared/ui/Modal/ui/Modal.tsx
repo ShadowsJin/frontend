@@ -30,7 +30,7 @@ const Modal = ({ isOpened = false, children, onClose }: ModalProps) => {
   useEffect(() => {
     const closeModalOnEsc = (e: KeyboardEvent) => {
       if (isOpened && onClose && e.code === "Escape") {
-        onClose();
+        closeHandler();
       }
     };
 

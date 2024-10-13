@@ -59,7 +59,13 @@ const CreatingTestForm = ({ closeModal }: CreatingTestFormProps) => {
       </div>
 
       <div className={style.Buttons}>
-        <Button type="button" onClick={closeModal}>
+        <Button
+          type="button"
+          onClick={(e) => {
+            e.preventDefault();
+            closeModal && closeModal();
+          }}
+        >
           Отмена
         </Button>
         <Button type="submit">Создать</Button>
