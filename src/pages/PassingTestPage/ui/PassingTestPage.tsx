@@ -1,35 +1,55 @@
-import Header from "@/widgets/Header";
-import classNames from "classnames";
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import style from "./PassingTestPage.module.scss";
+import { TestPassingQuestionType } from "@/features/TestsOperations/model/TestOperationsTypes";
+import { useEffect, useState } from "react";
+import { getPassingTestQuestion } from "@/features/TestsOperations/model/TestsOperations";
+import classNames from "classnames";
 import Button from "@/shared/ui/Button";
-import { getPassingTest } from "@/features/TestsOperations/model/TestsOperations";
-import { TestPassingType } from "@/features/TestsOperations/model/TestOperationsTypes";
+import Input from "@/shared/ui/Input";
 
 const PassingTestPage = () => {
-  const [testData, setTestData] = useState<TestPassingType>({
+  const [questionData, setTestData] = useState<TestPassingQuestionType>({
     name: "",
-    description: "",
-    owner: "",
+    type: "1",
+    answers: [],
   });
-  const { id } = useParams();
-
+  const { idTest, numberQuestion } = useParams();
+  console.log(idTest, numberQuestion);
+  const navigate = useNavigate();
   useEffect(() => {
-    getPassingTest(id || "").then((data) => {
+    getPassingTestQuestion(idTest || "", numberQuestion || "").then((data) => {
       if (data) setTestData(data);
     });
   }, []);
   return (
     <div className={classNames("section", style.PassingTestPage)}>
       <div className={style.testPassingForm}>
-        <h2>{testData.name}</h2>
+        <h2>{questionData.name}</h2>
+        {questionData.answers?.map(({ name, is_correct }) => (
+          <div className={style.answerBlock}>
+            <div>{name}</div>
+            <Input type="checkbox" />
+          </div>
+        ))}
 
-        <p>{testData.description}</p>
-
-        <h3>создатель: {testData.owner}</h3>
-
-        <Button>Начать</Button>
+        <div className={style.buttons}>
+          {Number(numberQuestion) > 0 && (
+            <Button
+              onClick={() =>
+                navigate(`/passingtest/${idTest}/${Number(numberQuestion) - 1}`)
+              }
+            >
+              Вернуться
+            </Button>
+          )}
+          <Button
+            onClick={() =>
+              navigate(`/passingtest/${idTest}/${Number(numberQuestion) + 1}`)
+            }
+          >
+            Далее
+          </Button>
+        </div>
       </div>
     </div>
   );

@@ -2,8 +2,10 @@ import axiosInstance from "@/shared/config/ApiConfig/ApiConfig";
 import {
   getCreatedTestsType,
   getPassedTestsType,
+  getPassingTestQuestionType,
   getPassingTestType,
   TestCardType,
+  TestPassingQuestionType,
   TestPassingType,
 } from "./TestOperationsTypes";
 import { QuestionType } from "@/entities/NewTest/model/NewTestTypes";
@@ -50,6 +52,20 @@ export const getPassingTest: getPassingTestType = async (idTest: string) => {
   try {
     const response = await axiosInstance.get<TestPassingType>(
       `/quizes/${idTest}`
+    );
+    return response?.data;
+  } catch (e) {
+    return false;
+  }
+};
+
+export const getPassingTestQuestion: getPassingTestQuestionType = async (
+  idTest: string,
+  numberQuestion: number | string
+) => {
+  try {
+    const response = await axiosInstance.get<TestPassingQuestionType>(
+      `/quizes/${idTest}/${numberQuestion}`
     );
     return response?.data;
   } catch (e) {

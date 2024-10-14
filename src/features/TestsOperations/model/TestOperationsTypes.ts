@@ -11,6 +11,16 @@ export interface TestPassingType {
   owner: string;
 }
 
+interface Answer {
+  name: string;
+  is_correct: boolean;
+}
+export interface TestPassingQuestionType {
+  name: string;
+  type: string;
+  answers: Answer[];
+}
+
 export type getCreatedTestsType = () => Promise<false | TestCardType[]>;
 
 export type getPassedTestsType = () => Promise<false | TestCardType[]>;
@@ -18,3 +28,8 @@ export type getPassedTestsType = () => Promise<false | TestCardType[]>;
 export type getPassingTestType = (
   idTest: string
 ) => Promise<false | TestPassingType>;
+
+export type getPassingTestQuestionType = (
+  idTest: string,
+  numberQuestion: number | string
+) => Promise<false | TestPassingQuestionType>;

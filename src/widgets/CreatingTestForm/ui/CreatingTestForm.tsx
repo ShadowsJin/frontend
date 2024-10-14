@@ -35,7 +35,7 @@ const CreatingTestForm = ({ closeModal }: CreatingTestFormProps) => {
       <h3>Создание теста</h3>
 
       <div className={style.Inputs}>
-        <p>Название:</p>{" "}
+        <p>Название:</p>
         {errors.title && <p className={style.errorMsg}>Введите название</p>}
         <Input
           {...register("title", {
