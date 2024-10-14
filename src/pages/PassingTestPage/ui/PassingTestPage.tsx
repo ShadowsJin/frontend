@@ -30,21 +30,24 @@ const PassingTestPage = () => {
 
   const nextQuestion = () => {
     answer && sendAnswer(idTest, numberQuestion, answer);
+    setAnswer(null);
     navigate(`/passingtest/${idTest}/${Number(numberQuestion) + 1}`);
   };
 
   const prevQuestion = () => {
     answer && sendAnswer(idTest, numberQuestion, answer);
+    setAnswer(null);
     navigate(`/passingtest/${idTest}/${Number(numberQuestion) - 1}`);
   };
   return (
     <div className={classNames("section", style.PassingTestPage)}>
       <div className={style.testPassingForm}>
         <h2>{questionData.name}</h2>
-        {questionData.answers?.map(({ name, is_correct }) => (
-          <div className={style.answerBlock}>
+        {questionData.answers?.map(({ name, is_correct }, id) => (
+          <div className={style.answerBlock} key={Number(numberQuestion) + id}>
             <div>{name}</div>
             <Input
+              key={`checkbox${Number(numberQuestion) + id}`}
               checked={name === answer}
               type="checkbox"
               onChange={() => toggleAnswer(name)}

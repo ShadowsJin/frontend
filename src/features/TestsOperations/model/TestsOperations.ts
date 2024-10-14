@@ -81,8 +81,7 @@ export const sendAnswer: sendAnswerType = async (
 ) => {
   try {
     const response = await axiosInstance.post(
-      `/quizes/send_answer/${testId}/${questionNumber}`,
-      { answer }
+      `/quizes/send_answer/${testId}/${questionNumber}?answer=${answer}`
     );
     return true;
   } catch (e) {
