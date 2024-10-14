@@ -4,6 +4,7 @@ import {
   getPassedTestsType,
   getPassingTestQuestionType,
   getPassingTestType,
+  sendAnswerType,
   TestCardType,
   TestPassingQuestionType,
   TestPassingType,
@@ -68,6 +69,22 @@ export const getPassingTestQuestion: getPassingTestQuestionType = async (
       `/quizes/${idTest}/${numberQuestion}`
     );
     return response?.data;
+  } catch (e) {
+    return false;
+  }
+};
+
+export const sendAnswer: sendAnswerType = async (
+  testId?: string,
+  questionNumber?: string | number,
+  answer?: string
+) => {
+  try {
+    const response = await axiosInstance.post(
+      `/quizes/send_answer/${testId}/${questionNumber}`,
+      { answer }
+    );
+    return true;
   } catch (e) {
     return false;
   }

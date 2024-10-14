@@ -1,5 +1,3 @@
-import { AxiosResponse } from "axios";
-
 export interface TestCardType {
   title: string;
   description?: string;
@@ -33,3 +31,9 @@ export type getPassingTestQuestionType = (
   idTest: string,
   numberQuestion: number | string
 ) => Promise<false | TestPassingQuestionType>;
+
+export type sendAnswerType = (
+  idTest?: string,
+  numberQuestion?: number | string,
+  answer?: string
+) => Promise<boolean>;
