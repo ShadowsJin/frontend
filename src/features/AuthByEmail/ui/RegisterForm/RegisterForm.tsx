@@ -37,9 +37,9 @@ const RegisterForm = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={style.RegisterForm}>
       <div className={style.title}>
-        <h2>
+        <h3>
           Зарегистрируйся! <LikeHandIcon />
-        </h2>
+        </h3>
         <p>
           Открой для себя лучшее приложение для создания и прохождения
           проверочных работ

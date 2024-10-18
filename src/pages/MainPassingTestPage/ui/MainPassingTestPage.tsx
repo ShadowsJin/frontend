@@ -24,9 +24,20 @@ const MainPassingTestPage = () => {
       <div className={style.testPassingForm}>
         <h2>{testData.name}</h2>
 
-        <p>{testData.description}</p>
+        <div className={style.testPassingBlock}>
+          <label className={style.testLabel}>Описание:</label>
+          <p>{testData.description}</p>
+        </div>
 
-        <h3>создатель: {testData.owner}</h3>
+        <div className={style.testPassingBlock}>
+          <label className={style.testLabel}>Количество вопросов:</label>
+          <p>5</p>
+        </div>
+
+        <div className={style.testPassingBlock}>
+          <label className={style.testLabel}>Создатель</label>
+          <p>{testData.owner}</p>
+        </div>
 
         <Button onClick={() => navigate(`/passingtest/${id}/0`)}>Начать</Button>
       </div>
