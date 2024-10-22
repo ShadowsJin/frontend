@@ -1,3 +1,5 @@
+import { Answer } from "@/features/TestsOperations/model/TestOperationsTypes";
+
 export interface newTestType {
   title: string;
   description: string;
@@ -17,7 +19,6 @@ export interface newTestType {
 }
 
 export interface QuestionType {
-  question: string;
-  answers: string[];
-  trueAnswers: number[];
+  name: string;
+  answers: Answer[];
 }

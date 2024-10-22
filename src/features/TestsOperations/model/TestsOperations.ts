@@ -1,5 +1,6 @@
 import axiosInstance from "@/shared/config/ApiConfig/ApiConfig";
 import {
+  Answer,
   getCreatedTestsType,
   getPassedTestsType,
   getPassingTestQuestionType,
@@ -77,7 +78,7 @@ export const getPassingTestQuestion: getPassingTestQuestionType = async (
 export const sendAnswer: sendAnswerType = async (
   testId?: string,
   questionNumber?: string | number,
-  answer?: string
+  answer?: Answer
 ) => {
   try {
     const response = await axiosInstance.post(

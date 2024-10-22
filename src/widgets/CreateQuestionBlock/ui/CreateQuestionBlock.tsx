@@ -2,17 +2,21 @@ import Input from "@/shared/ui/Input";
 import style from "./CreateQuestionBlock.module.scss";
 import Button from "@/shared/ui/Button";
 import useNewTest from "@/entities/NewTest/model/NewTest";
+import { QuestionType } from "@/entities/NewTest/model/NewTestTypes";
 
-const CreateQuestionBlock = ({ id }: { id: number }) => {
-  const { questions, setAnswers, addAnswer, setQuestion, setTrueAnswer } =
-    useNewTest();
-  const ChangeAnswers = (answer: string, id: number) => {
-    const answers = [...questions.answers];
-    answers[id] = answers[id] + answer;
-    setAnswers(id, answers);
-  };
-  const ChangeQuestion = (question: string) => {
-    setQuestion(id, question);
+interface CreateQuestionBlockI {
+  question: QuestionType;
+  id: number;
+}
+const CreateQuestionBlock = ({ question, id }: CreateQuestionBlockI) => {
+  const { setAnswers, addAnswer, setQuestion, setTrueAnswer } = useNewTest();
+  // const ChangeAnswers = (answer: string, id: number) => {
+  //   const answers = [...question.answers];
+  //   answers[id] = answers[id] + answer;
+  //   setAnswers(id, answers);
+  // };
+  const ChangeQuestion = (name: string) => {
+    setQuestion(id, name);
   };
 
   return (
@@ -20,16 +24,16 @@ const CreateQuestionBlock = ({ id }: { id: number }) => {
       <div className={style.question}>
         <h3>Вопрос:</h3>{" "}
         <Input
-          value={questions.question}
+          value={question.name}
           onChange={(e) => ChangeQuestion(e.target.value)}
         />
       </div>
       <ul className={style.answers}>
-        {questions[id].answers?.map((answer, AnswId) => (
+        {question.answers?.map((answer, AnswId) => (
           <li key={AnswId} className={style.answer}>
             <h3>Ответ:</h3>
             <Input
-              value={answer}
+              value={answer.name}
               onChange={(e) => setAnswers(id, AnswId, e.target.value)}
             />
             <Input type="checkbox" onClick={() => setTrueAnswer(id, AnswId)} />

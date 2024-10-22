@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import style from "./CreateTestPage.module.scss";
 import Header from "@/widgets/Header";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import useNewTest from "@/entities/NewTest/model/NewTest";
 import Button from "@/shared/ui/Button";
@@ -16,13 +16,20 @@ const CreateTestPage = () => {
     addTitle(title || "");
     deleteTest();
   }, []);
+  const navigate = useNavigate();
+
+  const complete = async () => {
+    await createTest(title, description, questions);
+    deleteTest();
+    navigate("/mytests");
+  };
   return (
     <div className={classNames("section", style.CreateTestPage)}>
       <Header title={`ТЕСТ: ${title}`} />
       <div className={style.body}>
         <div className={style.content}>
           {questions?.map((question, id) => (
-            <CreateQuestionBlock id={id} key={id} />
+            <CreateQuestionBlock question={question} id={id} key={id} />
           ))}
           <div onClick={() => addQuestion()} className={style.addTest}>
             <h3>Добавить +</h3>
@@ -31,7 +38,7 @@ const CreateTestPage = () => {
             <Button onClick={() => createTest(title, description, questions)}>
               Сохранить
             </Button>
-            <Button>Завершить</Button>
+            <Button onClick={complete}>Завершить</Button>
             <Button onClick={deleteTest}>Удалить</Button>
           </div>
         </div>

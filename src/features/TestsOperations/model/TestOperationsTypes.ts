@@ -9,7 +9,7 @@ export interface TestPassingType {
   owner: string;
 }
 
-interface Answer {
+export interface Answer {
   name: string;
   is_correct: boolean;
 }
@@ -35,5 +35,5 @@ export type getPassingTestQuestionType = (
 export type sendAnswerType = (
   idTest?: string,
   numberQuestion?: number | string,
-  answer?: string
+  answer?: Answer
 ) => Promise<boolean>;

@@ -7,7 +7,7 @@ const useNewTest = create(
   immer<newTestType>((set) => ({
     title: "",
     description: "",
-    questions: [{ question: "", answers: [""], trueAnswers: [] }],
+    questions: [{ name: "", answers: [{ name: "", is_correct: false }] }],
     addTitle: (title: string) => {
       set((state) => {
         state.title = title;
@@ -21,36 +21,34 @@ const useNewTest = create(
     addQuestion: () => {
       set((state) => {
         const newQuestion = {
-          question: "",
-          answers: [""],
-          trueAnswers: [],
+          name: "",
+          answers: [{ name: "", is_correct: false }],
         };
         state.questions.push(newQuestion);
       });
     },
-    setQuestion: (id: number, question: string) => {
+    setQuestion: (id: number, name: string) => {
       set((state) => {
-        state.questions[id].question = question;
+        state.questions[id].name = name;
       });
     },
     addAnswer: (id: number) => {
       set((state) => {
-        state.questions[id].answers.push("");
+        state.questions[id].answers.push({ name: "", is_correct: false });
       });
     },
-    setAnswers: (idQuestion: number, idAnswer: number, answer: string) => {
+    setAnswers: (idQuestion: number, idAnswer: number, answerName: string) => {
       set((state) => {
-        state.questions[idQuestion].answers[idAnswer] = answer;
+        state.questions[idQuestion].answers[idAnswer].name = answerName;
       });
     },
 
     setTrueAnswer: (id: number, idAnswer: number) => {
       set((state) => {
-        if (state.questions[id]?.trueAnswers.includes(idAnswer)) {
-          let index = state.questions[id]?.trueAnswers.indexOf(idAnswer);
-          state.questions[id]?.trueAnswers.splice(index, 1);
+        if (state.questions[id].answers[idAnswer].is_correct) {
+          state.questions[id].answers[idAnswer].is_correct = true;
         } else {
-          state.questions[id]?.trueAnswers?.push(idAnswer);
+          state.questions[id].answers[idAnswer].is_correct = false;
         }
       });
     },
@@ -64,7 +62,9 @@ const useNewTest = create(
     deleteTest: () => {
       set((state) => {
         state.title = "";
-        state.questions = [{ question: "", answers: [""], trueAnswers: [] }];
+        state.questions = [
+          { name: "", answers: [{ name: "", is_correct: false }] },
+        ];
       });
     },
 

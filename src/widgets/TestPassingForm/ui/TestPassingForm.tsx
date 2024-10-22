@@ -1,4 +1,7 @@
-import { TestPassingQuestionType } from "@/features/TestsOperations/model/TestOperationsTypes";
+import {
+  Answer,
+  TestPassingQuestionType,
+} from "@/features/TestsOperations/model/TestOperationsTypes";
 import style from "./TestPassingForm.module.scss";
 import Input from "@/shared/ui/Input";
 import { useEffect, useState } from "react";
@@ -6,7 +9,6 @@ import { sendAnswer } from "@/features/TestsOperations/model/TestsOperations";
 import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
 import Button from "@/shared/ui/Button";
-import { set } from "react-hook-form";
 
 interface TestPassingFormProps {
   numberQuestion?: string | number;
@@ -19,11 +21,11 @@ const TestPassingForm = ({
   questionData,
   idTest,
 }: TestPassingFormProps) => {
-  const [answer, setAnswer] = useState<null | string>(null);
+  const [answer, setAnswer] = useState<null | Answer>(null);
   const navigate = useNavigate();
 
-  const toggleAnswer = (newAnswer: string) => {
-    answer === newAnswer ? setAnswer(null) : setAnswer(newAnswer);
+  const toggleAnswer = (name: string, is_correct: boolean) => {
+    sendAnswer(name); // Доделать после того как будет готова ручка
   };
 
   useEffect(() => {
@@ -63,9 +65,9 @@ const TestPassingForm = ({
           <div className={style.answerBlock} key={Number(numberQuestion) + id}>
             <Input
               key={`checkbox${Number(numberQuestion) + id}`}
-              checked={name === answer}
+              checked={is_correct}
               type="checkbox"
-              onChange={() => toggleAnswer(name)}
+              onChange={() => toggleAnswer(name, is_correct)}
             />
             <p>{name}</p>
           </div>
