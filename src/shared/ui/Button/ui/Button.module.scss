@@ -8,7 +8,7 @@
   border: 1px solid $color3;
   padding: 15px;
   cursor: pointer;
-  transition: 0.5s;
+  transition: 0.3s;
 
   &:hover {
     background-color: $color12;
@@ -47,7 +47,9 @@
 }
 
 .primary {
-  background-color: $color2;
+  background-color: $color1;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: $blocksShadow;
 }
 
 .text {

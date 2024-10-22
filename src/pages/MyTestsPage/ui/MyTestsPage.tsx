@@ -16,9 +16,10 @@ const MyTestsPage = () => {
   const [passedTestsArray, setPassedTestsArray] = useState<TestCardType[]>([]);
 
   useEffect(() => {
-    getCreatedTests().then((res) => setCreatedTestsArray(res || []));
-    getPassedTests().then((res) => setPassedTestsArray(res || []));
-  }, []);
+    created
+      ? getCreatedTests().then((res) => setCreatedTestsArray(res || []))
+      : getPassedTests().then((res) => setPassedTestsArray(res || []));
+  }, [created]);
   return (
     <div className={classNames("section", style.MyTestsPage)}>
       <Header title="МОИ ТЕСТЫ" />

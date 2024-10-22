@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import style from "./PassingTestPage.module.scss";
 import { TestPassingQuestionType } from "@/features/TestsOperations/model/TestOperationsTypes";
 import { useEffect, useState } from "react";
@@ -65,26 +65,28 @@ const PassingTestPage = () => {
               "Этот вопрос нужен, чтобы показать, что будет с текстом, если его длина станет больше, чем две строки, а тогда произойдёт кое что",
               "Сколько живут лягушки?",
             ].map((item, id) => (
-              <div className={style.question}>
-                <h5>Вопрос {id + 1}</h5>
-                <p>{item}</p>
-              </div>
+              <Link to={`/passingtest/${idTest}/${id}`}>
+                <div className={style.question}>
+                  <h5>Вопрос {id + 1}</h5>
+                  <p>{item}</p>
+                </div>
+              </Link>
             ))}
           </div>
         </div>
-        <Button>Завершить</Button>
+        <Button variant="primary">Завершить</Button>
       </div>
       <div className={style.testPassingForm}>
         <div className={style.testProgressing}>
-          <p>Вопрос {numberQuestion} из 5</p>
+          <p>Вопрос {numberQuestion} из 7</p>
           <div className={style.widthLine}>
             <hr
               className={style.colorLine}
-              style={{ width: `${(100 / 5) * Number(numberQuestion)}%` }}
+              style={{ width: `${(100 / 7) * Number(numberQuestion)}%` }}
             />
             <hr
               className={style.normalLine}
-              style={{ width: `${(100 / 5) * (5 - Number(numberQuestion))}%` }}
+              style={{ width: `${(100 / 7) * (7 - Number(numberQuestion))}%` }}
             />
           </div>
         </div>
