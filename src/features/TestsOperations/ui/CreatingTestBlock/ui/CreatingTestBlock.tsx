@@ -8,7 +8,6 @@ const CreatingTestBlock = () => {
   const [openModal, setOpenModal] = useState(false);
   const closeModal = () => {
     setOpenModal(false);
-    console.log(openModal);
   };
   return (
     <>
@@ -20,11 +19,10 @@ const CreatingTestBlock = () => {
         <PlusIcon />
         <p>Создать новый тест</p>
       </Button>
-      {/* {openModal && ( */}
+
       <Modal isOpened={openModal} onClose={closeModal}>
         <CreatingTestForm closeModal={closeModal} />
       </Modal>
-      {/* )} */}
     </>
   );
 };

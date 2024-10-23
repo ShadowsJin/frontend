@@ -5,10 +5,7 @@ import {
   TestPassingQuestionType,
 } from "@/features/TestsOperations/model/TestOperationsTypes";
 import { useEffect, useState } from "react";
-import {
-  getPassingTest,
-  getPassingTestQuestion,
-} from "@/features/TestsOperations/model/TestsOperations";
+import { getPassingTest } from "@/features/TestsOperations/model/TestsOperations";
 import classNames from "classnames";
 
 import LeftPanel from "@/widgets/LeftPanel";

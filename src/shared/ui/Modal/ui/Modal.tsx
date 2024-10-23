@@ -16,14 +16,20 @@ const Modal = ({ isOpened, children, onClose }: ModalProps) => {
   };
 
   return createPortal(
-    isOpened && (
-      <AnimatePresence>
+    <AnimatePresence>
+      {isOpened && (
         <motion.div className={classNames(style.modal, style.opened)}>
-          <motion.div className={style.overlay} onClick={onClose}>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className={style.overlay}
+            onClick={onClose}
+          >
             <motion.div
-              initial={{ opacity: 0, transform: " scale(0.5)" }}
+              initial={{ opacity: 0, transform: " scale(0.4)" }}
               animate={{ opacity: 1, transform: " scale(1)" }}
-              exit={{ opacity: 0, transform: " scale(0.5)" }}
+              exit={{ opacity: 0, transform: " scale(0.4)" }}
               className={style.content}
               onClick={onContentClick}
             >
@@ -31,8 +37,8 @@ const Modal = ({ isOpened, children, onClose }: ModalProps) => {
             </motion.div>
           </motion.div>
         </motion.div>
-      </AnimatePresence>
-    ),
+      )}
+    </AnimatePresence>,
     document.body
   );
 };
