@@ -1,12 +1,10 @@
 export interface TestCardType {
-  title: string;
+  id?: string;
+  title?: string;
   description?: string;
-}
-
-export interface TestPassingType {
-  name: string;
-  description: string;
-  owner: string;
+  created_at?: string;
+  owner_id?: string;
+  questions_count?: number;
 }
 
 export interface Answer {
@@ -24,13 +22,17 @@ export type getCreatedTestsType = () => Promise<false | TestCardType[]>;
 export type getPassedTestsType = () => Promise<false | TestCardType[]>;
 
 export type getPassingTestType = (
-  idTest: string
-) => Promise<false | TestPassingType>;
+  idTest?: string
+) => Promise<false | TestCardType>;
 
 export type getPassingTestQuestionType = (
-  idTest: string,
-  numberQuestion: number | string
+  idTest?: string,
+  numberQuestion?: number | string
 ) => Promise<false | TestPassingQuestionType>;
+
+export type getPassingTestQuestionsArrayType = (
+  idTest?: string
+) => Promise<false | TestPassingQuestionType[]>;
 
 export type sendAnswerType = (
   idTest?: string,

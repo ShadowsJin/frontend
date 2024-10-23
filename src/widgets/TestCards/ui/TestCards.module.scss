@@ -1,7 +1,14 @@
 @import "@styles/global.scss";
 .Tests {
   display: grid;
+  position: relative;
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: 1fr;
   gap: 5%;
+}
+.noneTitle {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  top: 20vh;
 }

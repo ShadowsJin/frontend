@@ -4,25 +4,38 @@ import style from "./LeftPanel.module.scss";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import classNames from "classnames";
+import { getPassingTestQuestionsArray } from "@/features/TestsOperations/model/TestsOperations";
+import {
+  TestCardType,
+  TestPassingQuestionType,
+} from "@/features/TestsOperations/model/TestOperationsTypes";
 
 interface LeftPanelProps {
   idTest?: string;
   numberQuestion?: string | number;
+  testData?: TestCardType;
 }
 
-const LeftPanel = ({ idTest, numberQuestion }: LeftPanelProps) => {
-  const [questionsArray, setQuestionsArray] = useState([""]);
+const LeftPanel = ({ idTest, numberQuestion, testData }: LeftPanelProps) => {
+  const [questionsArray, setQuestionsArray] = useState<
+    TestPassingQuestionType[]
+  >([
+    {
+      name: "",
+      type: "1",
+      answers: [
+        {
+          name: "",
+          is_correct: false,
+        },
+      ],
+    },
+  ]);
+
   useEffect(() => {
-    //Запрашиваем список вопросов теста с параметрами
-    setQuestionsArray([
-      "Сколько живут лягушки?",
-      "Этот вопрос нужен, чтобы показать, какой максимальной длины может быть текст в блоке с вопросиком <3",
-      "Этот вопрос нужен, чтобы показать, что будет с текстом, если его длина станет больше, чем две строки, а тогда произойдёт кое что",
-      "Сколько живут лягушки?",
-      "Этот вопрос нужен, чтобы показать, какой максимальной длины может быть текст в блоке с вопросиком <3",
-      "Этот вопрос нужен, чтобы показать, что будет с текстом, если его длина станет больше, чем две строки, а тогда произойдёт кое что",
-      "Сколько живут лягушки?",
-    ]);
+    getPassingTestQuestionsArray(idTest).then((data) => {
+      if (data) setQuestionsArray(data);
+    });
   }, []);
   return (
     <div className={style.leftPanel}>
@@ -30,11 +43,8 @@ const LeftPanel = ({ idTest, numberQuestion }: LeftPanelProps) => {
         <div className={style.infoIcon}>
           <InfoIcon />
         </div>
-        <h3>
-          Название теста будет не больше, чем 2 строчки, иначе всё будет
-          скрываться
-        </h3>
-        <div>Василий Петров</div>
+        <h3>{testData?.title}</h3>
+        <div>{testData?.owner_id}</div>
       </div>
       <div className={style.questionsMenu}>
         <h3>Вопросы</h3>
@@ -47,7 +57,7 @@ const LeftPanel = ({ idTest, numberQuestion }: LeftPanelProps) => {
                 })}
               >
                 <h5>Вопрос {id + 1}</h5>
-                <p>{item}</p>
+                <p>{item.name}</p>
               </div>
             </Link>
           ))}

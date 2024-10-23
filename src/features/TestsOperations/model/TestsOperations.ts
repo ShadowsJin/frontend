@@ -3,12 +3,12 @@ import {
   Answer,
   getCreatedTestsType,
   getPassedTestsType,
+  getPassingTestQuestionsArrayType,
   getPassingTestQuestionType,
   getPassingTestType,
   sendAnswerType,
   TestCardType,
   TestPassingQuestionType,
-  TestPassingType,
 } from "./TestOperationsTypes";
 import { QuestionType } from "@/entities/NewTest/model/NewTestTypes";
 
@@ -50,11 +50,9 @@ export const getPassedTests: getPassedTestsType = async () => {
   }
 };
 
-export const getPassingTest: getPassingTestType = async (idTest: string) => {
+export const getPassingTest: getPassingTestType = async (idTest?: string) => {
   try {
-    const response = await axiosInstance.get<TestPassingType>(
-      `/quizes/${idTest}`
-    );
+    const response = await axiosInstance.get<TestCardType>(`/quizes/${idTest}`);
     return response?.data;
   } catch (e) {
     return false;
@@ -62,8 +60,8 @@ export const getPassingTest: getPassingTestType = async (idTest: string) => {
 };
 
 export const getPassingTestQuestion: getPassingTestQuestionType = async (
-  idTest: string,
-  numberQuestion: number | string
+  idTest?: string,
+  numberQuestion?: number | string
 ) => {
   try {
     const response = await axiosInstance.get<TestPassingQuestionType>(
@@ -74,6 +72,18 @@ export const getPassingTestQuestion: getPassingTestQuestionType = async (
     return false;
   }
 };
+
+export const getPassingTestQuestionsArray: getPassingTestQuestionsArrayType =
+  async (idTest?: string) => {
+    try {
+      const response = await axiosInstance.get<TestPassingQuestionType[]>(
+        `/quizes/${idTest}/questions`
+      );
+      return response?.data;
+    } catch (e) {
+      return false;
+    }
+  };
 
 export const sendAnswer: sendAnswerType = async (
   testId?: string,

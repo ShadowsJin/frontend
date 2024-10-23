@@ -9,9 +9,11 @@ interface TestCardsProps {
 const TestCards = ({ cards, created }: TestCardsProps) => {
   return (
     <div className={style.Tests}>
-      {cards.map(({ title, description }, id) => (
-        <TestCard key={id} title={title} description={description} />
-      ))}
+      {cards.length > 0 ? (
+        cards.map((card, id) => <TestCard key={id} {...card} />)
+      ) : (
+        <h2 className={style.noneTitle}>Здесь нет тестов</h2>
+      )}
     </div>
   );
 };

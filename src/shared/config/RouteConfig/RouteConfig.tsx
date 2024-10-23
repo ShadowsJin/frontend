@@ -7,7 +7,6 @@ import { MyTestsPage } from "@/pages/MyTestsPage";
 import { SupportPage } from "@/pages/SupportPage";
 import { ProfilePage } from "@/pages/ProfilePage";
 import { CreateTestPage } from "@/pages/CreateTestPage";
-import { MainPassingTestPage } from "@/pages/MainPassingTestPage";
 import { OnlyAuth, OnlyUnAuth } from "./ProtectedRoute";
 import { PassingTestPage } from "@/pages/PassingTestPage";
 
@@ -26,8 +25,8 @@ const onlyAuthRoutes: IListRoutes[] = [
     path: "/createtest/:title",
   },
   {
-    element: <MainPassingTestPage />,
-    path: "/passingtest/:id",
+    element: <PassingTestPage />,
+    path: "/passingtest/:idTest",
   },
   {
     element: <PassingTestPage />,
