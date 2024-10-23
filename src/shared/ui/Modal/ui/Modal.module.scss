@@ -1,21 +1,14 @@
 @import "@styles/global.scss";
 
 .modal {
-  pointer-events: none;
+  // pointer-events: none;
 
   position: fixed;
-  z-index: 10;
+  z-index: 100;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-
-  opacity: 0;
-
-  .content {
-    transform: scale(0.5);
-    transition: 0.2s transform;
-  }
 }
 
 .content {
@@ -26,48 +19,6 @@
   box-shadow: $blocksShadow;
   border: 1px solid $color2;
 }
-
-.header {
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  justify-content: space-between;
-
-  margin-bottom: 20px;
-}
-
-.closeBtn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  margin-left: auto;
-  padding: 0;
-
-  background-color: transparent;
-  border: none;
-  outline: none;
-
-  transition: $transition;
-}
-
-.opened {
-  pointer-events: auto;
-  opacity: 1;
-
-  .content {
-    transform: scale(1);
-    transition: 0.4s transform;
-  }
-}
-
-.closing {
-  .content {
-    transform: scale(0.5);
-    transition: 0.3s transform;
-  }
-}
-
 .overlay {
   display: flex;
   align-items: center;
@@ -78,3 +29,13 @@
 
   backdrop-filter: blur(15px);
 }
+// .opened {
+//   pointer-events: auto;
+// }
+
+// .closing {
+//   .content {
+//     transform: scale(0.5);
+//     transition: 0.3s transform;
+//   }
+// }
