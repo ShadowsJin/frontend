@@ -25,19 +25,21 @@ const MyTestsPage = () => {
       <Header title="МОИ ТЕСТЫ" />
       <div className={style.tools}>
         <CreatingTestBlock />
-        <div className={style.RightBlock}>
+        <div
+          className={classNames(style.RightBlock, { [style.active]: !created })}
+        >
           <div
             onClick={() => setCreated(true)}
             className={classNames(style.tool, { [style.noActive]: !created })}
           >
-            <h3>Созданные</h3>
+            <p>Созданные</p>
           </div>
           <div className={style.line}></div>
           <div
             onClick={() => setCreated(false)}
             className={classNames(style.tool, { [style.noActive]: created })}
           >
-            <h3>Решенные</h3>
+            <p>Решенные</p>
           </div>
         </div>
       </div>

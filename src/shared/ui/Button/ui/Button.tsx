@@ -18,6 +18,7 @@ const Button = ({
   return (
     <button
       className={cn(style.button, className, {
+        [style.normal]: !variant,
         [style.primary]: variant === "primary",
         [style.text]: variant === "text",
       })}

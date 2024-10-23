@@ -3,6 +3,7 @@ import style from "./CreatingTestBlock.module.scss";
 import Modal from "@/shared/ui/Modal";
 import CreatingTestForm from "@/widgets/CreatingTestForm";
 import PlusIcon from "@/shared/assets/Plus.svg";
+import Button from "@/shared/ui/Button";
 const CreatingTestBlock = () => {
   const [openModal, setOpenModal] = useState(false);
   const closeModal = () => {
@@ -10,10 +11,14 @@ const CreatingTestBlock = () => {
   };
   return (
     <>
-      <div className={style.CreateTest} onClick={() => setOpenModal(true)}>
+      <Button
+        variant="primary"
+        className={style.CreateTest}
+        onClick={() => setOpenModal(true)}
+      >
         <PlusIcon />
-        <h3>Создать новый тест</h3>
-      </div>
+        <p>Создать новый тест</p>
+      </Button>
       <Modal isOpened={openModal} onClose={closeModal}>
         <CreatingTestForm closeModal={closeModal} />
       </Modal>
