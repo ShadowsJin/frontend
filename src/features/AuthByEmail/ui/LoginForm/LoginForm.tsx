@@ -35,9 +35,9 @@ const LoginForm = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={style.LoginForm}>
       <div className={style.title}>
-        <h2>
+        <h3>
           С возвращением! <LoginHandIcon />
-        </h2>
+        </h3>
         <p>
           Открой для себя лучшее приложение для создания и прохождения
           проверочных работ
@@ -85,7 +85,7 @@ const LoginForm = () => {
       </div>
 
       <Link to="/register">
-        Ещё нет аккаунта?
+        Ещё нет аккаунта?{" "}
         <span className={style.AccentColor}>Зарегистрирутесь!</span>
       </Link>
     </form>

@@ -7,7 +7,7 @@
   flex-direction: column;
   justify-content: space-between;
   box-shadow: $blocksShadow;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: $blocksBorder;
   background-color: $color1;
   padding: 2rem;
   border-radius: 15px;

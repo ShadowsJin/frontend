@@ -12,6 +12,7 @@
   gap: 1.5rem;
 
   box-shadow: $blocksShadow;
+  border: $blocksBorder;
   .title {
     display: flex;
     flex-direction: column;
@@ -32,9 +33,7 @@
   .errorMsg {
     color: $color10;
   }
-  a {
-    font-weight: 600;
-  }
+
   button {
     margin-top: 10px;
     width: 100%;

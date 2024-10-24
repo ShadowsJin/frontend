@@ -7,7 +7,7 @@
   background-color: $color1;
   box-shadow: $blocksShadow;
   border-radius: 10px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: $blocksBorder;
   transition: 0.2s;
   cursor: pointer;
 }

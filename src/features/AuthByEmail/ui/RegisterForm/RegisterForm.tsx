@@ -98,8 +98,8 @@ const RegisterForm = () => {
       </div>
 
       <Link to={"/login"}>
-        Уже есть аккаунт?
-        <span className={style.AccentColor}>Авторизуйся!</span>
+        Уже есть аккаунт?{" "}
+        <span className={style.AccentColor}> Авторизуйся!</span>
       </Link>
     </form>
   );

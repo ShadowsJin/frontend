@@ -12,6 +12,7 @@
   gap: 1.5rem;
 
   box-shadow: $blocksShadow;
+  border: $blocksBorder;
   .title {
     display: flex;
     flex-direction: column;
@@ -40,9 +41,7 @@
   .AccentColor {
     color: $color9;
   }
-  a {
-    font-weight: 600;
-  }
+
   .or {
     width: 100%;
     display: flex;
