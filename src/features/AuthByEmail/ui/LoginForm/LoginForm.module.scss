@@ -1,7 +1,7 @@
 @import "@styles/global.scss";
 .LoginForm {
   border-radius: 20px;
-  background-color: $color1;
+  background-color: $blockBackground;
   width: 30%;
   min-width: 550px;
 
@@ -31,7 +31,7 @@
     }
   }
   .errorMsg {
-    color: $color10;
+    color: $warningColor;
   }
 
   button {
@@ -44,7 +44,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 10px;
-    color: $color4;
+    color: $captionColor;
     white-space: nowrap;
     hr {
       width: 32%;

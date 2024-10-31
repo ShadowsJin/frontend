@@ -3,7 +3,7 @@
   padding: 40px 20px;
   height: 50vh;
   min-width: 300px;
-  background-color: $color1;
+  background-color: $blockBackground;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,5 +26,5 @@
   }
 }
 .errorMsg {
-  color: $color10;
+  color: $warningColor;
 }

@@ -1,7 +1,7 @@
 @import "@styles/global.scss";
 .testPassingForm {
   border-radius: 10px;
-  background-color: $color1;
+  background-color: $blockBackground;
   width: 68%;
   height: 90vh;
 
@@ -22,7 +22,7 @@
     gap: 1rem;
     p {
       font-size: 1.5rem;
-      color: $color4;
+      color: $captionColor;
     }
     .widthLine {
       display: flex;
@@ -34,7 +34,7 @@
         transition: 0.5s;
       }
       .normalLine {
-        border: solid 1px $color2;
+        border: solid 1px $backgroundColor;
         transition: 0.5s;
         width: 100%;
       }

@@ -1,6 +1,6 @@
 @import "@styles/global.scss";
 .Sidebar {
-  background-color: $color2;
+  background-color: $backgroundColor;
   width: 20%;
   min-width: 200px;
   display: flex;
@@ -24,8 +24,8 @@
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    border-top: solid 1px $color5;
-    border-bottom: solid 1px $color5;
+    border-top: solid 1px $paragraphColor;
+    border-bottom: solid 1px $paragraphColor;
   }
   a {
     padding: 10px 20px;
@@ -38,6 +38,6 @@
     align-items: center;
     justify-content: center;
     padding: 10px 20px;
-    background-color: $color4;
+    background-color: $captionColor;
   }
 }

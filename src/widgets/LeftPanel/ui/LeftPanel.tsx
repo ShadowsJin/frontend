@@ -50,7 +50,7 @@ const LeftPanel = ({ idTest, numberQuestion, testData }: LeftPanelProps) => {
         <h3>Вопросы</h3>
         <div className={style.questions}>
           {questionsArray.map((item, id) => (
-            <Link to={`/passingtest/${idTest}/${id}`}>
+            <Link key={item.name} to={`/passingtest/${idTest}/${id}`}>
               <div
                 className={classNames(style.question, {
                   [style.current]: id == numberQuestion,

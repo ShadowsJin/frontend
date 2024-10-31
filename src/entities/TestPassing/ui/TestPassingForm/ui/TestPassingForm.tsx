@@ -99,7 +99,9 @@ const TestPassingForm = ({
         {Number(numberQuestion) > 0 && (
           <Button onClick={prevQuestion}>Вернуться</Button>
         )}
-        <Button onClick={nextQuestion}>Далее</Button>
+        {Number(numberQuestion) + 1 < questions_count && (
+          <Button onClick={nextQuestion}>Далее</Button>
+        )}
       </div>
     </div>
   );

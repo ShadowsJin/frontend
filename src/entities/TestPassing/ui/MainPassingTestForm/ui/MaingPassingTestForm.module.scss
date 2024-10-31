@@ -14,12 +14,12 @@
     flex-direction: column;
     gap: 10px;
     p {
-      color: $color3;
+      color: $headingColor;
     }
   }
   .testPassingForm {
     border-radius: 20px;
-    background-color: $color1;
+    background-color: $blockBackground;
     width: 30%;
     min-width: 550px;
 
@@ -33,6 +33,6 @@
   }
 
   .testLabel {
-    color: $color4;
+    color: $captionColor;
   }
 }
