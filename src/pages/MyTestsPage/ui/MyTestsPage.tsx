@@ -4,7 +4,7 @@ import classNames from "classnames";
 
 import { useEffect, useState } from "react";
 import TestCards from "@/widgets/TestCards/ui/TestCards";
-import CreatingTestBlock from "@/features/TestsOperations/ui/CreatingTestBlock";
+import CreatingTestBlock from "@/entities/NewTest/ui/CreatingTestBlock";
 import { getCreatedTests, getPassedTests } from "@/features/TestsOperations";
 import { TestCardType } from "@/features/TestsOperations/model/TestOperationsTypes";
 

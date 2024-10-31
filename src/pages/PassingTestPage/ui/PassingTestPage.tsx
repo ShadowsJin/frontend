@@ -9,8 +9,8 @@ import { getPassingTest } from "@/features/TestsOperations/model/TestsOperations
 import classNames from "classnames";
 
 import LeftPanel from "@/widgets/LeftPanel";
-import TestPassingForm from "@/widgets/TestPassingForm";
-import MainPassingTestForm from "@/widgets/MainPassingTestForm";
+import TestPassingForm from "@/entities/TestPassing/ui/TestPassingForm";
+import MainPassingTestForm from "@/entities/TestPassing/ui/MainPassingTestForm";
 
 const PassingTestPage = () => {
   const [testData, setTestData] = useState<TestCardType>();

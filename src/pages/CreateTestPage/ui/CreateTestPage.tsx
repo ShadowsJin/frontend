@@ -5,7 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import useNewTest from "@/entities/NewTest/model/NewTest";
 import Button from "@/shared/ui/Button";
-import CreateQuestionBlock from "@/widgets/CreateQuestionBlock";
+import CreateQuestionBlock from "@/entities/NewTest/ui/CreateQuestionBlock";
 import { createTest } from "@/features/TestsOperations/model/TestsOperations";
 
 const CreateTestPage = () => {

@@ -1,7 +1,6 @@
 import AvatarImage from "@/shared/assets/Avatar.png";
 import style from "./ProfileCard.module.scss";
 import Button from "@/shared/ui/Button";
-import useUserStore from "../model/slice/UserSlice";
 import Modal from "@/shared/ui/Modal";
 import { useState } from "react";
 import LogoutForm from "@/features/AuthByEmail/ui/LogoutForm";
@@ -9,7 +8,6 @@ import TrashIcon from "@/shared/assets/Trash.svg";
 import Input from "@/shared/ui/Input";
 const ProfileCard = () => {
   const [openModal, setOpenModal] = useState(false);
-  const user = useUserStore((state) => state.user);
   return (
     <div className={style.ProfileCard}>
       <div className={style.Header}>
@@ -26,11 +24,11 @@ const ProfileCard = () => {
       <div className={style.InputsBlock}>
         <div className={style.InputBlock}>
           <label>Имя:</label>
-          <Input placeholder={user.firstName} />
+          <Input placeholder={"Андрей"} />
         </div>
         <div className={style.InputBlock}>
           <label>Фамилия:</label>
-          <Input placeholder={user.lastName} />
+          <Input placeholder={"Акупунктурович"} />
         </div>
       </div>
 
