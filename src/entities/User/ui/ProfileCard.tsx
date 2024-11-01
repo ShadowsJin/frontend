@@ -18,7 +18,7 @@ const ProfileCard = () => {
       </div>
       <div className={style.AvatarBlock}>
         <img src={AvatarImage} alt="" />
-        <Button variant="text">Загрузить фото</Button>
+        <Button>Загрузить фото</Button>
       </div>
 
       <div className={style.InputsBlock}>
@@ -34,7 +34,7 @@ const ProfileCard = () => {
 
       <div className={style.Buttons}>
         <Button>Сохранить</Button>
-        <Button>Отмена</Button>
+        <Button variant="accent">Отмена</Button>
       </div>
       <Modal isOpened={openModal} onClose={() => setOpenModal(false)}>
         <LogoutForm />

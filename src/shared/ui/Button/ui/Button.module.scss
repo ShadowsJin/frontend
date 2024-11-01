@@ -31,6 +31,17 @@
   }
 }
 
-.text {
-  background-color: transparent;
+.accent {
+  border: $blocksBorder;
+  border-color: $hoverColor;
+  color: $hoverColor;
+  &:hover {
+    background-color: $blockBackground2;
+  }
+}
+
+.warning {
+  border: $blocksBorder;
+  border-color: $warningColor;
+  color: $warningColor;
 }

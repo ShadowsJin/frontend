@@ -61,6 +61,7 @@ const CreatingTestForm = ({ closeModal }: CreatingTestFormProps) => {
       <div className={style.Buttons}>
         <Button
           type="button"
+          variant="accent"
           onClick={(e) => {
             e.preventDefault();
             closeModal && closeModal();

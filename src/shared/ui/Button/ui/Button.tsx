@@ -5,7 +5,7 @@ import style from "./Button.module.scss";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
-  variant?: "primary" | "text";
+  variant?: "primary" | "accent" | "warning";
 }
 
 const Button = ({
@@ -20,7 +20,8 @@ const Button = ({
       className={cn(style.button, className, {
         [style.normal]: !variant,
         [style.primary]: variant === "primary",
-        [style.text]: variant === "text",
+        [style.accent]: variant === "accent",
+        [style.warning]: variant === "warning",
       })}
       {...props}
     >

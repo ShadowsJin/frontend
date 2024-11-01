@@ -87,7 +87,7 @@ const RegisterForm = () => {
 
       <div className={style.or}>
         <hr />
-        Или с помощью
+        <p>Или с помощью</p>
         <hr />
       </div>
 

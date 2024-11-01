@@ -5,22 +5,31 @@
   display: flex;
 }
 
+p {
+  font-weight: 500;
+  color: $paragraphColor;
+}
+
 h1 {
-  font-size: 3rem;
+  font-size: 3.2rem;
+  font-weight: 200;
   color: $paragraphColor;
 }
 
 h2 {
+  font-weight: 600;
   font-size: 2rem;
   color: $paragraphColor;
 }
 
 h3 {
+  font-weight: 600;
   font-size: 1.3rem;
   color: $paragraphColor;
 }
 
 h4 {
+  font-weight: 600;
   font-size: 1.1rem;
   color: $paragraphColor;
 }

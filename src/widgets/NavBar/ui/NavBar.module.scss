@@ -1,9 +1,8 @@
 @import "@styles/global.scss";
 .NavBar {
-  font-weight: 600;
   width: 90%;
   margin: 20px auto;
-  padding: 1.5rem 3rem;
+  padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -13,7 +12,8 @@
   backdrop-filter: blur(15px);
 
   .nav {
-    gap: 20px;
+    width: 40%;
+    // gap: 2rem;
     display: flex;
     align-items: center;
     justify-content: space-between;

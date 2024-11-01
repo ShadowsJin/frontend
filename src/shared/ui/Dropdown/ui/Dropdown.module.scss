@@ -1,0 +1,30 @@
+@import "@styles/global.scss";
+
+.dropdown {
+  position: relative;
+  .content {
+    margin-top: 0.2rem;
+    width: fit-content;
+    position: absolute;
+    padding: 2rem;
+    background-color: $backgroundColor;
+    border: $blocksBorder;
+    border-radius: 10px;
+    box-shadow: $blocksShadow;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    z-index: 100;
+  }
+  .left {
+    left: 0;
+  }
+  .right {
+    right: 0;
+  }
+  .li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+}

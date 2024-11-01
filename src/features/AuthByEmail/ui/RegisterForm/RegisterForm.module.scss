@@ -13,6 +13,9 @@
 
   box-shadow: $blocksShadow;
   border: $blocksBorder;
+  p {
+    font-size: 0.9rem;
+  }
   .title {
     display: flex;
     flex-direction: column;

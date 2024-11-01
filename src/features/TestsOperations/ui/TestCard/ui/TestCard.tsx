@@ -2,10 +2,11 @@ import { TestCardType } from "@/features/TestsOperations/model/TestOperationsTyp
 import style from "./TestCard.module.scss";
 import SettingIcon from "@/shared/assets/setting.svg";
 import LinkIcon from "@/shared/assets/Link.svg";
-import { link } from "fs";
 import Modal from "@/shared/ui/Modal";
 import { useState } from "react";
 import TestLinkForm from "@/shared/ui/TestLinkForm";
+import Dropdown from "@/shared/ui/Dropdown";
+import { TESTCARD_LI_ARRAY } from "@/shared/constants/DropdownLiArray";
 export interface TestCardProps extends TestCardType {
   onClick?: () => void;
 }
@@ -20,9 +21,11 @@ const TestCard = ({ title, description, id, onClick }: TestCardProps) => {
 
       <div className={style.bottom}>
         <div className={style.tools}>
-          <div className={style.tool}>
-            <SettingIcon />
-          </div>
+          <Dropdown id={id} liArray={TESTCARD_LI_ARRAY}>
+            <div className={style.tool}>
+              <SettingIcon />
+            </div>
+          </Dropdown>
           <div className={style.tool} onClick={() => setOpenModal(true)}>
             <LinkIcon />
           </div>

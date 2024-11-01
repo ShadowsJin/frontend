@@ -1,11 +1,14 @@
 import AvatarImage from "@/shared/assets/Avatar.png";
-import { Link } from "react-router-dom";
 import style from "./Avatar.module.scss";
+import Dropdown from "@/shared/ui/Dropdown";
+import { AVATAR_LI_ARRAY } from "@/shared/constants/DropdownLiArray";
 const Avatar = () => {
   return (
-    <Link to="/profile" className={style.Avatar}>
-      <img src={AvatarImage} alt="" className={style.AvatarImage} />
-    </Link>
+    <Dropdown liArray={AVATAR_LI_ARRAY} position="right">
+      <div className={style.Avatar}>
+        <img src={AvatarImage} alt="" className={style.AvatarImage} />
+      </div>
+    </Dropdown>
   );
 };
 

@@ -15,7 +15,7 @@ const LogoutForm = () => {
         <h3>Вы уверенны?</h3>
         <div className={style.Buttons}>
           <Button onClick={logoutFormProfile}>Выйти</Button>
-          <Button>Отмена</Button>
+          <Button variant="accent">Отмена</Button>
         </div>
       </div>
     </div>
