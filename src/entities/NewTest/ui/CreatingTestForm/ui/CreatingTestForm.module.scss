@@ -1,27 +1,45 @@
 @import "@styles/global.scss";
 .CreatingTestForm {
-  padding: 40px 20px;
-  height: 50vh;
+  height: fit-content;
+  width: 25vw;
   min-width: 300px;
+  max-width: 600px;
   background-color: $blockBackground;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  .Buttons {
+  gap: 2.5rem;
+  .title {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 1.5rem;
   }
-  .Inputs {
+  .Buttons {
     width: 100%;
     display: flex;
-    align-items: start;
-    justify-content: start;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    button {
+      width: 40%;
+    }
+  }
+  .Inputs {
+    display: flex;
     flex-direction: column;
-    gap: 10px;
-    input {
+    width: 100%;
+    gap: 1rem;
+    .Input {
       width: 100%;
+      display: flex;
+      align-items: start;
+      justify-content: start;
+      flex-direction: column;
+      gap: 0.5rem;
+      input {
+        width: 100%;
+      }
     }
   }
 }

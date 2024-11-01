@@ -13,11 +13,11 @@
 
 .content {
   min-width: 350px;
-  padding: 20px 20px 28px 20px;
-  border-radius: 15px;
+  padding: 3rem 2rem;
+  border-radius: $bigBorderRadius;
   background-color: $blockBackground;
   box-shadow: $blocksShadow;
-  border: 1px solid $backgroundColor;
+  border: $blocksBorder;
 }
 .overlay {
   display: flex;

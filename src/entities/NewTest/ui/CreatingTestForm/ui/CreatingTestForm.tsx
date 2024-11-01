@@ -2,10 +2,10 @@ import Button from "@/shared/ui/Button";
 import Input from "@/shared/ui/Input";
 import style from "./CreatingTestForm.module.scss";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 import useNewTest from "@/entities/NewTest/model/NewTest";
 import { SubmitHandler, useForm } from "react-hook-form";
-
+import StarIcon from "@/shared/assets/star.svg";
+import TextArea from "@/shared/ui/TextArea";
 type Inputs = {
   title: string;
   description: string;
@@ -17,7 +17,6 @@ interface CreatingTestFormProps {
 
 const CreatingTestForm = ({ closeModal }: CreatingTestFormProps) => {
   const navigate = useNavigate();
-  const [title, setTitle] = useState("");
   const { addDescription } = useNewTest();
 
   const {
@@ -27,35 +26,40 @@ const CreatingTestForm = ({ closeModal }: CreatingTestFormProps) => {
   } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    navigate(`/createtest/${title}`);
+    navigate(`/createtest/${data.title}`);
+    addDescription(data.description);
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={style.CreatingTestForm}>
-      <h3>Создание теста</h3>
+      <h3 className={style.title}>
+        Новый тест <StarIcon />
+      </h3>
 
       <div className={style.Inputs}>
-        <p>Название:</p>
-        {errors.title && <p className={style.errorMsg}>Введите название</p>}
-        <Input
-          {...register("title", {
-            required: true,
-          })}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-      </div>
+        <div className={style.Input}>
+          <p>Название:</p>
+          {errors.title && <p className={style.errorMsg}>Введите название</p>}
+          <Input
+            placeholder="Название"
+            {...register("title", {
+              required: true,
+            })}
+          />
+        </div>
 
-      <div className={style.Inputs}>
-        <p>Описание:</p>{" "}
-        {errors.description && (
-          <p className={style.errorMsg}>Введите описание</p>
-        )}
-        <Input
-          {...register("description", {
-            required: true,
-          })}
-          onChange={(e) => addDescription(e.target.value)}
-        />
+        <div className={style.Input}>
+          <p>Описание:</p>{" "}
+          {errors.description && (
+            <p className={style.errorMsg}>Введите описание</p>
+          )}
+          <TextArea
+            placeholder="Описание"
+            {...register("description", {
+              required: true,
+            })}
+          />
+        </div>
       </div>
 
       <div className={style.Buttons}>

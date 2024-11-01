@@ -1,12 +1,14 @@
 @import "@styles/global.scss";
 
-.CustomInput {
+.CustomTextArea {
   display: inline-flex;
   align-items: center;
   width: 100%;
   background-color: $blockBackground2;
   border-radius: $border-radius;
-  input {
+  TextArea {
+    resize: none;
+    height: 15vh;
     width: 100%;
     margin: 0.5rem 1rem;
     line-height: 24px;
@@ -15,7 +17,7 @@
     outline: none;
   }
 
-  input[type="checkbox"] {
+  TextArea[type="checkbox"] {
     -ms-transform: scale(2);
     -moz-transform: scale(2);
     -webkit-transform: scale(2);

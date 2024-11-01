@@ -9,6 +9,7 @@ import {
   TestCardType,
   TestPassingQuestionType,
 } from "@/features/TestsOperations/model/TestOperationsTypes";
+import CheckMarkIcon from "@/shared/assets/checkMark.svg";
 
 interface LeftPanelProps {
   idTest?: string;
@@ -63,7 +64,9 @@ const LeftPanel = ({ idTest, numberQuestion, testData }: LeftPanelProps) => {
           ))}
         </div>
       </div>
-      <Button variant="primary">Завершить</Button>
+      <Button variant="primary">
+        <CheckMarkIcon /> Завершить
+      </Button>
     </div>
   );
 };

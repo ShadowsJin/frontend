@@ -23,6 +23,8 @@
   background-color: $blockBackground;
   border: $blocksBorder;
   box-shadow: $blocksShadow;
+  color: $headingColor;
+  font-size: 1.2rem;
   &:hover {
     box-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.2);
   }

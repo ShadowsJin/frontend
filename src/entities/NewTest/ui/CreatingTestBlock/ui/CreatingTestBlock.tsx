@@ -17,7 +17,7 @@ const CreatingTestBlock = () => {
         onClick={() => setOpenModal(true)}
       >
         <PlusIcon />
-        <p>Создать новый тест</p>
+        Создать новый тест
       </Button>
 
       <Modal isOpened={openModal} onClose={closeModal}>
