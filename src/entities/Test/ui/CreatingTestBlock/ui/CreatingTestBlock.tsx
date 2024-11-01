@@ -1,7 +1,7 @@
 import { useState } from "react";
 import style from "./CreatingTestBlock.module.scss";
 import Modal from "@/shared/ui/Modal";
-import CreatingTestForm from "@/entities/NewTest/ui/CreatingTestForm";
+import CreatingTestForm from "@/entities/Test/ui/CreatingTestForm";
 import PlusIcon from "@/shared/assets/Plus.svg";
 import Button from "@/shared/ui/Button";
 const CreatingTestBlock = () => {

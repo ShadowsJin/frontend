@@ -12,7 +12,7 @@ export interface DropdownItem {
 }
 export const TESTCARD_LI_ARRAY: DropdownItem[] = [
   {
-    link: "/edit",
+    link: "/edittest",
     icon: <EditIcon />,
     text: "Редактировать",
   },

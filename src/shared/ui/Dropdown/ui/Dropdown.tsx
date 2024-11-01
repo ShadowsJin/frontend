@@ -50,7 +50,7 @@ const Dropdown = ({ children, liArray, id, position }: Dropdown) => {
         })}
       >
         {liArray.map((item) => (
-          <Link key={item.link} to={`${item.link} ${id ? "/" + id : ""}`}>
+          <Link key={item.link} to={`${item.link}${id ? `/${id}` : ""}`}>
             <motion.li
               whileHover={{
                 x: 2,

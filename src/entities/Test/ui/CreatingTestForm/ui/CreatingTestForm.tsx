@@ -2,7 +2,7 @@ import Button from "@/shared/ui/Button";
 import Input from "@/shared/ui/Input";
 import style from "./CreatingTestForm.module.scss";
 import { useNavigate } from "react-router-dom";
-import useNewTest from "@/entities/NewTest/model/NewTest";
+import useTest from "@/entities/Test/model/Test";
 import { SubmitHandler, useForm } from "react-hook-form";
 import StarIcon from "@/shared/assets/star.svg";
 import TextArea from "@/shared/ui/TextArea";
@@ -17,7 +17,7 @@ interface CreatingTestFormProps {
 
 const CreatingTestForm = ({ closeModal }: CreatingTestFormProps) => {
   const navigate = useNavigate();
-  const { addDescription } = useNewTest();
+  const { addDescription } = useTest();
 
   const {
     register,
@@ -65,7 +65,6 @@ const CreatingTestForm = ({ closeModal }: CreatingTestFormProps) => {
       <div className={style.Buttons}>
         <Button
           type="button"
-          variant="accent"
           onClick={(e) => {
             e.preventDefault();
             closeModal && closeModal();
@@ -73,7 +72,9 @@ const CreatingTestForm = ({ closeModal }: CreatingTestFormProps) => {
         >
           Отмена
         </Button>
-        <Button type="submit">Создать</Button>
+        <Button variant="accent" type="submit">
+          Создать
+        </Button>
       </div>
     </form>
   );

@@ -1,15 +1,15 @@
 import Input from "@/shared/ui/Input";
 import style from "./CreateQuestionBlock.module.scss";
 import Button from "@/shared/ui/Button";
-import useNewTest from "@/entities/NewTest/model/NewTest";
-import { QuestionType } from "@/entities/NewTest/model/NewTestTypes";
+import useTest from "@/entities/Test/model/Test";
+import { QuestionType } from "@/entities/Test/model/TestTypes";
 
 interface CreateQuestionBlockI {
   question: QuestionType;
   id: number;
 }
 const CreateQuestionBlock = ({ question, id }: CreateQuestionBlockI) => {
-  const { setAnswers, addAnswer, setQuestion, setTrueAnswer } = useNewTest();
+  const { setAnswers, addAnswer, setQuestion, setTrueAnswer } = useTest();
   // const ChangeAnswers = (answer: string, id: number) => {
   //   const answers = [...question.answers];
   //   answers[id] = answers[id] + answer;

@@ -2,10 +2,10 @@ import { useParams } from "react-router-dom";
 import style from "./PassingTestPage.module.scss";
 import {
   TestCardType,
-  TestPassingQuestionType,
+  TestQuestionType,
 } from "@/features/TestsOperations/model/TestOperationsTypes";
 import { useEffect, useState } from "react";
-import { getPassingTest } from "@/features/TestsOperations/model/TestsOperations";
+import { getTest } from "@/features/TestsOperations/model/TestsOperations";
 import classNames from "classnames";
 
 import LeftPanel from "@/widgets/LeftPanel";
@@ -17,7 +17,7 @@ const PassingTestPage = () => {
   const { idTest, numberQuestion } = useParams();
 
   useEffect(() => {
-    getPassingTest(idTest).then((data) => {
+    getTest(idTest).then((data) => {
       if (data) setTestData(data);
     });
   }, [idTest]);

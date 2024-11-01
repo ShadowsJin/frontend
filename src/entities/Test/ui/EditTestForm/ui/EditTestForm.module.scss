@@ -1,0 +1,52 @@
+@import "@styles/global.scss";
+.EditTestForm {
+  width: 100%;
+  padding: 3rem 2rem;
+  border-radius: $bigBorderRadius;
+  background-color: $blockBackground;
+  box-shadow: $blocksShadow;
+  border: $blocksBorder;
+  height: fit-content;
+  min-width: 300px;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.5rem;
+  .title {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .Buttons {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    button {
+      width: 40%;
+    }
+  }
+  .Inputs {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+    .Input {
+      width: 100%;
+      display: flex;
+      align-items: start;
+      justify-content: start;
+      flex-direction: column;
+      gap: 0.5rem;
+      input {
+        width: 100%;
+      }
+    }
+  }
+}
+.errorMsg {
+  color: $warningColor;
+}

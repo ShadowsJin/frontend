@@ -1,12 +1,12 @@
 import {
   Answer,
-  TestPassingQuestionType,
+  TestQuestionType,
 } from "@/features/TestsOperations/model/TestOperationsTypes";
 import style from "./TestPassingForm.module.scss";
 import Input from "@/shared/ui/Input";
 import { useEffect, useState } from "react";
 import {
-  getPassingTestQuestion,
+  getTestQuestion,
   sendAnswer,
 } from "@/features/TestsOperations/model/TestsOperations";
 import { useNavigate } from "react-router-dom";
@@ -24,8 +24,9 @@ const TestPassingForm = ({
   idTest,
   questions_count = 0,
 }: TestPassingFormProps) => {
-  const [questionData, setQuestionData] =
-    useState<null | TestPassingQuestionType>(null);
+  const [questionData, setQuestionData] = useState<null | TestQuestionType>(
+    null
+  );
   const [answer, setAnswer] = useState<null | Answer>(null);
   const navigate = useNavigate();
 
@@ -35,7 +36,7 @@ const TestPassingForm = ({
 
   useEffect(() => {
     setAnswer(null);
-    getPassingTestQuestion(idTest, numberQuestion).then((data) => {
+    getTestQuestion(idTest, numberQuestion).then((data) => {
       if (data) setQuestionData(data);
     });
   }, [numberQuestion]);
@@ -80,10 +81,9 @@ const TestPassingForm = ({
       <h2>{questionData?.name}</h2>
       <div className={style.answersBlock}>
         {questionData?.answers?.map(({ name, is_correct }, id) => (
-          <div className={style.answerBlock} key={Number(numberQuestion) + id}>
+          <div className={style.answerBlock} key={`${name} ${id} `}>
             <Input
               key={`checkbox${Number(numberQuestion) + id}`}
-              checked={is_correct}
               type="checkbox"
               onChange={() => toggleAnswer(name, is_correct)}
             />

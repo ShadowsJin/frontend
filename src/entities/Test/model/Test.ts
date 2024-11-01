@@ -1,9 +1,9 @@
 import axiosInstance from "@/shared/config/ApiConfig/ApiConfig";
 import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
-import { newTestType, QuestionType } from "./NewTestTypes";
+import { newTestType, QuestionType } from "./TestTypes";
 
-const useNewTest = create(
+const useTest = create(
   immer<newTestType>((set) => ({
     title: "",
     description: "",
@@ -88,4 +88,4 @@ const useNewTest = create(
   }))
 );
 
-export default useNewTest;
+export default useTest;

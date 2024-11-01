@@ -9,6 +9,7 @@ import { ProfilePage } from "@/pages/ProfilePage";
 import { CreateTestPage } from "@/pages/CreateTestPage";
 import { OnlyAuth, OnlyUnAuth } from "./ProtectedRoute";
 import { PassingTestPage } from "@/pages/PassingTestPage";
+import { EditTestPage } from "@/pages/EditTestPage";
 
 export interface IListRoutes {
   element: ReactNode;
@@ -23,6 +24,14 @@ const onlyAuthRoutes: IListRoutes[] = [
   {
     element: <CreateTestPage />,
     path: "/createtest/:title",
+  },
+  {
+    element: <EditTestPage />,
+    path: "/edittest/:idTest",
+  },
+  {
+    element: <EditTestPage />,
+    path: "/edittest/:idTest/:numberQuestion",
   },
   {
     element: <PassingTestPage />,

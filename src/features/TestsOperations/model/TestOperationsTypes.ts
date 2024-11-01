@@ -11,7 +11,7 @@ export interface Answer {
   name: string;
   is_correct: boolean;
 }
-export interface TestPassingQuestionType {
+export interface TestQuestionType {
   name: string;
   type: string;
   answers: Answer[];
@@ -21,18 +21,16 @@ export type getCreatedTestsType = () => Promise<false | TestCardType[]>;
 
 export type getPassedTestsType = () => Promise<false | TestCardType[]>;
 
-export type getPassingTestType = (
-  idTest?: string
-) => Promise<false | TestCardType>;
+export type getTestType = (idTest?: string) => Promise<false | TestCardType>;
 
-export type getPassingTestQuestionType = (
+export type getTestQuestionType = (
   idTest?: string,
   numberQuestion?: number | string
-) => Promise<false | TestPassingQuestionType>;
+) => Promise<false | TestQuestionType>;
 
 export type getPassingTestQuestionsArrayType = (
   idTest?: string
-) => Promise<false | TestPassingQuestionType[]>;
+) => Promise<false | TestQuestionType[]>;
 
 export type sendAnswerType = (
   idTest?: string,
