@@ -1,0 +1,25 @@
+@import "@styles/global.scss";
+
+.statisticsPanel {
+  width: 35%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+
+  .diagramBlock {
+    width: 100%;
+    background-color: $blockBackground;
+    border-radius: $bigBorderRadius;
+    border: $blocksBorder;
+    padding: 2rem;
+    box-shadow: $blocksShadow;
+  }
+  .dataBlock {
+    width: 100%;
+    background-color: $blockBackground;
+    border-radius: $bigBorderRadius;
+    border: $blocksBorder;
+    padding: 2rem;
+    box-shadow: $blocksShadow;
+  }
+}

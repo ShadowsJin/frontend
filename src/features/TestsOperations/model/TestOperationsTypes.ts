@@ -17,6 +17,15 @@ export interface TestQuestionType {
   answers: Answer[];
 }
 
+export interface StatisticsCardType {
+  userName: string;
+  solve: number;
+  score: string;
+  dateCompletion: string;
+  passageTime: string;
+  totalQuestions: number;
+}
+
 export type getCreatedTestsType = () => Promise<false | TestCardType[]>;
 
 export type getPassedTestsType = () => Promise<false | TestCardType[]>;

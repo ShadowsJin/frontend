@@ -7,7 +7,7 @@ import classNames from "classnames";
 import { getPassingTestQuestionsArray } from "@/features/TestsOperations/model/TestsOperations";
 import {
   TestCardType,
-  TestPassingQuestionType,
+  TestQuestionType,
 } from "@/features/TestsOperations/model/TestOperationsTypes";
 import CheckMarkIcon from "@/shared/assets/checkMark.svg";
 
@@ -18,9 +18,7 @@ interface LeftPanelProps {
 }
 
 const LeftPanel = ({ idTest, numberQuestion, testData }: LeftPanelProps) => {
-  const [questionsArray, setQuestionsArray] = useState<
-    TestPassingQuestionType[]
-  >([
+  const [questionsArray, setQuestionsArray] = useState<TestQuestionType[]>([
     {
       name: "",
       type: "1",

@@ -41,8 +41,8 @@ const EditTestForm = (props: EditTestFormProps) => {
     );
   };
   useEffect(() => {
-    setDescription(props?.description || "");
-    setTitle(props?.title || "");
+    props?.description && setDescription(props?.description);
+    props?.title && setTitle(props?.title);
   }, [props]);
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={style.EditTestForm}>

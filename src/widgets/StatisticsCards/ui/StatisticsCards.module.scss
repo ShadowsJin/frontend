@@ -1,0 +1,50 @@
+@import "@styles/global.scss";
+.StatisticsCards {
+  width: 60%;
+  padding: 0 3rem;
+  .header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    .sortBlock {
+      width: 70%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: $blockBackground;
+      border-radius: $border-radius;
+      border: $blocksBorder;
+      padding: 0.9rem;
+      box-shadow: $blocksShadow;
+      .sortInput {
+        display: flex;
+        align-items: center;
+      }
+    }
+    button {
+      width: 25%;
+    }
+  }
+
+  .cardsBlock {
+    overflow-y: scroll;
+    height: 80vh;
+    margin-top: 3rem;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(2, minmax(300px, 40%));
+    gap: 2rem;
+    padding-bottom: 1rem;
+
+    &::-webkit-scrollbar {
+      width: 10px;
+      margin-right: 0.5rem;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 100px;
+      background: $blockBackground4;
+    }
+  }
+}
