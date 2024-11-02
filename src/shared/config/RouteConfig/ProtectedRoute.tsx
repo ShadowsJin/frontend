@@ -2,6 +2,7 @@ import { Navigate, useLocation } from "react-router-dom";
 
 import { ReactNode } from "react";
 import { Cookies } from "react-cookie";
+import { updateToken } from "@/features/AuthByEmail/model/services/AuthByEmail/AuthByEmail";
 
 interface IProtected {
   onlyAuth?: boolean;
@@ -21,7 +22,16 @@ export const OnlyAuth = ({ component, onlyAuth = true }: IProtected) => {
   }
 
   if (onlyAuth && !token) {
-    return <Navigate to="/" state={{ from: location }} />;
+    const { from } = location?.state || {
+      from: { pathname: "/mytests" },
+    };
+    updateToken().then((res) => {
+      res ? (
+        <Navigate to={from} />
+      ) : (
+        <Navigate to="/" state={{ from: location }} />
+      );
+    });
   }
 
   return component;

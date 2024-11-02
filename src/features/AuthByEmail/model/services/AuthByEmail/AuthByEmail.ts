@@ -1,4 +1,5 @@
 import axiosInstance from "@/shared/config/ApiConfig/ApiConfig";
+import { updateTokenType } from "./AuthByEmail.type";
 
 export const loginFetch = async (email: string, password: string) => {
   try {
@@ -46,5 +47,15 @@ export const logout = async () => {
     return true;
   } catch (e) {
     console.log(e);
+  }
+};
+
+export const updateToken: updateTokenType = async () => {
+  try {
+    const response = await axiosInstance.get("/users/refresh_token");
+    return true;
+  } catch (e) {
+    console.log(e);
+    return false;
   }
 };
