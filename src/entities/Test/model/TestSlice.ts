@@ -7,7 +7,9 @@ const useTest = create(
   immer<newTestType>((set) => ({
     title: "",
     description: "",
-    questions: [{ name: "", answers: [{ name: "", is_correct: false }] }],
+    questions: [
+      { name: "", type: "", answers: [{ name: "", is_correct: false }] },
+    ],
     addTitle: (title: string) => {
       set((state) => {
         state.title = title;
@@ -22,6 +24,7 @@ const useTest = create(
       set((state) => {
         const newQuestion = {
           name: "",
+          type: "",
           answers: [{ name: "", is_correct: false }],
         };
         state.questions.push(newQuestion);
@@ -63,7 +66,7 @@ const useTest = create(
       set((state) => {
         state.title = "";
         state.questions = [
-          { name: "", answers: [{ name: "", is_correct: false }] },
+          { name: "", type: "", answers: [{ name: "", is_correct: false }] },
         ];
       });
     },

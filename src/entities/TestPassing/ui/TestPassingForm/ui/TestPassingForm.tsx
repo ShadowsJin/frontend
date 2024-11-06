@@ -1,13 +1,13 @@
 import {
-  Answer,
-  TestQuestionType,
+  AnswerForPassing,
+  TestPassingQuestionType,
 } from "@/features/TestsOperations/model/TestOperationsTypes";
 import style from "./TestPassingForm.module.scss";
 import Input from "@/shared/ui/Input";
 import { useEffect, useState } from "react";
 import {
   getTestQuestion,
-  sendAnswer,
+  sendAnswers,
 } from "@/features/TestsOperations/model/TestsOperations";
 import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
@@ -24,32 +24,42 @@ const TestPassingForm = ({
   idTest,
   questions_count = 0,
 }: TestPassingFormProps) => {
-  const [questionData, setQuestionData] = useState<null | TestQuestionType>(
-    null
-  );
-  const [answer, setAnswer] = useState<null | Answer>(null);
+  const [questionData, setQuestionData] =
+    useState<null | TestPassingQuestionType>(null);
+  const [answers, setAnswers] = useState<null | AnswerForPassing[]>(null);
   const navigate = useNavigate();
 
-  const toggleAnswer = (name: string, is_correct: boolean) => {
-    sendAnswer(name); // Доделать после того как будет готова ручка
+  const selectAnswers = answers
+    ?.filter(({ is_selected }) => is_selected)
+    ?.map(({ id }) => id);
+
+  const toggleAnswer = (id: number, isSelected: boolean) => {
+    const newAnswers = answers ? [...answers] : [];
+    newAnswers[id].is_selected = !isSelected;
+    setAnswers(newAnswers);
   };
 
   useEffect(() => {
-    setAnswer(null);
     getTestQuestion(idTest, numberQuestion).then((data) => {
-      if (data) setQuestionData(data);
+      if (data) {
+        setQuestionData(data);
+        setAnswers(data.answers);
+      }
     });
+    // return () => {
+    //   answers && sendAnswers(idTest, numberQuestion, selectAnswers);
+    // };
   }, [numberQuestion]);
 
   const nextQuestion = () => {
-    answer && sendAnswer(idTest, numberQuestion, answer);
-    setAnswer(null);
+    answers && sendAnswers(idTest, numberQuestion, selectAnswers);
+    // setAnswer(null);
     navigate(`/passingtest/${idTest}/${Number(numberQuestion) + 1}`);
   };
 
   const prevQuestion = () => {
-    answer && sendAnswer(idTest, numberQuestion, answer);
-    setAnswer(null);
+    answers && sendAnswers(idTest, numberQuestion, selectAnswers);
+    // setAnswer(null);
     navigate(`/passingtest/${idTest}/${Number(numberQuestion) - 1}`);
   };
   return (
@@ -80,12 +90,13 @@ const TestPassingForm = ({
       </div>
       <h2>{questionData?.name}</h2>
       <div className={style.answersBlock}>
-        {questionData?.answers?.map(({ name, is_correct }, id) => (
+        {answers?.map(({ name, is_selected }, id) => (
           <div className={style.answerBlock} key={`${name} ${id} `}>
             <Input
               key={`checkbox${Number(numberQuestion) + id}`}
               type="checkbox"
-              onChange={() => toggleAnswer(name, is_correct)}
+              checked={is_selected}
+              onChange={() => toggleAnswer(id, is_selected)}
             />
             <p>{name}</p>
           </div>
@@ -100,7 +111,9 @@ const TestPassingForm = ({
           <Button onClick={prevQuestion}>Вернуться</Button>
         )}
         {Number(numberQuestion) + 1 < questions_count && (
-          <Button onClick={nextQuestion}>Далее</Button>
+          <Button onClick={nextQuestion} variant="accent">
+            Следующий вопрос
+          </Button>
         )}
       </div>
     </div>

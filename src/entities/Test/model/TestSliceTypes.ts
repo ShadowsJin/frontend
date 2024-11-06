@@ -20,5 +20,6 @@ export interface newTestType {
 
 export interface QuestionType {
   name: string;
+  type: string;
   answers: Answer[];
 }

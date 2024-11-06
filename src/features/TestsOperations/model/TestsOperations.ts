@@ -1,6 +1,7 @@
 import axiosInstance from "@/shared/config/ApiConfig/ApiConfig";
 import {
   Answer,
+  AnswerForPassing,
   getCreatedTestsType,
   getPassedTestsType,
   getPassingTestQuestionsArrayType,
@@ -8,6 +9,7 @@ import {
   getTestType,
   sendAnswerType,
   TestCardType,
+  TestPassingQuestionType,
   TestQuestionType,
 } from "./TestOperationsTypes";
 import { QuestionType } from "@/entities/Test/model/TestSliceTypes";
@@ -82,7 +84,7 @@ export const getTestQuestion: getTestQuestionType = async (
   numberQuestion?: number | string
 ) => {
   try {
-    const response = await axiosInstance.get<TestQuestionType>(
+    const response = await axiosInstance.get<TestPassingQuestionType>(
       `/quizes/${idTest}/${numberQuestion}`
     );
     return response?.data;
@@ -94,7 +96,7 @@ export const getTestQuestion: getTestQuestionType = async (
 export const getPassingTestQuestionsArray: getPassingTestQuestionsArrayType =
   async (idTest?: string) => {
     try {
-      const response = await axiosInstance.get<TestQuestionType[]>(
+      const response = await axiosInstance.get<TestPassingQuestionType[]>(
         `/quizes/${idTest}/questions`
       );
       return response?.data;
@@ -103,14 +105,17 @@ export const getPassingTestQuestionsArray: getPassingTestQuestionsArrayType =
     }
   };
 
-export const sendAnswer: sendAnswerType = async (
+export const sendAnswers: sendAnswerType = async (
   testId?: string,
   questionNumber?: string | number,
-  answer?: Answer
+  answers?: string[]
 ) => {
   try {
+    console.log(answers?.map((answer) => `answer=${answer}&`));
     const response = await axiosInstance.post(
-      `/quizes/send_answer/${testId}/${questionNumber}?answer=${answer}`
+      `/quizes/send_answer/${testId}/${questionNumber}?${answers
+        ?.map((answer) => `answer=${answer}&`)
+        .join("")}`
     );
     return true;
   } catch (e) {
