@@ -1,17 +1,13 @@
 import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
+import { testPassingType } from "./TestPassing.type";
 
 const useTestPassing = create(
-  immer((set) => ({
-    answers: [""],
+  immer<testPassingType>((set) => ({
+    answers: [{ name: "", is_correct: false }],
     addAnswer: (id: number) => {
       set((state) => {
-        state.questions[id].answers.push("");
-      });
-    },
-    setAnswers: (idQuestion: number, idAnswer: number, answer: string) => {
-      set((state) => {
-        state.questions[idQuestion].answers[idAnswer] = answer;
+        state.answers.push({ name: "", is_correct: false });
       });
     },
   }))

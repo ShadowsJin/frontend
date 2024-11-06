@@ -3,7 +3,7 @@ import style from "./CreateTestPage.module.scss";
 import Header from "@/widgets/Header";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
-import useTest from "@/entities/Test/model/Test";
+import useTest from "@/entities/Test/model/TestSlice";
 import Button from "@/shared/ui/Button";
 import CreateQuestionBlock from "@/entities/Test/ui/CreateQuestionBlock";
 import { createTest } from "@/features/TestsOperations/model/TestsOperations";

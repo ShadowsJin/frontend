@@ -13,8 +13,7 @@ const QuestionBlock = ({ question, answers, id }: IQuestionBlock) => {
       <h3>{question}</h3>
       {answers.map((answer, ansId) => (
         <div key={ansId}>
-          {answer}{" "}
-          <Input type="checkbox" onClick={() => addAnswer(id, ansId)} />
+          {answer} <Input type="checkbox" onClick={() => addAnswer(ansId)} />
         </div>
       ))}
     </div>

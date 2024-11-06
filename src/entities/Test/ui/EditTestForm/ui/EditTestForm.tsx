@@ -2,7 +2,7 @@ import Button from "@/shared/ui/Button";
 import Input from "@/shared/ui/Input";
 import style from "./EditTestForm.module.scss";
 import { useNavigate } from "react-router-dom";
-import useTest from "@/entities/Test/model/Test";
+import useTest from "@/entities/Test/model/TestSlice";
 import { SubmitHandler, useForm } from "react-hook-form";
 import TextArea from "@/shared/ui/TextArea";
 import { useEffect, useState } from "react";

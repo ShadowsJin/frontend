@@ -10,7 +10,7 @@ import {
   TestCardType,
   TestQuestionType,
 } from "./TestOperationsTypes";
-import { QuestionType } from "@/entities/Test/model/TestTypes";
+import { QuestionType } from "@/entities/Test/model/TestSliceTypes";
 
 export const createTest = async (
   title?: string,

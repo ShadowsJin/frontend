@@ -1,8 +1,8 @@
 import Input from "@/shared/ui/Input";
 import style from "./CreateQuestionBlock.module.scss";
 import Button from "@/shared/ui/Button";
-import useTest from "@/entities/Test/model/Test";
-import { QuestionType } from "@/entities/Test/model/TestTypes";
+import useTest from "@/entities/Test/model/TestSlice";
+import { QuestionType } from "@/entities/Test/model/TestSliceTypes";
 
 interface CreateQuestionBlockI {
   question: QuestionType;

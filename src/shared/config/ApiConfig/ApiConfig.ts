@@ -20,22 +20,21 @@ axiosInstance.interceptors.request.use((config) => {
 
 axiosInstance.interceptors.response.use(
   (response) => response,
-  (error) => {
+  async (error) => {
     const originalRequest = error.config;
 
     if (error.response.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true;
 
-      return updateToken().then((res) => {
-        if (res) {
-          const cookie = new Cookies();
-          const token = cookie.get("access_token");
-          originalRequest.headers["Authorization"] = `Bearer ${token}`;
-          return axiosInstance(originalRequest);
-        } else {
-          return logout();
-        }
-      });
+      let res = await updateToken();
+      if (res) {
+        const cookie = new Cookies();
+        const token = cookie.get("access_token");
+        originalRequest.headers["Authorization"] = `Bearer ${token}`;
+        return axiosInstance(originalRequest);
+      } else {
+        return logout();
+      }
     }
 
     return Promise.reject(error);

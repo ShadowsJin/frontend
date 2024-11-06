@@ -1,7 +1,7 @@
 import axiosInstance from "@/shared/config/ApiConfig/ApiConfig";
 import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
-import { newTestType, QuestionType } from "./TestTypes";
+import { newTestType, QuestionType } from "./TestSliceTypes";
 
 const useTest = create(
   immer<newTestType>((set) => ({
