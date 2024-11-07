@@ -2,7 +2,6 @@
 
 .leftPanel {
   height: 90vh;
-  gap: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -60,12 +59,12 @@
       border-radius: 10px;
 
       &::-webkit-scrollbar {
-        width: 10px;
+        width: 0.5rem;
         margin-right: 0.5rem;
       }
       &::-webkit-scrollbar-thumb {
         border-radius: 100px;
-        background: $blockBackground4;
+        background: $scrollBarColor;
       }
       .question {
         padding: 0.7rem;
@@ -75,6 +74,13 @@
         gap: 0.5rem;
         flex-direction: column;
         border: solid 1px transparent;
+        p {
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
       }
       .current {
         border: solid 1px $hoverColor;

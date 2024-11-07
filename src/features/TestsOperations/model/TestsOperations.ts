@@ -2,6 +2,7 @@ import axiosInstance from "@/shared/config/ApiConfig/ApiConfig";
 import {
   Answer,
   AnswerForPassing,
+  CompleteTestType,
   getCreatedTestsType,
   getPassedTestsType,
   getPassingTestQuestionsArrayType,
@@ -117,6 +118,15 @@ export const sendAnswers: sendAnswerType = async (
         ?.map((answer) => `answer=${answer}&`)
         .join("")}`
     );
+    return true;
+  } catch (e) {
+    return false;
+  }
+};
+
+export const completeTest: CompleteTestType = async (id?: string) => {
+  try {
+    const response = await axiosInstance.get(`/quizes/finish_test/${id}`);
     return true;
   } catch (e) {
     return false;

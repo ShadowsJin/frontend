@@ -7,9 +7,11 @@ import classNames from "classnames";
 import { getPassingTestQuestionsArray } from "@/features/TestsOperations/model/TestsOperations";
 import {
   TestCardType,
-  TestQuestionType,
+  TestPassingQuestionType,
 } from "@/features/TestsOperations/model/TestOperationsTypes";
 import CheckMarkIcon from "@/shared/assets/checkMark.svg";
+import CompleteTestForm from "@/features/TestsOperations/ui/CompleteTestForm";
+import Modal from "@/shared/ui/Modal";
 
 interface LeftPanelProps {
   idTest?: string;
@@ -18,18 +20,27 @@ interface LeftPanelProps {
 }
 
 const LeftPanel = ({ idTest, numberQuestion, testData }: LeftPanelProps) => {
-  const [questionsArray, setQuestionsArray] = useState<TestQuestionType[]>([
+  const [openModal, setOpenModal] = useState(false);
+  const [questionsArray, setQuestionsArray] = useState<
+    TestPassingQuestionType[]
+  >([
     {
       name: "",
       type: "1",
+      id: "",
       answers: [
         {
           name: "",
-          is_correct: false,
+          is_selected: false,
+          id: "",
         },
       ],
     },
   ]);
+
+  const closeModal = () => {
+    setOpenModal(false);
+  };
 
   useEffect(() => {
     getPassingTestQuestionsArray(idTest).then((data) => {
@@ -62,9 +73,12 @@ const LeftPanel = ({ idTest, numberQuestion, testData }: LeftPanelProps) => {
           ))}
         </div>
       </div>
-      <Button variant="primary">
+      <Button variant="primary" onClick={() => setOpenModal(true)}>
         <CheckMarkIcon /> Завершить
       </Button>
+      <Modal isOpened={openModal} onClose={closeModal}>
+        <CompleteTestForm id={idTest} closeModal={closeModal} />
+      </Modal>
     </div>
   );
 };

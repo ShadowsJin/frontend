@@ -60,3 +60,5 @@ export type sendAnswerType = (
   numberQuestion?: number | string,
   answers?: string[]
 ) => Promise<boolean>;
+
+export type CompleteTestType = (id?: string) => Promise<boolean>;

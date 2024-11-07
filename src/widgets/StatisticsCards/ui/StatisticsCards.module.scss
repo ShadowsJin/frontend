@@ -39,12 +39,12 @@
     padding-bottom: 1rem;
 
     &::-webkit-scrollbar {
-      width: 10px;
+      width: 0.5rem;
       margin-right: 0.5rem;
     }
     &::-webkit-scrollbar-thumb {
       border-radius: 100px;
-      background: $blockBackground4;
+      background: $scrollBarColor;
     }
   }
 }
