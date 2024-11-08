@@ -35,6 +35,11 @@ const useTest = create(
         state.questions[id].name = name;
       });
     },
+    deleteQuestion: (id: number) => {
+      set((state) => {
+        state.questions.splice(id, 1);
+      });
+    },
     addAnswer: (id: number) => {
       set((state) => {
         state.questions[id].answers.push({ name: "", is_correct: false });
@@ -46,6 +51,12 @@ const useTest = create(
       });
     },
 
+    deleteAnswer: (idQuestion: number, idAnswer: number) => {
+      set((state) => {
+        state.questions[idQuestion].answers.splice(idAnswer, 1);
+      });
+    },
+
     setTrueAnswer: (id: number, idAnswer: number) => {
       set((state) => {
         if (state.questions[id].answers[idAnswer].is_correct) {
@@ -53,12 +64,6 @@ const useTest = create(
         } else {
           state.questions[id].answers[idAnswer].is_correct = false;
         }
-      });
-    },
-
-    deleteQuestion: (id: number) => {
-      set((state) => {
-        state.questions.splice(id, 1);
       });
     },
 

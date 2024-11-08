@@ -1,9 +1,6 @@
 import { useParams } from "react-router-dom";
 import style from "./PassingTestPage.module.scss";
-import {
-  TestCardType,
-  TestQuestionType,
-} from "@/features/TestsOperations/model/TestOperationsTypes";
+import { TestCardType } from "@/features/TestsOperations/model/TestOperationsTypes";
 import { useEffect, useState } from "react";
 import { getTest } from "@/features/TestsOperations/model/TestsOperations";
 import classNames from "classnames";
