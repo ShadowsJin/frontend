@@ -15,16 +15,40 @@
     outline: none;
   }
 
-  input[type="checkbox"] {
-    -ms-transform: scale(2);
-    -moz-transform: scale(2);
-    -webkit-transform: scale(2);
-    -o-transform: scale(2);
-    transform: scale(2);
-    width: 2rem;
-    padding: 10px;
-    margin: 0;
+  .checkbox {
+    margin-top: 5px;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
+
+  input[type="checkbox"] {
+    appearance: none;
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border-radius: 6px;
+    border: 2px solid $correctColor;
+    transition: 200ms;
+    &::after {
+      content: "";
+      position: absolute;
+      width: 0px;
+      height: 0px;
+      font-size: 30px;
+      background-image: url("../../../assets/cheked.svg");
+      background-repeat: no-repeat;
+      transition: 200ms;
+    }
+    &:checked::after {
+      width: 30px;
+      height: 30px;
+      transition: 300ms;
+    }
+  }
+
   .icon {
     margin: 5px 0 5px 10px;
   }

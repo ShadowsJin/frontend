@@ -46,20 +46,15 @@ const TestPassingForm = ({
         setAnswers(data.answers);
       }
     });
-    // return () => {
-    //   answers && sendAnswers(idTest, numberQuestion, selectAnswers);
-    // };
   }, [numberQuestion]);
 
   const nextQuestion = () => {
     answers && sendAnswers(idTest, numberQuestion, selectAnswers);
-    // setAnswer(null);
     navigate(`/passingtest/${idTest}/${Number(numberQuestion) + 1}`);
   };
 
   const prevQuestion = () => {
     answers && sendAnswers(idTest, numberQuestion, selectAnswers);
-    // setAnswer(null);
     navigate(`/passingtest/${idTest}/${Number(numberQuestion) - 1}`);
   };
   return (
@@ -113,6 +108,16 @@ const TestPassingForm = ({
         {Number(numberQuestion) + 1 < questions_count && (
           <Button onClick={nextQuestion} variant="accent">
             Следующий вопрос
+          </Button>
+        )}
+        {Number(numberQuestion) + 1 == questions_count && (
+          <Button
+            onClick={() =>
+              answers && sendAnswers(idTest, numberQuestion, selectAnswers)
+            }
+            variant="accent"
+          >
+            Сохранить
           </Button>
         )}
       </div>
