@@ -1,5 +1,5 @@
 import axiosInstance from "@/shared/config/ApiConfig/ApiConfig";
-import { updateTokenType } from "./AuthByEmail.type";
+import { getMeType, updateTokenType } from "./AuthByEmail.type";
 
 export const loginFetch = async (email: string, password: string) => {
   try {
@@ -56,6 +56,28 @@ export const updateToken: updateTokenType = async () => {
     return true;
   } catch (e) {
     console.log(e);
+    return false;
+  }
+};
+
+export const getMe: getMeType = async () => {
+  try {
+    const response = await axiosInstance.get("/users/me");
+    return response?.data;
+  } catch (e) {
+    console.log(e);
+    return false;
+  }
+};
+
+export const changeProfile = async (fullname: string, email: string) => {
+  try {
+    const response = await axiosInstance.put("/users/edit", {
+      fullname,
+      email,
+    });
+    return true;
+  } catch (e) {
     return false;
   }
 };

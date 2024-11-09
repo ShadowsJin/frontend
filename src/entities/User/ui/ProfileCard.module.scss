@@ -42,11 +42,14 @@
     gap: 20px;
     width: 70%;
   }
-  .Buttons {
+  .buttons {
     display: flex;
     gap: 20px;
     align-items: center;
     width: 50%;
+    button {
+      width: 45%;
+    }
   }
 }
 

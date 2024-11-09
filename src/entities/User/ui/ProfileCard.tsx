@@ -2,12 +2,32 @@ import AvatarImage from "@/shared/assets/Avatar.png";
 import style from "./ProfileCard.module.scss";
 import Button from "@/shared/ui/Button";
 import Modal from "@/shared/ui/Modal";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LogoutForm from "@/features/AuthByEmail/ui/LogoutForm";
 import TrashIcon from "@/shared/assets/Trash.svg";
 import Input from "@/shared/ui/Input";
+import {
+  changeProfile,
+  getMe,
+} from "@/features/AuthByEmail/model/services/AuthByEmail/AuthByEmail";
 const ProfileCard = () => {
   const [openModal, setOpenModal] = useState(false);
+  const [fullname, setFullname] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+
+  const setValues = () => {
+    getMe().then((res) => {
+      if (res) {
+        setFullname(res.fullname);
+        setEmail(res.email);
+      }
+    });
+  };
+
+  useEffect(() => {
+    setValues();
+  }, []);
+
   return (
     <div className={style.ProfileCard}>
       <div className={style.Header}>
@@ -24,17 +44,22 @@ const ProfileCard = () => {
       <div className={style.InputsBlock}>
         <div className={style.InputBlock}>
           <label>Имя:</label>
-          <Input placeholder={"Андрей"} />
+          <Input
+            value={fullname}
+            onChange={(e) => setFullname(e.target.value)}
+          />
         </div>
         <div className={style.InputBlock}>
-          <label>Фамилия:</label>
-          <Input placeholder={"Акупунктурович"} />
+          <label>Email:</label>
+          <Input value={email} onChange={(e) => setEmail(e.target.value)} />
         </div>
       </div>
 
-      <div className={style.Buttons}>
-        <Button>Сохранить</Button>
-        <Button variant="accent">Отмена</Button>
+      <div className={style.buttons}>
+        <Button onClick={setValues}>Отмена</Button>
+        <Button variant="accent" onClick={() => changeProfile(fullname, email)}>
+          Сохранить
+        </Button>
       </div>
       <Modal isOpened={openModal} onClose={() => setOpenModal(false)}>
         <LogoutForm />
