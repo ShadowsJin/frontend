@@ -14,7 +14,7 @@ export interface newTestType {
   setTrueAnswer: (id: number, idAnswer: number) => void;
 
   deleteQuestion: (id: number) => void;
-
+  deleteAnswer: (id: number, AnswId: number) => void;
   deleteTest: () => void;
 }
 
