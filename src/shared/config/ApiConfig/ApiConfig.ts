@@ -3,14 +3,14 @@ import { updateToken } from "@/features/AuthByEmail/model/services/AuthByEmail/A
 import axios from "axios";
 
 export const axiosAuthInstance = axios.create({
-  // baseURL: "http://176.109.100.162/api",
-  baseURL: "http://localhost:8080/api",
+  baseURL: "http://176.109.100.162/api",
+  // baseURL: "http://localhost:8080/api",
   withCredentials: true,
 });
 
 const axiosInstance = axios.create({
-  // baseURL: "http://176.109.100.162/api",
-  baseURL: "http://localhost:8080/api",
+  baseURL: "http://176.109.100.162/api",
+  // baseURL: "http://localhost:8080/api",
   withCredentials: true,
 });
 
