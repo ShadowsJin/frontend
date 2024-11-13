@@ -1,10 +1,10 @@
 # frontend часть для веб приложения TastyQ
 
-![image](https://github.com/user-attachments/assets/031722e9-6b83-4af3-9dd1-387dda8427ef)
+![image](https://github.com/user-attachments/assets/be777500-ea2e-44d5-8561-9d0a045fef8d)
 
 ## [Ссылка на проект](http://176.109.100.162)
 
-## Для запуска введите:
+## Для запуска проекта, введите в терминале:
 ```
 npm i
 npm run dev
