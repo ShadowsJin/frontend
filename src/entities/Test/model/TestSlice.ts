@@ -2,6 +2,7 @@ import axiosInstance from "@/shared/config/ApiConfig/ApiConfig";
 import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
 import { newTestType, QuestionType } from "./TestSliceTypes";
+import notification from "@/shared/config/ApiConfig/Notification";
 
 const useTest = create(
   immer<newTestType>((set) => ({
@@ -89,7 +90,7 @@ const useTest = create(
         });
         return true;
       } catch (e) {
-        console.log(e);
+        notification("Ошибка при создании теста", "error");
         return false;
       }
     },

@@ -11,27 +11,29 @@ interface IProtected {
 
 export const OnlyAuth = ({ component, onlyAuth = true }: IProtected) => {
   const location = useLocation();
-  const cookie = new Cookies();
-  const token = cookie.get("access_token");
+  const isAuth = localStorage.getItem("isAuth");
+  // const cookie = new Cookies();
 
-  if (!onlyAuth && token) {
-    const { from } = location?.state || {
-      from: { pathname: "/mytests" },
-    };
+  // const token = cookie.get("access_token");
+
+  console.log(document.cookie);
+  const { from } = location?.state || {
+    from: { pathname: "/mytests" },
+  };
+
+  if (!onlyAuth && isAuth) {
     return <Navigate to={from} />;
   }
 
-  if (onlyAuth && !token) {
-    const { from } = location?.state || {
-      from: { pathname: "/mytests" },
-    };
-    updateToken().then((res) => {
-      res ? (
-        <Navigate to={from} />
-      ) : (
-        <Navigate to="/" state={{ from: location }} />
-      );
-    });
+  if (onlyAuth && !isAuth) {
+    return <Navigate to="/" state={{ from: location }} />;
+    // updateToken().then((res) => {
+    //   return res ? (
+    //     <Navigate to={from} />
+    //   ) : (
+    //     <Navigate to="/" state={{ from: location }} />
+    //   );
+    // });
   }
 
   return component;

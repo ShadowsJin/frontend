@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { SubmitHandler, useForm } from "react-hook-form";
 
+import "react-toastify/dist/ReactToastify.css";
 import style from "./RegisterForm.module.scss";
 
 import Button from "@/shared/ui/Button/index";
@@ -14,6 +15,7 @@ import AppleIcon from "@/shared/assets/Apple.svg";
 import GoogleIcon from "@/shared/assets/Google.svg";
 import TelegramIcon from "@/shared/assets/Telegram.svg";
 import { registerFetch } from "../../model/services/AuthByEmail/AuthByEmail";
+import { ToastContainer } from "react-toastify";
 
 type Inputs = {
   fullname: string;
@@ -36,6 +38,8 @@ const RegisterForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={style.RegisterForm}>
+      <ToastContainer />
+
       <div className={style.title}>
         <h3>
           Зарегистрируйся! <LikeHandIcon />

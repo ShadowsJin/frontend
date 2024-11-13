@@ -1,9 +1,13 @@
-import axiosInstance from "@/shared/config/ApiConfig/ApiConfig";
+import axiosInstance, {
+  axiosAuthInstance,
+} from "@/shared/config/ApiConfig/ApiConfig";
 import { getMeType, updateTokenType } from "./AuthByEmail.type";
+import notification from "@/shared/config/ApiConfig/Notification";
+import { AxiosError } from "axios";
 
 export const loginFetch = async (email: string, password: string) => {
   try {
-    const response = await axiosInstance.post(
+    const response = await axiosAuthInstance.post(
       "/users/login",
       {
         email,
@@ -11,10 +15,16 @@ export const loginFetch = async (email: string, password: string) => {
       },
       { headers: { "Content-Type": "application/json" } }
     );
+
+    if (response) localStorage.setItem("isAuth", "true");
     return true;
-  } catch (e) {
-    console.log(e);
-    return false;
+  } catch (error) {
+    const message = (error as AxiosError<{ detail: string }>).response?.data
+      ?.detail;
+
+    notification("Неправильный логин или пароль", "error");
+
+    throw error;
   }
 };
 export const registerFetch = async (
@@ -23,7 +33,7 @@ export const registerFetch = async (
   password: string
 ) => {
   try {
-    const response = await axiosInstance.post(
+    const response = await axiosAuthInstance.post(
       "/users/register",
       {
         fullname,
@@ -35,15 +45,23 @@ export const registerFetch = async (
       }
     );
 
+    if (response) localStorage.setItem("isAuth", "true");
+
     return true;
-  } catch (e) {
-    console.log(e);
-    return false;
+  } catch (error) {
+    const message = (error as AxiosError<{ detail: string }>).response?.data
+      ?.detail;
+
+    notification("Такой пользователь уже существует", "error");
+
+    throw error;
   }
 };
 export const logout = async () => {
   try {
-    const response = await axiosInstance.get("/users/logout");
+    localStorage.removeItem("isAuth");
+    const response = await axiosAuthInstance.get("/users/logout");
+
     return true;
   } catch (e) {
     console.log(e);
@@ -52,7 +70,7 @@ export const logout = async () => {
 
 export const updateToken: updateTokenType = async () => {
   try {
-    const response = await axiosInstance.get("/users/refresh_token");
+    const response = await axiosAuthInstance.get("/users/refresh_token");
     return true;
   } catch (e) {
     console.log(e);

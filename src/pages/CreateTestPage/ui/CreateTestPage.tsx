@@ -1,5 +1,7 @@
 import classNames from "classnames";
 import style from "./CreateTestPage.module.scss";
+import "react-toastify/dist/ReactToastify.css";
+
 import Header from "@/widgets/Header";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -10,6 +12,7 @@ import { createTest } from "@/features/TestsOperations/model/TestsOperations";
 import PlusIcon from "@/shared/assets/Plus.svg";
 import Modal from "@/shared/ui/Modal";
 import CompleteCreatingTestForm from "@/features/TestsOperations/ui/CompleteCreatingTestForm";
+import { ToastContainer } from "react-toastify";
 
 const CreateTestPage = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -23,9 +26,11 @@ const CreateTestPage = () => {
   const navigate = useNavigate();
 
   const complete = async () => {
-    await createTest(title, description, questions);
-    deleteTest();
-    navigate("/mytests");
+    const res = await createTest(title, description, questions);
+    if (res) {
+      deleteTest();
+      navigate("/mytests");
+    }
   };
 
   const closeModal = () => {
@@ -33,6 +38,8 @@ const CreateTestPage = () => {
   };
   return (
     <div className={classNames("section", style.CreateTestPage)}>
+      <ToastContainer />
+
       <Header title={`ТЕСТ: ${title}`} />
       <div className={style.body}>
         <div className={style.content}>
