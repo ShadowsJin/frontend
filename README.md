@@ -1,4 +1,4 @@
-<h1 align="center">🌟Frontend часть для веб приложения <b color="#00FFFF">TastyQ</b>🌟</h1>
+<h1 align="center">🌟 Frontend часть для веб приложения <b>TastyQ</b> 🌟</h1>
 
 ![image](https://github.com/user-attachments/assets/be777500-ea2e-44d5-8561-9d0a045fef8d)
 
