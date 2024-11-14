@@ -2,9 +2,9 @@
 
 ![image](https://github.com/user-attachments/assets/be777500-ea2e-44d5-8561-9d0a045fef8d)
 
-## :shipit: [Ссылка на проект](http://176.109.100.162) 👉
+## 👉 [Ссылка на проект](http://176.109.100.162) 👈
 
-## Для запуска проекта, введите в терминале 😮:
+## Для запуска проекта, введите в терминале :shipit: :
 ```
 npm i
 npm run dev
@@ -18,6 +18,6 @@ npm run dev
 - Framer Motion
 - Axios
 - React Hook Form
-- Playwright
+- Playwright 😿
 - EsLint
 - react-toastify
