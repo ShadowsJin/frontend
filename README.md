@@ -20,3 +20,4 @@ npm run dev
 - React Hook Form
 - Playwright
 - EsLint
+- react-toastify
