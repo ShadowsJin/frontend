@@ -1,10 +1,11 @@
-import { ProfileCard } from "@/entities/User";
 import Header from "@/widgets/Header";
 import classNames from "classnames";
 import style from "./ProfilePage.module.scss";
 import { useNavigate } from "react-router-dom";
 import ArrowLeftIcon from "@/shared/assets/arrowLeft.svg";
 import Button from "@/shared/ui/Button";
+import { ProfileCard } from "@/features/AuthByEmail/ui";
+
 const ProfilePage = () => {
   const navigate = useNavigate();
   return (
