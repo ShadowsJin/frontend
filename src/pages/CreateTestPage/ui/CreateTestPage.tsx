@@ -12,7 +12,6 @@ import { createTest } from "@/features/TestsOperations/model/TestsOperations";
 import PlusIcon from "@/shared/assets/Plus.svg";
 import Modal from "@/shared/ui/Modal";
 import CompleteCreatingTestForm from "@/features/TestsOperations/ui/CompleteCreatingTestForm";
-import { ToastContainer } from "react-toastify";
 
 const CreateTestPage = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -38,8 +37,6 @@ const CreateTestPage = () => {
   };
   return (
     <div className={classNames("section", style.CreateTestPage)}>
-      <ToastContainer />
-
       <Header title={`ТЕСТ: ${title}`} />
       <div className={style.body}>
         <div className={style.content}>

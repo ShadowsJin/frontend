@@ -1,16 +1,15 @@
 import { logout } from "@/features/AuthByEmail";
 import { updateToken } from "@/features/AuthByEmail/model/services/AuthByEmail/AuthByEmail";
+import { API_URL } from "@/shared/constants/appURL";
 import axios from "axios";
 
 export const axiosAuthInstance = axios.create({
-  baseURL: "http://176.109.100.162/api",
-  // baseURL: "http://localhost:8080/api",
+  baseURL: API_URL,
   withCredentials: true,
 });
 
 const axiosInstance = axios.create({
-  baseURL: "http://176.109.100.162/api",
-  // baseURL: "http://localhost:8080/api",
+  baseURL: API_URL,
   withCredentials: true,
 });
 

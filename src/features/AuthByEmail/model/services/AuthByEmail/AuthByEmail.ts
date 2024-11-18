@@ -4,6 +4,7 @@ import axiosInstance, {
 import { getMeType, updateTokenType } from "./AuthByEmail.type";
 import notification from "@/shared/config/ApiConfig/Notification";
 import { AxiosError } from "axios";
+import { APP_URL } from "@/shared/constants/appURL";
 
 export const loginFetch = async (email: string, password: string) => {
   try {
@@ -22,7 +23,7 @@ export const loginFetch = async (email: string, password: string) => {
     const message = (error as AxiosError<{ detail: string }>).response?.data
       ?.detail;
 
-    notification("Неправильный логин или пароль", "error");
+    notification(`Ошибка входа: ${message}`, "error");
 
     throw error;
   }
@@ -52,28 +53,31 @@ export const registerFetch = async (
     const message = (error as AxiosError<{ detail: string }>).response?.data
       ?.detail;
 
-    notification("Такой пользователь уже существует", "error");
+    notification(`Ошибка регистрации: ${message}`, "error");
 
     throw error;
   }
 };
 export const logout = async () => {
   try {
-    localStorage.removeItem("isAuth");
-    const response = await axiosAuthInstance.get("/users/logout");
+    axiosAuthInstance.get("/users/logout");
 
     return true;
-  } catch (e) {
-    console.log(e);
+  } catch (error) {
+    notification("Ошибка выхода из аккаунта", "error");
+
+    throw error;
+  } finally {
+    localStorage.removeItem("isAuth");
+    window.location.href = APP_URL;
   }
 };
 
 export const updateToken: updateTokenType = async () => {
   try {
-    const response = await axiosAuthInstance.get("/users/refresh_token");
+    await axiosAuthInstance.get("/users/refresh_token");
     return true;
-  } catch (e) {
-    console.log(e);
+  } catch (error) {
     return false;
   }
 };
@@ -82,9 +86,9 @@ export const getMe: getMeType = async () => {
   try {
     const response = await axiosInstance.get("/users/me");
     return response?.data;
-  } catch (e) {
-    console.log(e);
-    return false;
+  } catch (error) {
+    notification("Ошибка, не удалось получить данные пользователя", "error");
+    throw error;
   }
 };
 

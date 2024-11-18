@@ -53,12 +53,7 @@ const CreatingTestForm = ({ closeModal }: CreatingTestFormProps) => {
           {errors.description && (
             <p className={style.errorMsg}>Введите описание</p>
           )}
-          <TextArea
-            placeholder="Описание"
-            {...register("description", {
-              required: true,
-            })}
-          />
+          <TextArea placeholder="Описание" {...register("description")} />
         </div>
       </div>
 
