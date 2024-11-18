@@ -24,6 +24,14 @@
     -o-transform: scale(2);
     transform: scale(2);
     padding: 10px;
+    &::-webkit-scrollbar {
+      width: 0.5rem;
+      margin-right: 0.5rem;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 100px;
+      background-color: $scrollBarColor;
+    }
   }
   .icon {
     margin: 5px 0 5px 10px;
