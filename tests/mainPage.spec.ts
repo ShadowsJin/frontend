@@ -1,23 +1,28 @@
+import { APP_URL } from "@/shared/constants/appURL";
 import { test, expect } from "@playwright/test";
 
 test("has title", async ({ page }) => {
-  await page.goto("http://176.109.100.162");
+  await page.goto(APP_URL);
 
   // Expect a title "to contain" a substring.
   await expect(page).toHaveTitle(
-    //TODO "tastyQ - платформа для создания тестов и проверочных работ"
-    "Vite + React + TS"
+    "tastyQ - платформа для создания тестов и проверочных работ"
   );
 });
 
-test("get started link", async ({ page }) => {
-  await page.goto("https://playwright.dev/");
+test("can register", async ({ page }) => {
+  await page.goto(`${APP_URL}/login`);
+  await page.fill('input[name="fullname"]', "Кобзева Елизавета Игоревна");
+  await page.fill('input[name="email"]', "lizakobzeva@list.ru");
+  await page.fill('input[name="password"]', "12345678Ew");
+  await page.click('button[type="submit"]');
+  await expect(page).toHaveURL(`${APP_URL}/mytests`);
+});
 
-  // Click the get started link.
-  await page.getByRole("link", { name: "Get started" }).click();
-
-  // Expects page to have a heading with the name of Installation.
-  await expect(
-    page.getByRole("heading", { name: "Installation" })
-  ).toBeVisible();
+test("can login", async ({ page }) => {
+  await page.goto(`${APP_URL}/login`);
+  await page.fill('input[name="email"]', "lizakobzeva@list.ru");
+  await page.fill('input[name="password"]', "12345678Ew");
+  await page.click('button[type="submit"]');
+  await expect(page).toHaveURL(`${APP_URL}/mytests`);
 });
