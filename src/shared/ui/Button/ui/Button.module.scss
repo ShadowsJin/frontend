@@ -12,6 +12,7 @@
   padding: 15px;
   cursor: pointer;
   transition: 0.2s;
+  min-width: fit-content;
 }
 .normal {
   &:hover {
