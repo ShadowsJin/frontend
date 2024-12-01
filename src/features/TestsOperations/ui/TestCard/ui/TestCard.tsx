@@ -9,8 +9,17 @@ import Dropdown from "@/shared/ui/Dropdown";
 import { TESTCARD_LI_ARRAY } from "@/shared/constants/DropdownLiArray";
 export interface TestCardProps extends TestCardType {
   onClick?: () => void;
+  created?: boolean;
 }
-const TestCard = ({ title, description, id, onClick }: TestCardProps) => {
+const TestCard = ({
+  title,
+  description,
+  id,
+  onClick,
+  created,
+  questions_count,
+  correct_questions,
+}: TestCardProps) => {
   const [openModal, setOpenModal] = useState(false);
 
   return (
@@ -20,22 +29,39 @@ const TestCard = ({ title, description, id, onClick }: TestCardProps) => {
         <p>{description}</p>
       </div>
 
-      <div className={style.bottom}>
-        <div className={style.tools}>
-          <Dropdown id={id} liArray={TESTCARD_LI_ARRAY}>
-            <div className={style.tool}>
-              <SettingIcon />
+      {created ? (
+        <>
+          <div className={style.bottom}>
+            <div className={style.tools}>
+              <Dropdown id={id} liArray={TESTCARD_LI_ARRAY}>
+                <div className={style.tool}>
+                  <SettingIcon />
+                </div>
+              </Dropdown>
+              <div className={style.tool} onClick={() => setOpenModal(true)}>
+                <LinkIcon />
+              </div>
             </div>
-          </Dropdown>
-          <div className={style.tool} onClick={() => setOpenModal(true)}>
-            <LinkIcon />
+            <p>23.08.2024</p>
           </div>
+          <Modal isOpened={openModal} onClose={() => setOpenModal(false)}>
+            <TestLinkForm link={`/passingtest/${id}`} />
+          </Modal>
+        </>
+      ) : (
+        <div className={style.tools}>
+          <p>
+            Вы решили:{" "}
+            <span className={style.accentText}>
+              {questions_count}/{correct_questions}
+            </span>
+          </p>
+          <p>
+            Дата прохождения:{" "}
+            <span className={style.accentText}>32.08.2024</span>
+          </p>
         </div>
-        <p>23.08.2024</p>
-      </div>
-      <Modal isOpened={openModal} onClose={() => setOpenModal(false)}>
-        <TestLinkForm link={`/passingtest/${id}`} />
-      </Modal>
+      )}
     </div>
   );
 };

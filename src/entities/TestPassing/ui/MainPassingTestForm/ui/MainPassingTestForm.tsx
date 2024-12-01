@@ -32,7 +32,15 @@ const MainPassingTestForm = ({
           <p>{owner_id}</p>
         </div>
 
-        <Button onClick={() => navigate(`/passingtest/${id}/0`)}>Начать</Button>
+        <div className={style.buttons}>
+          <Button onClick={() => navigate(-1)}>Вернуться</Button>
+          <Button
+            variant="accent"
+            onClick={() => navigate(`/passingtest/${id}/0`)}
+          >
+            Начать
+          </Button>
+        </div>
       </div>
     </div>
   );

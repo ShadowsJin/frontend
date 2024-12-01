@@ -1,5 +1,6 @@
 @import "./reset.scss";
 @import "./global.scss";
+@import "./mixins.scss";
 
 .flex {
   display: flex;
@@ -53,4 +54,17 @@ body {
     linear-gradient(90deg, rgb($paragraphColor, 0.2), $backgroundColor 1px);
   background-size: 5vh 5vh;
   background-position: center center;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  width: 100%;
+  padding: 1rem;
+
+  @include mobile {
+    padding: 0.5rem;
+  }
 }

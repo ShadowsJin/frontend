@@ -1,4 +1,4 @@
-@import "@styles/global.scss";
+@import "@styles/index.scss";
 .TestCard {
   position: relative;
   min-height: 300px;
@@ -12,6 +12,10 @@
 
   border-radius: 10px;
   box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.25);
+  @include mobile {
+    padding: 1rem;
+  }
+
   .header {
     h2 {
       display: -webkit-box;
@@ -84,4 +88,8 @@
       }
     }
   }
+}
+
+.accentText {
+  font-weight: 600;
 }

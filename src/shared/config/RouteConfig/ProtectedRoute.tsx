@@ -21,14 +21,14 @@ export const OnlyAuth = ({ component, onlyAuth = true }: IProtected) => {
   }
 
   if (onlyAuth && !isAuth) {
-    // return <Navigate to="/" state={{ from: location }} />;
-    updateToken().then((res) => {
-      return res ? (
-        <Navigate to={from} />
-      ) : (
-        <Navigate to="/" state={{ from: location }} />
-      );
-    });
+    return <Navigate to="/" state={{ from: location }} />;
+    // updateToken().then((res) => {
+    //   return res ? (
+    //     <Navigate to={from} />
+    //   ) : (
+    //     <Navigate to="/" state={{ from: location }} />
+    //   );
+    // });
   }
 
   return component;

@@ -5,6 +5,7 @@ export interface TestCardType {
   created_at?: string;
   owner_id?: string;
   questions_count?: number;
+  correct_questions?: number;
 }
 
 export interface Answer {

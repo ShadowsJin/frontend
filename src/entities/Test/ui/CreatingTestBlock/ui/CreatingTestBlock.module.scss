@@ -1,4 +1,4 @@
-@import "@styles/global.scss";
+@import "@styles/index.scss";
 .CreateTest {
   display: flex;
   align-items: center;
@@ -10,4 +10,9 @@
   border: $blocksBorder;
   transition: 0.2s;
   cursor: pointer;
+  @include mobile {
+    span {
+      display: none;
+    }
+  }
 }

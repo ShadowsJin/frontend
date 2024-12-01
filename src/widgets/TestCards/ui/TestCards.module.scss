@@ -1,4 +1,4 @@
-@import "@styles/global.scss";
+@import "@styles/index.scss";
 .Tests {
   display: grid;
   position: relative;
@@ -6,6 +6,12 @@
   grid-auto-rows: 1fr;
   gap: 3vw;
   margin-bottom: 10rem;
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include mobile {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 .noneTitle {
   position: absolute;

@@ -10,7 +10,9 @@ const TestCards = ({ cards, created }: TestCardsProps) => {
   return (
     <div className={style.Tests}>
       {cards.length > 0 ? (
-        cards.map((card, id) => <TestCard key={id} {...card} />)
+        cards.map((card, id) => (
+          <TestCard created={created} key={id} {...card} />
+        ))
       ) : (
         <h2 className={style.noneTitle}>Здесь нет тестов</h2>
       )}
