@@ -1,7 +1,7 @@
 @import "@styles/index.scss";
 
 .statisticsPanel {
-  width: 35%;
+  width: 33%;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -13,13 +13,42 @@
     border: $blocksBorder;
     padding: 2rem;
     box-shadow: $blocksShadow;
+    .title {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+    .bestResult {
+      margin-top: 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      .bestUser {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        img {
+          width: 40xp;
+          height: 40px;
+          border-radius: 50%;
+        }
+      }
+    }
   }
   .dataBlock {
     width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
     background-color: $blockBackground;
     border-radius: $bigBorderRadius;
     border: $blocksBorder;
     padding: 2rem;
     box-shadow: $blocksShadow;
+    .dataBlockItem {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
   }
 }
