@@ -4,7 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 import Header from "@/widgets/Header";
 import { useNavigate, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import useTest from "@/entities/Test/model/TestSlice";
 import Button from "@/shared/ui/Button";
 import CreateQuestionBlock from "@/entities/Test/ui/CreateQuestionBlock";
@@ -23,6 +23,7 @@ const CreateTestPage = () => {
     deleteTest();
   }, []);
   const navigate = useNavigate();
+  const ref = useRef<HTMLDivElement>(null);
 
   const complete = async () => {
     const res = await createTest(title, description, questions);
@@ -35,12 +36,22 @@ const CreateTestPage = () => {
   const closeModal = () => {
     setOpenModal(false);
   };
+
+  const addQuestionBlock = async () => {
+    await addQuestion();
+    ref &&
+      ref.current?.scroll({
+        top: ref.current?.scrollHeight,
+        behavior: "smooth",
+      });
+  };
+
   return (
     <div className={classNames("section", style.CreateTestPage)}>
       <Header title={`ТЕСТ: ${title}`} />
       <div className={style.body}>
         <div className={style.content}>
-          <div className={style.createQuestionsBlock}>
+          <div className={style.createQuestionsBlock} ref={ref}>
             {questions?.map((question, id) => (
               <CreateQuestionBlock question={question} id={id} key={id} />
             ))}
@@ -50,7 +61,7 @@ const CreateTestPage = () => {
 
         <div className={style.buttons}>
           <Button
-            onClick={() => addQuestion()}
+            onClick={addQuestionBlock}
             className={style.addTest}
             variant="primary"
           >

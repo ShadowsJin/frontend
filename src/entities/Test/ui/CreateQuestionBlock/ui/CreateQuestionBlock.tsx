@@ -18,11 +18,7 @@ const CreateQuestionBlock = ({ question, id }: CreateQuestionBlockI) => {
     deleteQuestion,
     deleteAnswer,
   } = useTest();
-  // const ChangeAnswers = (answer: string, id: number) => {
-  //   const answers = [...question.answers];
-  //   answers[id] = answers[id] + answer;
-  //   setAnswers(id, answers);
-  // };
+
   const ChangeQuestion = (name: string) => {
     setQuestion(id, name);
   };
