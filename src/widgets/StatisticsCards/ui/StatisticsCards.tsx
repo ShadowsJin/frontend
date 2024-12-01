@@ -23,7 +23,7 @@ const StatisticsCards = () => {
 
   if (cardsArray === null) {
     return (
-      <div className={style.StatisticsCards}>
+      <div className={style.noneCards}>
         <Loader />
       </div>
     );

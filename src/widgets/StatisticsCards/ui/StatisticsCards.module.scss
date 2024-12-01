@@ -1,7 +1,8 @@
 @import "@styles/index.scss";
 .StatisticsCards {
-  width: 60%;
+  // width: 68%;
   padding: 0 3rem;
+
   .header {
     width: 100%;
     display: flex;
@@ -46,12 +47,11 @@
       background: $scrollBarColor;
     }
   }
-
-  .noneCards {
-    width: 100%;
-    height: 80vh;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-  }
+}
+.noneCards {
+  width: 60%;
+  height: 80vh;
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }

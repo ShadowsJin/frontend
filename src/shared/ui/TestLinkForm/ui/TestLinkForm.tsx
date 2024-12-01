@@ -9,7 +9,7 @@ const TestLinkForm = ({ link, closeModal }: TestLinkFormProps) => {
   return (
     <div className={style.testLinkForm}>
       Ссылка на прохождение теста:{" "}
-      <Link to={link} onClick={closeModal}>{`${APP_URL}${link}`}</Link>
+      <h4 onClick={closeModal}>{`${APP_URL}${link}`}</h4>
     </div>
   );
 };
