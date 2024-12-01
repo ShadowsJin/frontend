@@ -20,5 +20,14 @@
     > a {
       font-size: 1.2rem;
     }
+    @include tablet {
+      width: 60%;
+    }
+    @include mobile {
+      width: 100%;
+      img {
+        display: none;
+      }
+    }
   }
 }

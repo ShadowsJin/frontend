@@ -6,7 +6,7 @@ const SupportPage = () => {
   return (
     <div className={classNames("section", style.SupportPage)}>
       <Header title="ПОДДЕРЖКА" />
-      <img src={SupportImg} alt="" />
+      <img src={SupportImg} alt="" className={style.supportImage} />
     </div>
   );
 };

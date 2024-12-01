@@ -15,15 +15,6 @@
     background-color: transparent;
     border: none;
     outline: none;
-  }
-
-  TextArea[type="checkbox"] {
-    -ms-transform: scale(2);
-    -moz-transform: scale(2);
-    -webkit-transform: scale(2);
-    -o-transform: scale(2);
-    transform: scale(2);
-    padding: 10px;
     &::-webkit-scrollbar {
       width: 0.5rem;
       margin-right: 0.5rem;
@@ -33,11 +24,8 @@
       background-color: $scrollBarColor;
     }
   }
+
   .icon {
     margin: 5px 0 5px 10px;
   }
-}
-.checkbox {
-  background-color: transparent;
-  width: auto;
 }
