@@ -53,7 +53,7 @@ const TestCard = ({
           <p>
             Вы решили:{" "}
             <span className={style.accentText}>
-              {questions_count}/{correct_questions}
+              {correct_questions}/{questions_count}
             </span>
           </p>
           <p>

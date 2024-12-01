@@ -6,6 +6,7 @@ import {
   getCreatedTestsType,
   getPassedTestsType,
   getPassingTestQuestionsArrayType,
+  GetStatisticsType,
   getTestQuestionType,
   getTestType,
   sendAnswerType,
@@ -136,6 +137,16 @@ export const completeTest: CompleteTestType = async (id?: string) => {
     return true;
   } catch (e) {
     notification("Ошибка, не получилось завершить тест", "error");
+    return false;
+  }
+};
+
+export const getStatistics: GetStatisticsType = async (id?: string) => {
+  try {
+    const response = await axiosInstance.get(`/quizes/${id}/stats/`);
+    return response.data;
+  } catch (e) {
+    notification("Ошибка, не получилось получить статистику теста", "error");
     return false;
   }
 };

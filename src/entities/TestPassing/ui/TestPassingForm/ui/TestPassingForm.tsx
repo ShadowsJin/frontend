@@ -85,15 +85,16 @@ const TestPassingForm = ({
       </div>
       <h2>{questionData?.name}</h2>
       <div className={style.answersBlock}>
-        {answers?.map(({ name, is_selected }, id) => (
+        {answers?.map((answer, id) => (
           <div className={style.answerBlock} key={`${name} ${id} `}>
             <Input
               key={`checkbox${Number(numberQuestion) + id}`}
               type="checkbox"
-              checked={is_selected}
-              onChange={() => toggleAnswer(id, is_selected)}
+              checked={answer.is_selected}
+              onChange={() => toggleAnswer(id, answer.is_selected)}
+              id={answer.id}
             />
-            <p>{name}</p>
+            <label htmlFor={answer.id}>{answer.name}</label>
           </div>
         ))}
       </div>

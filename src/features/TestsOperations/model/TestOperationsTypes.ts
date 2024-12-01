@@ -33,13 +33,11 @@ export interface TestQuestionType {
   answers: Answer[];
 }
 
-export interface StatisticsCardType {
-  userName: string;
-  solve: number;
-  score: string;
-  dateCompletion: string;
-  passageTime: string;
-  totalQuestions: number;
+export interface StatisticCardType {
+  user_id: string;
+  user_name: string;
+  correct_count: number;
+  total_count: number;
 }
 
 export type getCreatedTestsType = () => Promise<false | TestCardType[]>;
@@ -64,3 +62,7 @@ export type sendAnswerType = (
 ) => Promise<boolean>;
 
 export type CompleteTestType = (id?: string) => Promise<boolean>;
+
+export type GetStatisticsType = (
+  id?: string
+) => Promise<StatisticCardType[] | false>;

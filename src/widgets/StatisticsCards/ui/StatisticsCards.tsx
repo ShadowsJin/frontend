@@ -1,86 +1,23 @@
-import { StatisticsCardType } from "@/features/TestsOperations/model/TestOperationsTypes";
+import { StatisticCardType } from "@/features/TestsOperations/model/TestOperationsTypes";
 import { useEffect, useState } from "react";
 import style from "./StatisticsCards.module.scss";
 import Button from "@/shared/ui/Button";
 import Input from "@/shared/ui/Input";
 import StatisticsCard from "@/shared/ui/StatisticsCard";
 import BackArrow from "@/shared/assets/arrowLeft.svg";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { getStatistics } from "@/features/TestsOperations/model/TestsOperations";
 
 const StatisticsCards = () => {
   const [isNew, setIsNew] = useState<boolean>(true);
-  const [cardsArray, setCardsArray] = useState<StatisticsCardType[] | null>(
-    null
-  );
+  const [cardsArray, setCardsArray] = useState<StatisticCardType[]>([]);
+
+  const isNewCardsArray = isNew ? cardsArray : [...cardsArray]?.reverse();
+
+  const { id } = useParams();
   const navigate = useNavigate();
   useEffect(() => {
-    //запрашиваем массив со статистикой
-    setCardsArray([
-      {
-        userName: "Василий Петров",
-        solve: 5,
-        score: "Леон",
-        dateCompletion: "32.08.2024",
-        passageTime: "15 минут",
-        totalQuestions: 5,
-      },
-      {
-        userName: "Аркадий Тапочкин",
-        solve: 4,
-        score: "ФФФФ",
-        dateCompletion: "30.08.2024",
-        passageTime: "20 минут",
-        totalQuestions: 5,
-      },
-      {
-        userName: "Огурчик Мандаринов",
-        solve: 5,
-        score: "Леон",
-        dateCompletion: "31.08.2024",
-        passageTime: "10 минут",
-        totalQuestions: 5,
-      },
-      {
-        userName: "Михаил Мишуткин",
-        solve: 3,
-        score: "АААА",
-        dateCompletion: "29.08.2024",
-        passageTime: "5 минут",
-        totalQuestions: 5,
-      },
-      {
-        userName: "Василий Петров",
-        solve: 5,
-        score: "Леон",
-        dateCompletion: "32.08.2024",
-        passageTime: "15 минут",
-        totalQuestions: 5,
-      },
-      {
-        userName: "Аркадий Тапочкин",
-        solve: 4,
-        score: "ФФФФ",
-        dateCompletion: "30.08.2024",
-        passageTime: "20 минут",
-        totalQuestions: 5,
-      },
-      {
-        userName: "Огурчик Мандаринов",
-        solve: 5,
-        score: "Леон",
-        dateCompletion: "31.08.2024",
-        passageTime: "10 минут",
-        totalQuestions: 5,
-      },
-      {
-        userName: "Михаил Мишуткин",
-        solve: 3,
-        score: "АААА",
-        dateCompletion: "29.08.2024",
-        passageTime: "5 минут",
-        totalQuestions: 5,
-      },
-    ]);
+    getStatistics(id).then((res) => res && setCardsArray(res));
   }, []);
   return (
     <div className={style.StatisticsCards}>
@@ -93,27 +30,38 @@ const StatisticsCards = () => {
           <p>Отсортировать:</p>
           <div className={style.sortInput}>
             <Input
+              id="new"
               type="checkbox"
               checked={isNew}
               onChange={() => setIsNew(true)}
+              name="new"
             />
-            <span>Сначала новые</span>
+            <label htmlFor="new">Сначала новые</label>
           </div>
           <div className={style.sortInput}>
             <Input
+              id="notNew"
               type="checkbox"
               checked={!isNew}
+              name="notNew"
               onChange={() => setIsNew(false)}
             />
-            <span>Сначала старые</span>
+            <label htmlFor="notNew">Сначала старые</label>
           </div>
         </div>
       </div>
-      <div className={style.cardsBlock}>
-        {cardsArray?.map((item) => (
-          <StatisticsCard {...item} />
-        ))}
-      </div>
+
+      {cardsArray?.length ? (
+        <div className={style.cardsBlock}>
+          {isNewCardsArray?.map((item, id) => (
+            <StatisticsCard key={id} {...item} />
+          ))}
+        </div>
+      ) : (
+        <div className={style.noneCards}>
+          <h2>Ваш тест еще никто не проходил</h2>
+        </div>
+      )}
     </div>
   );
 };
