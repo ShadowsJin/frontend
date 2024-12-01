@@ -4,6 +4,7 @@ export interface TestCardType {
   description?: string;
   created_at?: string;
   owner_id?: string;
+  owner_name?: string;
   questions_count?: number;
   correct_questions?: number;
 }

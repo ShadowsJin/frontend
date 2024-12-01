@@ -54,7 +54,7 @@ const LeftPanel = ({ idTest, numberQuestion, testData }: LeftPanelProps) => {
           <InfoIcon />
         </div>
         <h3>{testData?.title}</h3>
-        <div>{testData?.owner_id}</div>
+        <div>{testData?.owner_name}</div>
       </div>
       <div className={style.questionsMenu}>
         <h3>Вопросы</h3>

@@ -9,7 +9,7 @@ const MainPassingTestForm = ({
   title,
   description,
   questions_count,
-  owner_id,
+  owner_name,
 }: TestCardType) => {
   const navigate = useNavigate();
   return (
@@ -29,7 +29,7 @@ const MainPassingTestForm = ({
 
         <div className={style.testPassingBlock}>
           <label className={style.testLabel}>Создатель</label>
-          <p>{owner_id}</p>
+          <p>{owner_name}</p>
         </div>
 
         <div className={style.buttons}>
