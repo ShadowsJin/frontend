@@ -21,7 +21,9 @@ const TestCard = ({
   correct_questions,
 }: TestCardProps) => {
   const [openModal, setOpenModal] = useState(false);
-
+  const closeModal = () => {
+    setOpenModal(false);
+  };
   return (
     <div className={style.TestCard} onClick={onClick}>
       <div className={style.header}>
@@ -45,7 +47,7 @@ const TestCard = ({
             <p>23.08.2024</p>
           </div>
           <Modal isOpened={openModal} onClose={() => setOpenModal(false)}>
-            <TestLinkForm link={`/passingtest/${id}`} />
+            <TestLinkForm closeModal={closeModal} link={`/passingtest/${id}`} />
           </Modal>
         </>
       ) : (

@@ -10,10 +10,11 @@ import {
   changeProfile,
   getMe,
 } from "@/features/AuthByEmail/model/services/AuthByEmail/AuthByEmail";
+import Loader from "@/shared/ui/Loader";
 const ProfileCard = () => {
   const [openModal, setOpenModal] = useState(false);
-  const [fullname, setFullname] = useState<string>("");
-  const [email, setEmail] = useState<string>("");
+  const [fullname, setFullname] = useState<string | null>(null);
+  const [email, setEmail] = useState<string | null>(null);
 
   const setValues = () => {
     getMe().then((res) => {
@@ -28,6 +29,13 @@ const ProfileCard = () => {
     setValues();
   }, []);
 
+  if (fullname === null || email === null) {
+    return (
+      <div className={style.ProfileCard}>
+        <Loader />
+      </div>
+    );
+  }
   return (
     <div className={style.ProfileCard}>
       <div className={style.Header}>

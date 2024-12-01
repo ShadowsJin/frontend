@@ -10,7 +10,7 @@ import TestPassingForm from "@/entities/TestPassing/ui/TestPassingForm";
 import MainPassingTestForm from "@/entities/TestPassing/ui/MainPassingTestForm";
 
 const PassingTestPage = () => {
-  const [testData, setTestData] = useState<TestCardType>();
+  const [testData, setTestData] = useState<TestCardType | null>(null);
   const { idTest, numberQuestion } = useParams();
 
   useEffect(() => {

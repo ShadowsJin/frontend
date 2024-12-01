@@ -10,10 +10,12 @@ import { TestCardType } from "@/features/TestsOperations/model/TestOperationsTyp
 
 const MyTestsPage = () => {
   const [created, setCreated] = useState(true);
-  const [createdTestsArray, setCreatedTestsArray] = useState<TestCardType[]>(
-    []
-  );
-  const [passedTestsArray, setPassedTestsArray] = useState<TestCardType[]>([]);
+  const [createdTestsArray, setCreatedTestsArray] = useState<
+    TestCardType[] | null
+  >(null);
+  const [passedTestsArray, setPassedTestsArray] = useState<
+    TestCardType[] | null
+  >(null);
 
   useEffect(() => {
     created

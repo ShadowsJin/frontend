@@ -16,7 +16,7 @@ import Modal from "@/shared/ui/Modal";
 interface LeftPanelProps {
   idTest?: string;
   numberQuestion?: string | number;
-  testData?: TestCardType;
+  testData?: TestCardType | null;
 }
 
 const LeftPanel = ({ idTest, numberQuestion, testData }: LeftPanelProps) => {

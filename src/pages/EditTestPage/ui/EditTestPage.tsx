@@ -7,9 +7,10 @@ import classNames from "classnames";
 import EditTestForm from "@/entities/Test/ui/EditTestForm/ui/EditTestForm";
 import EditIcon from "@/shared/assets/Edit.svg";
 import Button from "@/shared/ui/Button";
+import Loader from "@/shared/ui/Loader";
 
 const EditTestPage = () => {
-  const [testData, setTestData] = useState<TestCardType>();
+  const [testData, setTestData] = useState<TestCardType | null>(null);
   const { idTest, numberQuestion } = useParams();
 
   const navigate = useNavigate();
@@ -19,6 +20,14 @@ const EditTestPage = () => {
       if (data) setTestData(data);
     });
   }, [idTest]);
+
+  if (testData === null) {
+    return (
+      <div className={classNames("section", style.PassingTestPage)}>
+        <Loader />
+      </div>
+    );
+  }
 
   return (
     <div className={classNames("section", style.PassingTestPage)}>

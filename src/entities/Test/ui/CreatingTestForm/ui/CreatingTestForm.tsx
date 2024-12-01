@@ -28,6 +28,7 @@ const CreatingTestForm = ({ closeModal }: CreatingTestFormProps) => {
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     navigate(`/createtest/${data.title}`);
     addDescription(data.description);
+    closeModal && closeModal();
   };
 
   return (

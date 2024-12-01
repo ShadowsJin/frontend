@@ -7,18 +7,30 @@ import StatisticsCard from "@/shared/ui/StatisticsCard";
 import BackArrow from "@/shared/assets/arrowLeft.svg";
 import { useNavigate, useParams } from "react-router-dom";
 import { getStatistics } from "@/features/TestsOperations/model/TestsOperations";
+import Loader from "@/shared/ui/Loader";
 
 const StatisticsCards = () => {
   const [isNew, setIsNew] = useState<boolean>(true);
-  const [cardsArray, setCardsArray] = useState<StatisticCardType[]>([]);
-
-  const isNewCardsArray = isNew ? cardsArray : [...cardsArray]?.reverse();
+  const [cardsArray, setCardsArray] = useState<StatisticCardType[] | null>(
+    null
+  );
 
   const { id } = useParams();
   const navigate = useNavigate();
   useEffect(() => {
     getStatistics(id).then((res) => res && setCardsArray(res));
   }, []);
+
+  if (cardsArray === null) {
+    return (
+      <div className={style.StatisticsCards}>
+        <Loader />
+      </div>
+    );
+  }
+
+  const isNewCardsArray = isNew ? cardsArray : [...cardsArray]?.reverse();
+
   return (
     <div className={style.StatisticsCards}>
       <div className={style.header}>

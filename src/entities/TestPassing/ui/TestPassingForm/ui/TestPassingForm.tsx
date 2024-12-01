@@ -12,6 +12,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
 import Button from "@/shared/ui/Button";
+import Loader from "@/shared/ui/Loader";
 
 interface TestPassingFormProps {
   numberQuestion?: string | number;
@@ -46,6 +47,7 @@ const TestPassingForm = ({
         setAnswers(data.answers);
       }
     });
+    return setQuestionData(null);
   }, [numberQuestion]);
 
   const nextQuestion = () => {
@@ -57,6 +59,14 @@ const TestPassingForm = ({
     answers && sendAnswers(idTest, numberQuestion, selectAnswers);
     navigate(`/passingtest/${idTest}/${Number(numberQuestion) - 1}`);
   };
+
+  if (questionData === null) {
+    return (
+      <div className={style.testPassingForm}>
+        <Loader />
+      </div>
+    );
+  }
   return (
     <div className={style.testPassingForm}>
       <div className={style.testProgressing}>
