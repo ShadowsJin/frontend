@@ -10,9 +10,13 @@ const ProfilePage = () => {
   const navigate = useNavigate();
   return (
     <div className={classNames("section", style.ProfilePage)}>
-      <Header title="Профиль" />
+      <Header />
       <div className={style.ProfileBody}>
-        <Button variant="primary" onClick={() => navigate(-1)}>
+        <Button
+          variant="primary"
+          onClick={() => navigate(-1)}
+          className={style.backBlock}
+        >
           <ArrowLeftIcon />
           <p>Назад</p>
         </Button>

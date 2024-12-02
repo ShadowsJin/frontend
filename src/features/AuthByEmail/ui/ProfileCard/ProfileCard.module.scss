@@ -11,6 +11,11 @@
   background-color: $blockBackground;
   padding: 2rem;
   border-radius: 15px;
+  @include mobile {
+    width: 100%;
+    min-width: 100%;
+    padding: 1.5rem;
+  }
   .Header {
     width: 100%;
     display: flex;
@@ -29,6 +34,13 @@
       width: 100px;
       height: 100px;
     }
+    @include mobile {
+      gap: 1rem;
+      img {
+        width: 70px;
+        height: 70px;
+      }
+    }
   }
   .NameBlock {
     display: inline-flex;
@@ -41,6 +53,9 @@
     flex-direction: column;
     gap: 20px;
     width: 70%;
+    @include mobile {
+      width: 100%;
+    }
   }
   .buttons {
     display: flex;
@@ -49,6 +64,9 @@
     width: 50%;
     button {
       width: 45%;
+    }
+    @include mobile {
+      width: 100%;
     }
   }
 }

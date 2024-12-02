@@ -1,4 +1,7 @@
 @import "@styles/index.scss";
+.ProfilePage {
+  width: 100%;
+}
 .ProfileBody {
   height: 80vh;
   display: flex;
@@ -6,15 +9,13 @@
   align-items: start;
   gap: 25px;
   margin-right: 10%;
-  .BackBlock {
-    background-color: $blockBackground;
-    padding: 1rem;
-    border: $blocksBorder;
-    border-radius: 15px;
-    box-shadow: $blocksShadow;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    cursor: pointer;
+  @include mobile {
+    flex-direction: column-reverse;
+    margin-right: 0;
+  }
+  .backBlock {
+    @include mobile {
+      width: 100%;
+    }
   }
 }

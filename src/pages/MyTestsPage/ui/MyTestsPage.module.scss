@@ -9,6 +9,7 @@
     margin-bottom: 40px;
     @include mobile {
       margin-bottom: 0;
+      gap: 10px;
     }
     .RightBlock {
       color: $paragraphColor;
