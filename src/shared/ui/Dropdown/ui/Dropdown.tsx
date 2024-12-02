@@ -5,12 +5,13 @@ import { Link } from "react-router-dom";
 import style from "./Dropdown.module.scss";
 import { DropdownItem } from "@/shared/constants/DropdownLiArray";
 import classNames from "classnames";
+import { isMobile } from "react-device-detect";
 
 interface Dropdown {
   children: ReactNode;
   liArray: DropdownItem[];
   id?: string;
-  position?: "left" | "right";
+  position?: "left" | "right" | "top" | "bottom";
 }
 
 const Dropdown = ({ children, liArray, id, position }: Dropdown) => {
@@ -23,7 +24,7 @@ const Dropdown = ({ children, liArray, id, position }: Dropdown) => {
       display: "flex",
     },
     exit: {
-      y: -5,
+      y: position === "top" ? 5 : -5,
       opacity: 0,
       transition: {
         duration: 0.3,
@@ -38,6 +39,7 @@ const Dropdown = ({ children, liArray, id, position }: Dropdown) => {
       className={style.dropdown}
       onHoverStart={() => setShown(true)}
       onHoverEnd={() => setShown(false)}
+      onClick={() => setShown(!shown)}
     >
       <div>{children}</div>
       <motion.ul
@@ -47,6 +49,7 @@ const Dropdown = ({ children, liArray, id, position }: Dropdown) => {
         className={classNames(style.content, {
           [style.left]: position === "left",
           [style.right]: position === "right",
+          [style.top]: position === "top",
         })}
       >
         {liArray.map((item) => (

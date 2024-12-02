@@ -7,6 +7,7 @@ import { useState } from "react";
 import TestLinkForm from "@/shared/ui/TestLinkForm";
 import Dropdown from "@/shared/ui/Dropdown";
 import { TESTCARD_LI_ARRAY } from "@/shared/constants/DropdownLiArray";
+import { isMobile } from "react-device-detect";
 export interface TestCardProps extends TestCardType {
   onClick?: () => void;
   created?: boolean;
@@ -35,7 +36,11 @@ const TestCard = ({
         <>
           <div className={style.bottom}>
             <div className={style.tools}>
-              <Dropdown id={id} liArray={TESTCARD_LI_ARRAY}>
+              <Dropdown
+                id={id}
+                liArray={TESTCARD_LI_ARRAY}
+                position={isMobile ? "top" : "bottom"}
+              >
                 <div className={style.tool}>
                   <SettingIcon />
                 </div>

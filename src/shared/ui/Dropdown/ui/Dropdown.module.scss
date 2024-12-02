@@ -2,6 +2,7 @@
 
 .dropdown {
   position: relative;
+
   .content {
     margin-top: 0.2rem;
     width: fit-content;
@@ -21,6 +22,9 @@
   }
   .right {
     right: 0;
+  }
+  .top {
+    bottom: 3.5rem;
   }
   .li {
     display: flex;
