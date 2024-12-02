@@ -1,3 +1,5 @@
+@import "@styles/index.scss";
+
 .PassingTestPage {
   width: 100%;
   display: flex;
@@ -5,4 +7,8 @@
   align-items: center;
   justify-content: space-between;
   height: 100vh;
+  @include mobile {
+    flex-direction: column-reverse;
+    justify-content: space-between;
+  }
 }

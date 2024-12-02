@@ -6,6 +6,10 @@
   flex-direction: column;
   justify-content: space-between;
   width: 35%;
+  @include mobile {
+    width: 100%;
+    height: fit-content;
+  }
   .shortDescription {
     position: relative;
     width: 100%;
@@ -20,6 +24,9 @@
     background-color: $blockBackground;
     border: $blocksBorder;
     box-shadow: $blocksShadow;
+    @include mobile {
+      display: none;
+    }
     .infoIcon {
       top: 1rem;
       right: 1rem;
@@ -48,6 +55,9 @@
     border: $blocksBorder;
     box-shadow: $blocksShadow;
 
+    @include mobile {
+      display: none;
+    }
     .questions {
       overflow-y: scroll;
       width: 100%;

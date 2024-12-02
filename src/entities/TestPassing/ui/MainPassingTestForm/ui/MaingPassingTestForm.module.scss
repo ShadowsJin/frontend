@@ -31,6 +31,12 @@
 
     box-shadow: $blocksShadow;
 
+    @include mobile {
+      min-width: 290px;
+      width: 100%;
+      padding: 2rem;
+    }
+
     .buttons {
       display: flex;
       align-items: center;

@@ -13,6 +13,7 @@ import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
 import Button from "@/shared/ui/Button";
 import Loader from "@/shared/ui/Loader";
+import { isMobile } from "react-device-detect";
 
 interface TestPassingFormProps {
   numberQuestion?: string | number;
@@ -118,7 +119,7 @@ const TestPassingForm = ({
         )}
         {Number(numberQuestion) + 1 < questions_count && (
           <Button onClick={nextQuestion} variant="accent">
-            Следующий вопрос
+            {isMobile ? "Следующий" : "Следующий вопрос"}
           </Button>
         )}
         {Number(numberQuestion) + 1 == questions_count && (

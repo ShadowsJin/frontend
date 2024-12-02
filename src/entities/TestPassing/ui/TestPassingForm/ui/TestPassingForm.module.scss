@@ -14,12 +14,22 @@
   border: $blocksBorder;
   box-shadow: $blocksShadow;
 
+  @include mobile {
+    width: 100%;
+    height: fit-content;
+    padding: 1rem;
+    h2 {
+      font-size: 1.5rem;
+    }
+  }
+
   .testProgressing {
     width: 100%;
     padding-bottom: 1rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;
+
     p {
       font-size: 1.5rem;
       color: $captionColor;
@@ -37,6 +47,11 @@
         border: solid 1px $backgroundColor;
         transition: 0.5s;
         width: 100%;
+      }
+    }
+    @include mobile {
+      p {
+        font-size: 1rem;
       }
     }
   }
