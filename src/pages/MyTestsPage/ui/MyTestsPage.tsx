@@ -24,7 +24,7 @@ const MyTestsPage = () => {
   }, [created]);
   return (
     <div className={classNames("section", style.MyTestsPage)}>
-      <Header title="МОИ ТЕСТЫ" />
+      <Header />
       <div className={style.tools}>
         <CreatingTestBlock />
         <div

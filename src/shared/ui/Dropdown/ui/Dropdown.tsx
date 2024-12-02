@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import style from "./Dropdown.module.scss";
 import { DropdownItem } from "@/shared/constants/DropdownLiArray";
 import classNames from "classnames";
-import { isMobile } from "react-device-detect";
 
 interface Dropdown {
   children: ReactNode;

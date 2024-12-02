@@ -7,6 +7,9 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: 40px;
+    @include mobile {
+      margin-bottom: 0;
+    }
     .RightBlock {
       color: $paragraphColor;
       position: relative;
