@@ -7,7 +7,7 @@ import MiniLogoIcon from "@/shared/assets/favIcon.svg";
 import { Link } from "react-router-dom";
 import { isMobile } from "react-device-detect";
 
-const Header = () => {
+const Header = ({ withInput = false }: { withInput?: boolean }) => {
   return (
     <header className={style.Header}>
       <Link to="/">
@@ -18,7 +18,7 @@ const Header = () => {
         )}
       </Link>
       <div className={style.RightBlock}>
-        <Input placeholder="Поиск..." icon={<SearchIcon />} />
+        {withInput && <Input placeholder="Поиск..." icon={<SearchIcon />} />}
         <Avatar />
       </div>
     </header>
