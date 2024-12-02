@@ -18,6 +18,11 @@
   background-color: $blockBackground;
   box-shadow: $blocksShadow;
   border: $blocksBorder;
+  @include mobile {
+    padding: 2rem 1rem;
+    width: fit-content;
+    min-width: 250px;
+  }
 }
 .overlay {
   display: flex;
