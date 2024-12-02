@@ -1,4 +1,12 @@
+@import "@styles/index.scss";
 .StaticsPage {
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
+  @include tablet {
+    justify-content: space-between;
+  }
+  @include mobile {
+    flex-direction: column-reverse;
+  }
 }

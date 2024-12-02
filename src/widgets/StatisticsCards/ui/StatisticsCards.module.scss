@@ -1,7 +1,15 @@
 @import "@styles/index.scss";
 .StatisticsCards {
-  // width: 68%;
-  padding: 0 3rem;
+  max-width: 65%;
+  min-width: 57%;
+  @include tablet {
+    width: 65%;
+    max-width: 70%;
+  }
+  @include mobile {
+    width: 100%;
+    max-width: 100%;
+  }
 
   .header {
     width: 100%;
@@ -19,24 +27,42 @@
       border: $blocksBorder;
       padding: 0.9rem;
       box-shadow: $blocksShadow;
+      .sortTitle {
+        @include tablet {
+          display: none;
+        }
+      }
       .sortInput {
         display: flex;
         align-items: center;
       }
+      @include tablet {
+        width: 100%;
+      }
     }
     button {
       width: 25%;
+      @include tablet {
+        width: auto;
+      }
+    }
+    @include tablet {
+      gap: 1rem;
     }
   }
 
   .cardsBlock {
     overflow-y: scroll;
+    overflow-x: hidden;
     margin-top: 3rem;
     display: grid;
     justify-content: center;
     grid-template-columns: repeat(2, minmax(350px, 40%));
     gap: 2rem;
     padding-bottom: 1rem;
+    @include tablet {
+      grid-template-columns: repeat(1, minmax(320px, 70%));
+    }
 
     &::-webkit-scrollbar {
       width: 0.5rem;

@@ -45,7 +45,7 @@ const renderCustomizedLabel = ({
 
 const PieDiagram = () => {
   return (
-    <>
+    <div className={style.diagramBlock}>
       <div className={style.pieDiagram}>
         <PieChart width={200} height={200}>
           <Pie
@@ -78,7 +78,7 @@ const PieDiagram = () => {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 export default PieDiagram;

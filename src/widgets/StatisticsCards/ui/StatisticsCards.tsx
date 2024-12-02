@@ -39,7 +39,7 @@ const StatisticsCards = () => {
           Назад
         </Button>
         <div className={style.sortBlock}>
-          <p>Отсортировать:</p>
+          <p className={style.sortTitle}>Отсортировать:</p>
           <div className={style.sortInput}>
             <Input
               id="new"
