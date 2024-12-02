@@ -11,22 +11,33 @@
   box-shadow: 4px 4px 6px 0px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(15px);
   border: $blocksBorder;
+  @include mobile {
+    gap: 0.5rem;
+    width: 100%;
+    margin: 10px 0;
+    padding: 0.5rem;
+    align-items: center;
+  }
 
   .nav {
     width: 40%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    > a {
-      font-size: 1.2rem;
-    }
     @include tablet {
       width: 60%;
     }
     @include mobile {
       width: 100%;
+      justify-content: space-around;
       img {
         display: none;
+      }
+    }
+    > a {
+      font-size: 1.2rem;
+      @include mobile {
+        font-size: 0.8rem;
       }
     }
   }

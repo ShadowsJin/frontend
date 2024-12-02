@@ -12,13 +12,34 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    @include tablet {
+      width: 70%;
+    }
+    @include mobile {
+      width: 85%;
+    }
+    @media (max-width: 425px) {
+      width: 95%;
+    }
   }
   h1 {
     position: relative;
+    @include tablet {
+      font-size: 2.3rem;
+    }
+    @include mobile {
+      font-size: 1.5rem;
+    }
+    @media (max-width: 425px) {
+      font-size: 1.3rem;
+    }
   }
   h3 {
     width: 70%;
     margin-top: 45px;
+    @include tablet {
+      display: none;
+    }
   }
   .authBlock {
     margin-top: 80px;
@@ -30,31 +51,77 @@
     button {
       width: 40%;
     }
+    @include tablet {
+      width: 80%;
+    }
+    @include mobile {
+      margin-top: 40px;
+      width: 100%;
+      button {
+        width: 46%;
+      }
+    }
   }
 
   .picture {
     position: absolute;
     display: inline-block;
+    z-index: -10;
   }
 
   .checklist {
     top: 0;
     left: 0;
+    @include mobile {
+      top: 3rem;
+      svg {
+        height: 150px;
+        width: 150px;
+      }
+    }
   }
   .diamond {
     top: 0;
     right: 0;
+    @include mobile {
+      top: 3rem;
+      svg {
+        height: 150px;
+        width: 150px;
+      }
+    }
   }
   .emoji {
     bottom: 0;
     left: 0;
+    @include mobile {
+      svg {
+        height: 150px;
+        width: 150px;
+      }
+    }
   }
   .crown {
     top: -3.5rem;
     left: -3.5rem;
+    @include mobile {
+      z-index: 10;
+      top: -2rem;
+      left: -1.5rem;
+      svg {
+        height: 50px;
+        width: 50px;
+      }
+    }
   }
   .airplane {
     bottom: 0;
     right: 0;
+    @include mobile {
+      svg {
+        height: 150px;
+        width: 150px;
+      }
+    }
   }
 }

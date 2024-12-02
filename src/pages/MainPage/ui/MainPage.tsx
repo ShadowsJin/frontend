@@ -8,6 +8,7 @@ import LaughEmojiIcon from "@/shared/assets/laughEmoji.svg";
 import DiamondIcon from "@/shared/assets/Diamond.svg";
 import CrownIcon from "@/shared/assets/crown.svg";
 import AirplaneIcon from "@/shared/assets/airplane.svg";
+import { isMobile } from "react-device-detect";
 
 const MainPage = () => {
   const navigate = useNavigate();
@@ -26,7 +27,8 @@ const MainPage = () => {
             <div className={classNames(style.picture, style.crown)}>
               <CrownIcon />
             </div>
-            Платформа для создания тестов и проверочных работ
+            Платформа для создания {isMobile && <br />} тестов и проверочных
+            работ
           </h1>
 
           <h3>
@@ -34,6 +36,7 @@ const MainPage = () => {
             проверочные работы, а ученики могут проходить их как онлайн, так и
             оффлайн
           </h3>
+
           <div className={style.authBlock}>
             <Button onClick={() => navigate("/login")}>Войти</Button>
             <Button onClick={() => navigate("/register")}>Регистрация</Button>
