@@ -1,6 +1,6 @@
 @import "@styles/index.scss";
 .LoginForm {
-  border-radius: 20px;
+  border-radius: $bigBorderRadius;
   background-color: $blockBackground;
   width: 30%;
   min-width: 550px;
@@ -13,6 +13,13 @@
 
   box-shadow: $blocksShadow;
   border: $blocksBorder;
+  @include mobile {
+    width: 90%;
+    max-width: 550px;
+    min-width: 310px;
+    gap: 1rem;
+    padding: 2rem 1.5rem;
+  }
   p {
     font-size: 0.9rem;
   }
