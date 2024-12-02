@@ -1,6 +1,9 @@
+@import "@styles/index.scss";
+
 .CompleteCreatingTestForm {
   width: 25vw;
   display: flex;
+  min-width: 290px;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
@@ -12,6 +15,9 @@
   p {
     text-align: center;
     width: 70%;
+    @include mobile {
+      width: 90%;
+    }
   }
   .buttons {
     margin-top: 2rem;

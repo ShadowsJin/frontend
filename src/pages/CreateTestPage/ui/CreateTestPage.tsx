@@ -48,7 +48,7 @@ const CreateTestPage = () => {
 
   return (
     <div className={classNames("section", style.CreateTestPage)}>
-      <Header title={`ТЕСТ: ${title}`} />
+      <Header />
       <div className={style.body}>
         <div className={style.content}>
           <div className={style.createQuestionsBlock} ref={ref}>
