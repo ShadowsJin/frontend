@@ -2,8 +2,7 @@ import classNames from "classnames";
 import style from "./CreateTestPage.module.scss";
 import "react-toastify/dist/ReactToastify.css";
 
-import Header from "@/widgets/Header";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import useTest from "@/entities/Test/model/TestSlice";
 import Button from "@/shared/ui/Button";
@@ -12,6 +11,8 @@ import { createTest } from "@/features/TestsOperations/model/TestsOperations";
 import PlusIcon from "@/shared/assets/Plus.svg";
 import Modal from "@/shared/ui/Modal";
 import CompleteCreatingTestForm from "@/features/TestsOperations/ui/CompleteCreatingTestForm";
+import Input from "@/shared/ui/Input";
+import TrashIcon from "@/shared/assets/Trash.svg";
 
 const CreateTestPage = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -48,7 +49,12 @@ const CreateTestPage = () => {
 
   return (
     <div className={classNames("section", style.CreateTestPage)}>
-      <Header />
+      <header className={style.header}>
+        <h3>{title}</h3>
+        <Link to="/">
+          <TrashIcon />
+        </Link>
+      </header>
       <div className={style.body}>
         <div className={style.content}>
           <div className={style.createQuestionsBlock} ref={ref}>
