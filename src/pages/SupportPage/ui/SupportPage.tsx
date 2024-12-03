@@ -5,7 +5,7 @@ import SupportImg from "@/shared/assets/SupportImg.jpg";
 const SupportPage = () => {
   return (
     <div className={classNames("section", style.SupportPage)}>
-      <Header title="ПОДДЕРЖКА" />
+      <Header />
       <img src={SupportImg} alt="" className={style.supportImage} />
     </div>
   );
