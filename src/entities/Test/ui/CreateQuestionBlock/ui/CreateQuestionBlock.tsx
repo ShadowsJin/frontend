@@ -28,7 +28,6 @@ const CreateQuestionBlock = ({ question, id }: CreateQuestionBlockI) => {
   const addAnswerFunc = async (id: number) => {
     await addAnswer(id);
     inputRef?.current?.focus();
-    console.log(inputRef, "inputREf");
   };
 
   return (
