@@ -52,12 +52,12 @@ const TestPassingForm = ({
   }, [numberQuestion]);
 
   const nextQuestion = () => {
-    answers && sendAnswers(idTest, numberQuestion, selectAnswers);
+    selectAnswers?.length && sendAnswers(idTest, numberQuestion, selectAnswers);
     navigate(`/passingtest/${idTest}/${Number(numberQuestion) + 1}`);
   };
 
   const prevQuestion = () => {
-    answers && sendAnswers(idTest, numberQuestion, selectAnswers);
+    selectAnswers?.length && sendAnswers(idTest, numberQuestion, selectAnswers);
     navigate(`/passingtest/${idTest}/${Number(numberQuestion) - 1}`);
   };
 
@@ -94,7 +94,7 @@ const TestPassingForm = ({
           />
         </div>
       </div>
-      <h2>{questionData?.name}</h2>
+      <h2 className={style.title}>{questionData?.name}</h2>
       <div className={style.answersBlock}>
         {answers?.map((answer, id) => (
           <div className={style.answerBlock} key={`${name} ${id} `}>
@@ -125,7 +125,8 @@ const TestPassingForm = ({
         {Number(numberQuestion) + 1 == questions_count && (
           <Button
             onClick={() =>
-              answers && sendAnswers(idTest, numberQuestion, selectAnswers)
+              selectAnswers?.length &&
+              sendAnswers(idTest, numberQuestion, selectAnswers)
             }
             variant="accent"
           >

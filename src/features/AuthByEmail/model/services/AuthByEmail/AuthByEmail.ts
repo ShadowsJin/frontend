@@ -68,7 +68,7 @@ export const logout = async () => {
 
     throw error;
   } finally {
-    localStorage.removeItem("isAuth");
+    localStorage.clear();
     window.location.href = APP_URL;
   }
 };

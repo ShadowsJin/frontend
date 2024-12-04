@@ -21,6 +21,9 @@ h2 {
   font-weight: 600;
   font-size: 2rem;
   color: $paragraphColor;
+  @include mobile {
+    font-size: 1.6rem;
+  }
 }
 
 h3 {

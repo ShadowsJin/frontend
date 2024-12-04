@@ -118,7 +118,6 @@ export const sendAnswers: sendAnswerType = async (
   answers?: string[]
 ) => {
   try {
-    console.log(answers?.map((answer) => `answer=${answer}&`));
     const response = await axiosInstance.post(
       `/quizes/send_answer/${testId}/${questionNumber}?${answers
         ?.map((answer) => `answer=${answer}&`)
