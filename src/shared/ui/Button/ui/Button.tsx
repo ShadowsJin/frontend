@@ -23,6 +23,7 @@ const Button = ({
         [style.accent]: variant === "accent",
         [style.warning]: variant === "warning",
       })}
+      type={type}
       {...props}
     >
       {children}

@@ -34,7 +34,8 @@ const CreatingTestForm = ({ closeModal }: CreatingTestFormProps) => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={style.CreatingTestForm}>
       <h3 className={style.title}>
-        Новый тест <StarIcon />
+        Новый тест
+        <StarIcon />
       </h3>
 
       <div className={style.Inputs}>

@@ -1,8 +1,7 @@
-import { APP_URL } from "@/shared/constants/appURL";
 import { test, expect } from "@playwright/test";
 
 test("has title", async ({ page }) => {
-  await page.goto(APP_URL);
+  await page.goto("http://localhost:5173");
 
   // Expect a title "to contain" a substring.
   await expect(page).toHaveTitle(
@@ -10,19 +9,21 @@ test("has title", async ({ page }) => {
   );
 });
 
-test("can register", async ({ page }) => {
-  await page.goto(`${APP_URL}/login`);
-  await page.fill('input[name="fullname"]', "Кобзева Елизавета Игоревна");
+test("can't register, because user name is already taken", async ({ page }) => {
+  await page.goto("http://localhost:5173/register");
+  await page.fill('input[name="fullname"]', "Ктото Кто ктотович");
   await page.fill('input[name="email"]', "lizakobzeva@list.ru");
   await page.fill('input[name="password"]', "12345678Ew");
   await page.click('button[type="submit"]');
-  await expect(page).toHaveURL(`${APP_URL}/mytests`);
+  await expect(
+    page.getByText("Ошибка регистрации: this user name is already taken")
+  ).toBeVisible();
 });
 
 test("can login", async ({ page }) => {
-  await page.goto(`${APP_URL}/login`);
+  await page.goto("http://localhost:5173/login");
   await page.fill('input[name="email"]', "lizakobzeva@list.ru");
-  await page.fill('input[name="password"]', "12345678Ew");
+  await page.fill('input[name="password"]', "12345678");
   await page.click('button[type="submit"]');
-  await expect(page).toHaveURL(`${APP_URL}/mytests`);
+  await expect(page).toHaveURL("http://localhost:5173/mytests");
 });
