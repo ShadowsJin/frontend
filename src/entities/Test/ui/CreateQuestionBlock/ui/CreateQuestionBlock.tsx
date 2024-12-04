@@ -4,6 +4,7 @@ import Button from "@/shared/ui/Button";
 import useTest from "@/entities/Test/model/TestSlice";
 import { QuestionType } from "@/entities/Test/model/TestSliceTypes";
 import TrashIcon from "@/shared/assets/Trash.svg";
+import { LegacyRef, useRef } from "react";
 
 interface CreateQuestionBlockI {
   question: QuestionType;
@@ -18,9 +19,16 @@ const CreateQuestionBlock = ({ question, id }: CreateQuestionBlockI) => {
     deleteQuestion,
     deleteAnswer,
   } = useTest();
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const ChangeQuestion = (name: string) => {
     setQuestion(id, name);
+  };
+
+  const addAnswerFunc = async (id: number) => {
+    await addAnswer(id);
+    inputRef?.current?.focus();
+    console.log(inputRef, "inputREf");
   };
 
   return (
@@ -46,6 +54,7 @@ const CreateQuestionBlock = ({ question, id }: CreateQuestionBlockI) => {
                 onClick={() => setTrueAnswer(id, AnswId)}
               />
               <Input
+                ref={AnswId === question.answers.length - 1 ? inputRef : null}
                 value={answer.name}
                 onChange={(e) => setAnswers(id, AnswId, e.target.value)}
               />
@@ -59,7 +68,7 @@ const CreateQuestionBlock = ({ question, id }: CreateQuestionBlockI) => {
           </li>
         ))}
       </ul>
-      <Button onClick={() => addAnswer(id)}>Добавить ответ</Button>
+      <Button onClick={() => addAnswerFunc(id)}>Добавить ответ</Button>
     </div>
   );
 };

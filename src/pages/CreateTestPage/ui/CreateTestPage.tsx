@@ -11,7 +11,6 @@ import { createTest } from "@/features/TestsOperations/model/TestsOperations";
 import PlusIcon from "@/shared/assets/Plus.svg";
 import Modal from "@/shared/ui/Modal";
 import CompleteCreatingTestForm from "@/features/TestsOperations/ui/CompleteCreatingTestForm";
-import Input from "@/shared/ui/Input";
 import TrashIcon from "@/shared/assets/Trash.svg";
 
 const CreateTestPage = () => {
@@ -27,6 +26,8 @@ const CreateTestPage = () => {
   const ref = useRef<HTMLDivElement>(null);
 
   const complete = async () => {
+    // TODO notification("Есть вопросы без правильных вариантов ответа", "error");
+
     const res = await createTest(title, description, questions);
     if (res) {
       deleteTest();
