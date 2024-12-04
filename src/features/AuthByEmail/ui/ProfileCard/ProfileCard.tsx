@@ -11,6 +11,7 @@ import {
   getMe,
 } from "@/features/AuthByEmail/model/services/AuthByEmail/AuthByEmail";
 import Loader from "@/shared/ui/Loader";
+import { fail } from "assert";
 const ProfileCard = () => {
   const [openModal, setOpenModal] = useState(false);
   const [fullname, setFullname] = useState<string | null>(null);
@@ -40,7 +41,11 @@ const ProfileCard = () => {
     <div className={style.ProfileCard}>
       <div className={style.Header}>
         <h2>Профиль</h2>
-        <div className={style.trashIcon} onClick={() => setOpenModal(true)}>
+        <div
+          id="logoutIcon"
+          className={style.trashIcon}
+          onClick={() => setOpenModal(true)}
+        >
           <TrashIcon />
         </div>
       </div>
@@ -70,7 +75,7 @@ const ProfileCard = () => {
         </Button>
       </div>
       <Modal isOpened={openModal} onClose={() => setOpenModal(false)}>
-        <LogoutForm />
+        <LogoutForm closeModal={() => setOpenModal(false)} />
       </Modal>
     </div>
   );

@@ -21,6 +21,7 @@ test("mytests can add new test", async ({ page }) => {
 
   await page.click('button[type="button"]');
 
+  await expect(page.getByRole("heading", { name: "Новый тест" })).toBeVisible();
   await expect(page.getByText("Название:")).toBeVisible();
   await expect(page.getByText("Описание:")).toBeVisible();
   await page.fill('input[name="title"]', "Новый тестовый тест");

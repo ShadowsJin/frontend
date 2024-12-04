@@ -3,7 +3,10 @@ import style from "./LogoutForm.module.scss";
 import Button from "@/shared/ui/Button";
 import { logout } from "@/features/AuthByEmail/model/services/AuthByEmail/AuthByEmail";
 
-const LogoutForm = () => {
+interface Props {
+  closeModal: () => void;
+}
+const LogoutForm = ({ closeModal }: Props) => {
   const navigate = useNavigate();
   const logoutFormProfile = async () => {
     let res = await logout();
@@ -15,7 +18,9 @@ const LogoutForm = () => {
         <h3>Вы уверенны?</h3>
         <div className={style.Buttons}>
           <Button onClick={logoutFormProfile}>Выйти</Button>
-          <Button variant="accent">Отмена</Button>
+          <Button onClick={closeModal} variant="accent">
+            Отмена
+          </Button>
         </div>
       </div>
     </div>
