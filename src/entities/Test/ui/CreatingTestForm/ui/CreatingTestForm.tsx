@@ -46,6 +46,8 @@ const CreatingTestForm = ({ closeModal }: CreatingTestFormProps) => {
             placeholder="Название"
             {...register("title", {
               required: true,
+              minLength: 3,
+              maxLength: 100,
             })}
           />
         </div>
@@ -55,7 +57,10 @@ const CreatingTestForm = ({ closeModal }: CreatingTestFormProps) => {
           {errors.description && (
             <p className={style.errorMsg}>Введите описание</p>
           )}
-          <TextArea placeholder="Описание" {...register("description")} />
+          <TextArea
+            placeholder="Описание"
+            {...register("description", { maxLength: 500 })}
+          />
         </div>
       </div>
 

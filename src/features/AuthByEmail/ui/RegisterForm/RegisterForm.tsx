@@ -56,6 +56,8 @@ const RegisterForm = () => {
           icon={<UserIcon />}
           {...register("fullname", {
             required: true,
+            minLength: 3,
+            maxLength: 30,
           })}
         />
       </div>
@@ -68,6 +70,8 @@ const RegisterForm = () => {
           icon={<DogIcon />}
           {...register("email", {
             required: true,
+            minLength: 3,
+            maxLength: 30,
           })}
         />
       </div>
@@ -79,7 +83,11 @@ const RegisterForm = () => {
         <Input
           icon={<LockIcon />}
           type="password"
-          {...register("password", { required: true })}
+          {...register("password", {
+            required: true,
+            minLength: 3,
+            maxLength: 30,
+          })}
         />
       </div>
       <div className={style.Button}>

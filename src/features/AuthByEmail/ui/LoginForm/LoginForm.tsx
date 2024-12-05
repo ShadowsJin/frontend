@@ -53,6 +53,8 @@ const LoginForm = () => {
           icon={<DogIcon />}
           {...register("email", {
             required: true,
+            minLength: 3,
+            maxLength: 30,
           })}
         />
       </div>
@@ -65,7 +67,11 @@ const LoginForm = () => {
         <Input
           icon={<LockIcon />}
           type="password"
-          {...register("password", { required: true })}
+          {...register("password", {
+            required: true,
+            minLength: 3,
+            maxLength: 30,
+          })}
         />
         <Link to="/register">Забыли пароль?</Link>
       </div>
