@@ -66,7 +66,7 @@ export const logout = async () => {
   } catch (error) {
     notification("Ошибка выхода из аккаунта", "error");
 
-    throw error;
+    return false;
   } finally {
     localStorage.clear();
     window.location.href = APP_URL;
