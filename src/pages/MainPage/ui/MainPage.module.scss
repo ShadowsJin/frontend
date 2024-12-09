@@ -16,7 +16,7 @@
     }
   }
   p {
-    font-size: 1.8rem;
+    font-size: 2rem;
     @include tablet {
       font-size: 1.5rem;
     }
@@ -67,12 +67,9 @@
       }
     }
     p {
-      margin-top: 45px;
+      margin-top: 35px;
 
       @include tablet {
-        margin-top: 30px;
-      }
-      @include mobile {
         margin-top: 20px;
       }
     }
@@ -217,6 +214,9 @@
     padding-bottom: 3rem;
     @include mobile {
       gap: 4rem;
+    }
+    h3 {
+      font-weight: 400;
     }
     h2 {
       display: flex;
