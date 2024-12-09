@@ -2,6 +2,16 @@
 @import "./global.scss";
 @import "./mixins.scss";
 
+html {
+  scroll-behavior: smooth;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 .flex {
   display: flex;
 }
@@ -12,13 +22,13 @@ p {
 }
 
 h1 {
-  font-size: 3.2rem;
+  font-size: 8.4rem;
   font-weight: 200;
   color: $paragraphColor;
 }
 
 h2 {
-  font-weight: 600;
+  font-weight: 500;
   font-size: 2rem;
   color: $paragraphColor;
   @include mobile {

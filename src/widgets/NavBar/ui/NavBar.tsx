@@ -14,9 +14,9 @@ const NavBar = () => {
       )}
       <nav className={style.nav}>
         <NavLink to="/">Главная</NavLink>
-        <NavLink to="/aboutUs">О нас</NavLink>
-        <NavLink to="/features">Особенности</NavLink>
-        <NavLink to="/сontacts">Контакты</NavLink>
+        <a href="#aboutUsBlock">О нас</a>
+        <a href="/#aboutUsBlock">Преимущества</a>
+        <a href="#teamBlock">Команда</a>
       </nav>
     </div>
   );

@@ -25,7 +25,7 @@ const CompleteTestForm = ({ closeModal, id }: CompleteTestProps) => {
       </p>
       <div className={style.buttons}>
         <Button onClick={closeModal}>Вернуться</Button>
-        <Button variant="accent" onClick={endTest}>
+        <Button variant="accent" type="submit" onClick={endTest}>
           Завершить
         </Button>
       </div>

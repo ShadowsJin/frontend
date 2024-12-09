@@ -19,7 +19,7 @@ const CompleteCreatingTestForm = ({
 
       <div className={style.buttons}>
         <Button onClick={closeModal}>Вернуться</Button>
-        <Button variant="accent" onClick={complete}>
+        <Button variant="accent" type="submit" onClick={complete}>
           Завершить
         </Button>
       </div>

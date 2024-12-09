@@ -1,126 +1,323 @@
 @import "@styles/index.scss";
 .MainPage {
-  font-size: 24px;
-  text-align: center;
-  position: relative;
   width: 100%;
-  .content {
-    height: 85vh;
-    margin: auto;
-    width: 65%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  margin-bottom: 3rem;
+  h2 {
+    font-size: 4.5rem;
+
     @include tablet {
-      width: 70%;
+      font-size: 3rem;
     }
     @include mobile {
-      width: 85%;
+      font-size: 2rem;
     }
-    @media (max-width: 425px) {
-      width: 95%;
+    @media (max-width: 470px) {
+      font-size: 1.8rem;
     }
   }
-  h1 {
-    position: relative;
+  p {
+    font-size: 1.8rem;
     @include tablet {
-      font-size: 2.3rem;
-    }
-    @include mobile {
       font-size: 1.5rem;
     }
-    @media (max-width: 425px) {
+    @include mobile {
       font-size: 1.3rem;
+    }
+    @media (max-width: 470px) {
+      font-size: 1rem;
     }
   }
   h3 {
-    width: 70%;
-    margin-top: 45px;
+    font-size: 3rem;
     @include tablet {
-      display: none;
+      font-size: 2rem;
+    }
+    @include mobile {
+      font-size: 1.8rem;
+    }
+    @media (max-width: 470px) {
+      font-size: 1.6rem;
     }
   }
-  .authBlock {
-    margin-top: 80px;
-    width: 65%;
+  .mainBlock {
+    width: 100%;
+    height: 110vh;
+    font-size: 24px;
+    text-align: center;
+    position: relative;
+    .content {
+      height: 85vh;
+      margin: auto;
+      width: fit-content;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    h1 {
+      position: relative;
+      @include tablet {
+        font-size: 7rem;
+      }
+      @include mobile {
+        font-size: 4rem;
+      }
+      @media (max-width: 470px) {
+        font-size: 3rem;
+      }
+    }
+    p {
+      margin-top: 45px;
+
+      @include tablet {
+        margin-top: 30px;
+      }
+      @include mobile {
+        margin-top: 20px;
+      }
+    }
+    .authBlock {
+      margin-top: 80px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      button {
+        width: 40%;
+      }
+
+      @include mobile {
+        margin-top: 40px;
+
+        button {
+          width: 46%;
+        }
+      }
+    }
+
+    .picture {
+      position: absolute;
+      display: inline-block;
+      z-index: -10;
+    }
+
+    .checklist {
+      top: 0;
+      left: 0;
+      @include mobile {
+        top: 1rem;
+        svg {
+          height: 150px;
+          width: 150px;
+        }
+      }
+    }
+    .diamond {
+      top: 0;
+      right: 0;
+      @include mobile {
+        top: 1rem;
+        svg {
+          height: 150px;
+          width: 150px;
+        }
+      }
+    }
+    .emoji {
+      bottom: 0;
+      left: 0;
+      @include mobile {
+        bottom: 3rem;
+        svg {
+          height: 150px;
+          width: 150px;
+        }
+      }
+    }
+    .crown {
+      top: -3.5rem;
+      left: -3.5rem;
+      @include mobile {
+        top: -2.5rem;
+        left: -2.5rem;
+        svg {
+          height: 50px;
+          width: 50px;
+        }
+      }
+    }
+    .airplane {
+      bottom: 0;
+      right: 0;
+      @include mobile {
+        bottom: 3rem;
+        svg {
+          height: 150px;
+          width: 150px;
+        }
+      }
+    }
+  }
+
+  .aboutUs {
+    padding: 10rem 3rem;
+    width: 100%;
     display: flex;
     align-items: center;
+    justify-content: space-around;
+    @include mobile {
+      padding: 5rem 1rem;
+    }
+    .clickBlock {
+      width: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .description {
+      width: fit-content;
+
+      h2 {
+        line-height: 105%;
+      }
+      > p {
+        max-width: 680px;
+        font-size: 2rem;
+        margin-top: 45px;
+        line-height: 145%;
+
+        @include tablet {
+          margin-top: 30px;
+          font-size: 1.8rem;
+        }
+        @include mobile {
+          margin-top: 20px;
+          font-size: 1.5rem;
+        }
+        @media (max-width: 470px) {
+          font-size: 1rem;
+        }
+      }
+      .accent {
+        @extend h2;
+        padding: 0;
+        color: $correctColor;
+      }
+    }
+  }
+
+  .teamBlock {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     justify-content: space-between;
+    gap: 7rem;
+    padding-bottom: 3rem;
+    @include mobile {
+      gap: 4rem;
+    }
+    h2 {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      @include tablet {
+        svg {
+          width: 40px;
+        }
+      }
+      @include mobile {
+        svg {
+          width: 35px;
+        }
+      }
+    }
+    .teamMember {
+      width: 75vw;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      gap: 1rem;
 
-    button {
-      width: 40%;
-    }
-    @include tablet {
-      width: 80%;
-    }
-    @include mobile {
-      margin-top: 40px;
-      width: 100%;
-      button {
-        width: 46%;
-      }
-    }
-  }
+      .images {
+        transition: 300ms;
+        width: 100%;
+        height: 35vw;
+        position: relative;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
 
-  .picture {
-    position: absolute;
-    display: inline-block;
-    z-index: -10;
-  }
+        > img {
+          position: absolute;
+          width: auto;
+        }
+        .role {
+          transition: 300ms;
 
-  .checklist {
-    top: 0;
-    left: 0;
-    @include mobile {
-      top: 3rem;
-      svg {
-        height: 150px;
-        width: 150px;
+          height: 10vw;
+          width: auto;
+          top: 0;
+          filter: grayscale(100%);
+        }
+        .background {
+          width: 70%;
+          bottom: 0;
+        }
+        .member {
+          transition: 300ms;
+
+          bottom: 5px;
+          height: 30vw;
+          filter: grayscale(100%);
+        }
+        &:hover {
+          .role {
+            filter: none;
+          }
+          .member {
+            filter: none;
+          }
+        }
       }
-    }
-  }
-  .diamond {
-    top: 0;
-    right: 0;
-    @include mobile {
-      top: 3rem;
-      svg {
-        height: 150px;
-        width: 150px;
+      .contacts {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 3rem;
+        p {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+        }
+        @include tablet {
+          gap: 1rem;
+          svg {
+            width: 30px;
+          }
+        }
+        @include mobile {
+          gap: 0;
+          svg {
+            width: 20px;
+          }
+        }
       }
-    }
-  }
-  .emoji {
-    bottom: 0;
-    left: 0;
-    @include mobile {
-      svg {
-        height: 150px;
-        width: 150px;
-      }
-    }
-  }
-  .crown {
-    top: -3.5rem;
-    left: -3.5rem;
-    @include mobile {
-      z-index: 10;
-      top: -2rem;
-      left: -1.5rem;
-      svg {
-        height: 50px;
-        width: 50px;
-      }
-    }
-  }
-  .airplane {
-    bottom: 0;
-    right: 0;
-    @include mobile {
-      svg {
-        height: 150px;
-        width: 150px;
+
+      @include mobile {
+        width: 95vw;
+        gap: 0.5rem;
+        .images {
+          height: 45vw;
+          .role {
+            height: 13vw;
+          }
+          .member {
+            height: 40vw;
+          }
+        }
       }
     }
   }
