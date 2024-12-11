@@ -5,9 +5,8 @@ import { useEffect, useState } from "react";
 import { getTest } from "@/features/TestsOperations/model/TestsOperations";
 import classNames from "classnames";
 
-import LeftPanel from "@/widgets/LeftPanel";
-import TestPassingForm from "@/entities/TestPassing/ui/TestPassingForm";
 import MainPassingTestForm from "@/entities/TestPassing/ui/MainPassingTestForm";
+import PassingTestBlock from "./PassingTestBlock";
 
 const PassingTestPage = () => {
   const [testData, setTestData] = useState<TestCardType | null>(null);
@@ -23,16 +22,7 @@ const PassingTestPage = () => {
     <div className={classNames("section", style.PassingTestPage)}>
       {numberQuestion ? (
         <>
-          <LeftPanel
-            idTest={idTest}
-            numberQuestion={numberQuestion}
-            testData={testData}
-          />
-          <TestPassingForm
-            numberQuestion={numberQuestion}
-            idTest={idTest}
-            questions_count={testData?.questions_count}
-          />
+          <PassingTestBlock testData={testData} />
         </>
       ) : (
         <MainPassingTestForm {...testData} />

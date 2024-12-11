@@ -24,6 +24,8 @@ export interface TestPassingQuestionType {
   id: string;
   name: string;
   type: string;
+  is_answered: boolean;
+  is_viewed?: boolean;
   answers: AnswerForPassing[];
 }
 

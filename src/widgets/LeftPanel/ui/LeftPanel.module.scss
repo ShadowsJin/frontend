@@ -93,6 +93,14 @@
           text-overflow: ellipsis;
         }
       }
+      .viewed {
+        border: solid 1px $viewedColor;
+        background-color: rgb($viewedColor, 0.1);
+      }
+      .answered {
+        border: solid 1px $correctColor;
+        background-color: rgb($correctColor, 0.1);
+      }
       .current {
         border: solid 1px $hoverColor;
         background-color: rgb($hoverColor, 0.1);

@@ -1,10 +1,9 @@
 import InfoIcon from "@/shared/assets/Info.svg";
 import Button from "@/shared/ui/Button";
 import style from "./LeftPanel.module.scss";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import classNames from "classnames";
-import { getPassingTestQuestionsArray } from "@/features/TestsOperations/model/TestsOperations";
 import {
   TestCardType,
   TestPassingQuestionType,
@@ -17,36 +16,17 @@ interface LeftPanelProps {
   idTest?: string;
   numberQuestion?: string | number;
   testData?: TestCardType | null;
+  questionsArray: TestPassingQuestionType[];
 }
 
-const LeftPanel = ({ idTest, numberQuestion, testData }: LeftPanelProps) => {
+const LeftPanel = ({ testData, questionsArray }: LeftPanelProps) => {
   const [openModal, setOpenModal] = useState(false);
-  const [questionsArray, setQuestionsArray] = useState<
-    TestPassingQuestionType[]
-  >([
-    {
-      name: "",
-      type: "1",
-      id: "",
-      answers: [
-        {
-          name: "",
-          is_selected: false,
-          id: "",
-        },
-      ],
-    },
-  ]);
+  const { idTest, numberQuestion } = useParams();
 
   const closeModal = () => {
     setOpenModal(false);
   };
 
-  useEffect(() => {
-    getPassingTestQuestionsArray(idTest).then((data) => {
-      if (data) setQuestionsArray(data);
-    });
-  }, []);
   return (
     <div className={style.leftPanel}>
       <div className={style.shortDescription}>
@@ -59,11 +39,13 @@ const LeftPanel = ({ idTest, numberQuestion, testData }: LeftPanelProps) => {
       <div className={style.questionsMenu}>
         <h3>Вопросы</h3>
         <div className={style.questions}>
-          {questionsArray.map((item, id) => (
+          {questionsArray?.map((item, id) => (
             <Link key={item.name} to={`/passingtest/${idTest}/${id}`}>
               <div
                 className={classNames(style.question, {
-                  [style.current]: id == numberQuestion,
+                  [style.current]: id == Number(numberQuestion),
+                  [style.answered]: item.is_answered,
+                  [style.viewed]: item.is_viewed,
                 })}
               >
                 <h5>Вопрос {id + 1}</h5>

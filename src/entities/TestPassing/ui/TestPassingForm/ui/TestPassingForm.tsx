@@ -5,11 +5,8 @@ import {
 import style from "./TestPassingForm.module.scss";
 import Input from "@/shared/ui/Input";
 import { useEffect, useState } from "react";
-import {
-  getTestQuestion,
-  sendAnswers,
-} from "@/features/TestsOperations/model/TestsOperations";
-import { useNavigate } from "react-router-dom";
+import { sendAnswers } from "@/features/TestsOperations/model/TestsOperations";
+import { useParams } from "react-router-dom";
 import classNames from "classnames";
 import Button from "@/shared/ui/Button";
 import Loader from "@/shared/ui/Loader";
@@ -18,48 +15,25 @@ import { isMobile } from "react-device-detect";
 interface TestPassingFormProps {
   numberQuestion?: string | number;
   idTest?: string;
+  questionData: TestPassingQuestionType | null;
   questions_count?: number;
+  nextQuestion: () => void;
+  prevQuestion: () => void;
+  answers?: null | AnswerForPassing[];
+  toggleAnswer: (id: number, isSelected: boolean) => void;
+  selectAnswers?: string[];
 }
 
 const TestPassingForm = ({
-  numberQuestion,
-  idTest,
   questions_count = 0,
+  questionData,
+  nextQuestion,
+  prevQuestion,
+  toggleAnswer,
+  answers,
+  selectAnswers,
 }: TestPassingFormProps) => {
-  const [questionData, setQuestionData] =
-    useState<null | TestPassingQuestionType>(null);
-  const [answers, setAnswers] = useState<null | AnswerForPassing[]>(null);
-  const navigate = useNavigate();
-
-  const selectAnswers = answers
-    ?.filter(({ is_selected }) => is_selected)
-    ?.map(({ id }) => id);
-
-  const toggleAnswer = (id: number, isSelected: boolean) => {
-    const newAnswers = answers ? [...answers] : [];
-    newAnswers[id].is_selected = !isSelected;
-    setAnswers(newAnswers);
-  };
-
-  useEffect(() => {
-    getTestQuestion(idTest, numberQuestion).then((data) => {
-      if (data) {
-        setQuestionData(data);
-        setAnswers(data.answers);
-      }
-    });
-    return setQuestionData(null);
-  }, [numberQuestion]);
-
-  const nextQuestion = () => {
-    selectAnswers?.length && sendAnswers(idTest, numberQuestion, selectAnswers);
-    navigate(`/passingtest/${idTest}/${Number(numberQuestion) + 1}`);
-  };
-
-  const prevQuestion = () => {
-    selectAnswers?.length && sendAnswers(idTest, numberQuestion, selectAnswers);
-    navigate(`/passingtest/${idTest}/${Number(numberQuestion) - 1}`);
-  };
+  const { idTest, numberQuestion } = useParams();
 
   if (questionData === null) {
     return (
