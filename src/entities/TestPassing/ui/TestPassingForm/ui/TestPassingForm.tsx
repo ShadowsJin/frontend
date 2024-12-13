@@ -68,20 +68,22 @@ const TestPassingForm = ({
           />
         </div>
       </div>
-      <h2 className={style.title}>{questionData?.name}</h2>
-      <div className={style.answersBlock}>
-        {answers?.map((answer, id) => (
-          <div className={style.answerBlock} key={`${name} ${id} `}>
-            <Input
-              key={`checkbox${Number(numberQuestion) + id}`}
-              type="checkbox"
-              checked={answer.is_selected}
-              onChange={() => toggleAnswer(id, answer.is_selected)}
-              id={answer.id}
-            />
-            <label htmlFor={answer.id}>{answer.name}</label>
-          </div>
-        ))}
+      <div className={style.content}>
+        <h2 className={style.title}>{questionData?.name}</h2>
+        <div className={style.answersBlock}>
+          {answers?.map((answer, id) => (
+            <div className={style.answerBlock} key={`${name} ${id} `}>
+              <Input
+                key={`checkbox${Number(numberQuestion) + id}`}
+                type="checkbox"
+                checked={answer.is_selected}
+                onChange={() => toggleAnswer(id, answer.is_selected)}
+                id={answer.id}
+              />
+              <label htmlFor={answer.id}>{answer.name}</label>
+            </div>
+          ))}
+        </div>
       </div>
       <div
         className={classNames(style.buttons, {

@@ -16,17 +16,15 @@
 
   @include mobile {
     width: 100%;
-    height: fit-content;
     padding: 1rem;
     h2 {
       font-size: 1.5rem;
     }
   }
 
-  .title {
+  .content {
     overflow-y: scroll;
-    height: 9rem;
-    overflow-wrap: break-word;
+    height: 100%;
 
     &::-webkit-scrollbar {
       width: 0.5rem;

@@ -78,7 +78,7 @@ const PassingTestBlock = ({ testData }: Props) => {
       setQuestionData(null);
       setAnswers(null);
     };
-  }, [idTest, numberQuestion, viewedQuestions]);
+  }, [idTest, numberQuestion]);
 
   const toggleAnswer = (id: number, isSelected: boolean) => {
     const newAnswers = answers ? [...answers] : [];
