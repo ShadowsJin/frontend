@@ -3,7 +3,7 @@ import style from "./MaingPassingTestForm.module.scss";
 import { TestCardType } from "@/features/TestsOperations/model/TestOperationsTypes";
 import Button from "@/shared/ui/Button";
 import { useNavigate } from "react-router-dom";
-import Loader from "@/shared/ui/Loader";
+import SmallLoader from "@/shared/ui/SmallLoader/ui/SmallLoader";
 
 const MainPassingTestForm = ({
   id,
@@ -16,7 +16,9 @@ const MainPassingTestForm = ({
   if (!id) {
     return (
       <div className={classNames("section", style.PassingTestForm)}>
-        <Loader />
+        <div className={style.testPassingForm}>
+          <SmallLoader />
+        </div>
       </div>
     );
   }

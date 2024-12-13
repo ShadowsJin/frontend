@@ -10,8 +10,8 @@ import {
   changeProfile,
   getMe,
 } from "@/features/AuthByEmail/model/services/AuthByEmail/AuthByEmail";
-import Loader from "@/shared/ui/Loader";
-import { fail } from "assert";
+import SmallLoader from "@/shared/ui/SmallLoader/ui/SmallLoader";
+
 const ProfileCard = () => {
   const [openModal, setOpenModal] = useState(false);
   const [fullname, setFullname] = useState<string | null>(null);
@@ -33,7 +33,7 @@ const ProfileCard = () => {
   if (fullname === null || email === null) {
     return (
       <div className={style.ProfileCard}>
-        <Loader />
+        <SmallLoader />
       </div>
     );
   }

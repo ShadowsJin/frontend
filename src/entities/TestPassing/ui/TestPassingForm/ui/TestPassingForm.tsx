@@ -9,8 +9,8 @@ import { sendAnswers } from "@/features/TestsOperations/model/TestsOperations";
 import { useParams } from "react-router-dom";
 import classNames from "classnames";
 import Button from "@/shared/ui/Button";
-import Loader from "@/shared/ui/Loader";
 import { isMobile } from "react-device-detect";
+import SmallLoader from "@/shared/ui/SmallLoader/ui/SmallLoader";
 
 interface TestPassingFormProps {
   numberQuestion?: string | number;
@@ -38,7 +38,7 @@ const TestPassingForm = ({
   if (questionData === null) {
     return (
       <div className={style.testPassingForm}>
-        <Loader />
+        <SmallLoader />
       </div>
     );
   }

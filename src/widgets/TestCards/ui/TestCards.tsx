@@ -1,7 +1,7 @@
 import TestCard from "@/features/TestsOperations";
 import style from "./TestCards.module.scss";
 import { TestCardType } from "@/features/TestsOperations/model/TestOperationsTypes";
-import Loader from "@/shared/ui/Loader";
+import SmallLoader from "@/shared/ui/SmallLoader/ui/SmallLoader";
 
 interface TestCardsProps {
   cards: TestCardType[] | null;
@@ -9,7 +9,7 @@ interface TestCardsProps {
 }
 const TestCards = ({ cards, created }: TestCardsProps) => {
   if (cards === null) {
-    return <Loader />;
+    return <SmallLoader />;
   }
   return (
     <div className={style.Tests}>

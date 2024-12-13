@@ -7,7 +7,7 @@ import StatisticsCard from "@/shared/ui/StatisticsCard";
 import BackArrow from "@/shared/assets/arrowLeft.svg";
 import { useNavigate, useParams } from "react-router-dom";
 import { getStatistics } from "@/features/TestsOperations/model/TestsOperations";
-import Loader from "@/shared/ui/Loader";
+import SmallLoader from "@/shared/ui/SmallLoader/ui/SmallLoader";
 
 const StatisticsCards = () => {
   const [isNew, setIsNew] = useState<boolean>(true);
@@ -24,7 +24,7 @@ const StatisticsCards = () => {
   if (cardsArray === null) {
     return (
       <div className={style.noneCards}>
-        <Loader />
+        <SmallLoader />
       </div>
     );
   }

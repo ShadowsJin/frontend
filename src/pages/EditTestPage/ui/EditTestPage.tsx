@@ -7,7 +7,7 @@ import classNames from "classnames";
 import EditTestForm from "@/entities/Test/ui/EditTestForm/ui/EditTestForm";
 import EditIcon from "@/shared/assets/Edit.svg";
 import Button from "@/shared/ui/Button";
-import Loader from "@/shared/ui/Loader";
+import SmallLoader from "@/shared/ui/SmallLoader/ui/SmallLoader";
 
 const EditTestPage = () => {
   const [testData, setTestData] = useState<TestCardType | null>(null);
@@ -24,7 +24,7 @@ const EditTestPage = () => {
   if (testData === null) {
     return (
       <div className={classNames("section", style.PassingTestPage)}>
-        <Loader />
+        <SmallLoader />
       </div>
     );
   }
