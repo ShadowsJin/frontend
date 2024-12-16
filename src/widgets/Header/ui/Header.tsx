@@ -6,8 +6,15 @@ import LogoImg from "@/shared/assets/logo.png";
 import MiniLogoIcon from "@/shared/assets/favIcon.svg";
 import { Link } from "react-router-dom";
 import { isMobile } from "react-device-detect";
+import useTestCardsSearchingSlice from "@/entities/TestCards/model/TestCardsSlice";
 
 const Header = ({ withInput = false }: { withInput?: boolean }) => {
+  const { setParams, params } = useTestCardsSearchingSlice();
+
+  const setSearchParams = (text: string) => {
+    setParams(null);
+    setTimeout(() => setParams(text), 300);
+  };
   return (
     <header className={style.Header}>
       <Link to="/">
@@ -18,7 +25,13 @@ const Header = ({ withInput = false }: { withInput?: boolean }) => {
         )}
       </Link>
       <div className={style.RightBlock}>
-        {withInput && <Input placeholder="Поиск..." icon={<SearchIcon />} />}
+        {withInput && (
+          <Input
+            onChange={(e) => setSearchParams(e.target.value)}
+            placeholder="Поиск..."
+            icon={<SearchIcon />}
+          />
+        )}
         <Avatar />
       </div>
     </header>

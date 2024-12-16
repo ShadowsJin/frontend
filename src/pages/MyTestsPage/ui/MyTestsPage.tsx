@@ -6,21 +6,17 @@ import { useEffect, useState } from "react";
 import TestCards from "@/widgets/TestCards/ui/TestCards";
 import CreatingTestBlock from "@/entities/Test/ui/CreatingTestBlock";
 import { getCreatedTests, getPassedTests } from "@/features/TestsOperations";
-import { TestCardType } from "@/features/TestsOperations/model/TestOperationsTypes";
+import useTestCardsSearchingSlice from "@/entities/TestCards/model/TestCardsSlice";
 
 const MyTestsPage = () => {
   const [created, setCreated] = useState(true);
-  const [createdTestsArray, setCreatedTestsArray] = useState<
-    TestCardType[] | null
-  >(null);
-  const [passedTestsArray, setPassedTestsArray] = useState<
-    TestCardType[] | null
-  >(null);
+  const { setTests } = useTestCardsSearchingSlice();
 
   useEffect(() => {
+    setTests(null);
     created
-      ? getCreatedTests().then((res) => setCreatedTestsArray(res || []))
-      : getPassedTests().then((res) => setPassedTestsArray(res || []));
+      ? getCreatedTests().then((res) => setTests(res || []))
+      : getPassedTests().then((res) => setTests(res || []));
   }, [created]);
   return (
     <div className={classNames("section", style.MyTestsPage)}>
@@ -46,10 +42,7 @@ const MyTestsPage = () => {
         </div>
       </div>
 
-      <TestCards
-        created={created}
-        cards={created ? createdTestsArray : passedTestsArray}
-      />
+      <TestCards created={created} />
     </div>
   );
 };

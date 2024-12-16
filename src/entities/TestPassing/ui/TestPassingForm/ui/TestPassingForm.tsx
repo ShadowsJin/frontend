@@ -4,7 +4,6 @@ import {
 } from "@/features/TestsOperations/model/TestOperationsTypes";
 import style from "./TestPassingForm.module.scss";
 import Input from "@/shared/ui/Input";
-import { useEffect, useState } from "react";
 import { sendAnswers } from "@/features/TestsOperations/model/TestsOperations";
 import { useParams } from "react-router-dom";
 import classNames from "classnames";

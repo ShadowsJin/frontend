@@ -1,24 +1,29 @@
 import TestCard from "@/features/TestsOperations";
 import style from "./TestCards.module.scss";
-import { TestCardType } from "@/features/TestsOperations/model/TestOperationsTypes";
 import SmallLoader from "@/shared/ui/SmallLoader/ui/SmallLoader";
+import useTestCardsSearchingSlice from "@/entities/TestCards/model/TestCardsSlice";
 
 interface TestCardsProps {
-  cards: TestCardType[] | null;
   created?: boolean;
 }
-const TestCards = ({ cards, created }: TestCardsProps) => {
-  if (cards === null) {
+const TestCards = ({ created }: TestCardsProps) => {
+  const { tests, params } = useTestCardsSearchingSlice();
+  const filteredTest = tests?.filter(({ title }) =>
+    title?.includes(params || "")
+  );
+
+  if (tests === null || params === null) {
     return <SmallLoader />;
   }
+
   return (
     <div className={style.Tests}>
-      {cards.length > 0 ? (
-        cards.map((card, id) => (
+      {filteredTest && filteredTest.length > 0 ? (
+        filteredTest?.map((card, id) => (
           <TestCard created={created} key={id} {...card} />
         ))
       ) : (
-        <h2 className={style.noneTitle}>Здесь нет тестов</h2>
+        <h2 className={style.noneTitle}>Такие тесты не найдены</h2>
       )}
     </div>
   );
