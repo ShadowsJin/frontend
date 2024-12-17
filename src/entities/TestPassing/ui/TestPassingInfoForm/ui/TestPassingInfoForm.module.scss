@@ -1,0 +1,43 @@
+@import "@styles/index.scss";
+
+.testPassingBlock {
+  width: 100%;
+  display: flex;
+  align-items: left;
+  justify-content: left;
+  flex-direction: column;
+  gap: 10px;
+  p {
+    color: $headingColor;
+  }
+}
+.testPassingForm {
+  border-radius: 20px;
+  background-color: $blockBackground;
+  width: 30vw;
+  min-width: 350px;
+  display: inline-flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  @include mobile {
+    min-width: 290px;
+    width: 100%;
+    padding: 2rem;
+  }
+
+  .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    button {
+      width: 40%;
+    }
+  }
+}
+
+.testLabel {
+  color: $captionColor;
+}

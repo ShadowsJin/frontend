@@ -2,7 +2,7 @@ import InfoIcon from "@/shared/assets/Info.svg";
 import Button from "@/shared/ui/Button";
 import style from "./LeftPanel.module.scss";
 import { Link, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import classNames from "classnames";
 import {
   TestCardType,
@@ -11,6 +11,7 @@ import {
 import CheckMarkIcon from "@/shared/assets/checkMark.svg";
 import CompleteTestForm from "@/features/TestsOperations/ui/CompleteTestForm";
 import Modal from "@/shared/ui/Modal";
+import TestPassingInfoForm from "@/entities/TestPassing/ui/TestPassingInfoForm";
 
 interface LeftPanelProps {
   idTest?: string;
@@ -20,19 +21,26 @@ interface LeftPanelProps {
 }
 
 const LeftPanel = ({ testData, questionsArray }: LeftPanelProps) => {
-  const [openModal, setOpenModal] = useState(false);
+  const [openFinishModal, setOpenFinishModal] = useState(false);
+  const [openInfoModal, setOpenInfoModal] = useState(false);
   const { idTest, numberQuestion } = useParams();
 
-  const closeModal = () => {
-    setOpenModal(false);
+  const closeFinishModal = () => {
+    setOpenFinishModal(false);
+  };
+  const closeInfoModal = () => {
+    setOpenInfoModal(false);
   };
 
   return (
     <div className={style.leftPanel}>
       <div className={style.shortDescription}>
-        <div className={style.infoIcon}>
+        <div className={style.infoIcon} onClick={() => setOpenInfoModal(true)}>
           <InfoIcon />
         </div>
+        <Modal isOpened={openInfoModal} onClose={closeInfoModal}>
+          <TestPassingInfoForm {...testData} closeModal={closeInfoModal} />
+        </Modal>
         <h3>{testData?.title}</h3>
         <div>{testData?.owner_name}</div>
       </div>
@@ -55,11 +63,11 @@ const LeftPanel = ({ testData, questionsArray }: LeftPanelProps) => {
           ))}
         </div>
       </div>
-      <Button variant="primary" onClick={() => setOpenModal(true)}>
+      <Button variant="primary" onClick={() => setOpenFinishModal(true)}>
         <CheckMarkIcon /> Завершить
       </Button>
-      <Modal isOpened={openModal} onClose={closeModal}>
-        <CompleteTestForm id={idTest} closeModal={closeModal} />
+      <Modal isOpened={openFinishModal} onClose={closeFinishModal}>
+        <CompleteTestForm id={idTest} closeModal={closeFinishModal} />
       </Modal>
     </div>
   );
