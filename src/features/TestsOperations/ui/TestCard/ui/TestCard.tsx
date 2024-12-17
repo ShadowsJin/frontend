@@ -52,7 +52,7 @@ const TestCard = ({
             <p>23.08.2024</p>
           </div>
           <Modal isOpened={openModal} onClose={() => setOpenModal(false)}>
-            <TestLinkForm closeModal={closeModal} link={`/passingtest/${id}`} />
+            <TestLinkForm closeModal={closeModal} link={`passingtest/${id}`} />
           </Modal>
         </>
       ) : (
