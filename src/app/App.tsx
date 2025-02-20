@@ -9,9 +9,9 @@ import {
 
 function App() {
   useEffect(() => {
-    updateToken().then((res) =>
-      res ? localStorage.setItem("isAuth", "true") : logout
-    );
+    // updateToken().then((res) =>
+    //   res ? localStorage.setItem("isAuth", "true") : logout
+    // );
   }, []);
   return (
     <>

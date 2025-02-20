@@ -1,7 +1,6 @@
 import { Navigate, useLocation } from "react-router-dom";
 
 import { ReactNode } from "react";
-import { updateToken } from "@/features/AuthByEmail/model/services/AuthByEmail/AuthByEmail";
 
 interface IProtected {
   onlyAuth?: boolean;
