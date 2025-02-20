@@ -12,6 +12,7 @@ import PlusIcon from "@/shared/assets/Plus.svg";
 import Modal from "@/shared/ui/Modal";
 import CompleteCreatingTestForm from "@/features/TestsOperations/ui/CompleteCreatingTestForm";
 import TrashIcon from "@/shared/assets/Trash.svg";
+import QuestionsMenu from "@/shared/ui/QuestionsMenu";
 
 const CreateTestPage = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -63,7 +64,9 @@ const CreateTestPage = () => {
               <CreateQuestionBlock question={question} id={id} key={id} />
             ))}
           </div>
-          <div className={style.tools}>Инструменты</div>
+          <div className={style.tools}>
+            <QuestionsMenu questionsArray={questions} />
+          </div>
         </div>
 
         <div className={style.buttons}>

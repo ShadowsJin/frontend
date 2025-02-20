@@ -34,7 +34,7 @@ const CreateQuestionBlock = ({ question, id }: CreateQuestionBlockI) => {
     <div className={style.questionBlock}>
       <div className={style.question}>
         <div className={style.title}>
-          <p>Вопрос :</p>
+          <p>Вопрос {id + 1}:</p>
           <span onClick={() => deleteQuestion(id)}>Удалить вопрос</span>
         </div>
         <Input

@@ -89,13 +89,10 @@
       right: 0;
       top: 10vh;
       width: 30%;
-      text-align: center;
-      padding: 20px;
       height: 70vh;
-      border-radius: 6px;
-      background-color: $blockBackground;
-      border: $blocksBorder;
-      box-shadow: $blocksShadow;
+      > div {
+        height: 100%;
+      }
       @include mobile {
         display: none;
       }
