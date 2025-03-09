@@ -9,7 +9,12 @@ const useTest = create(
     title: "",
     description: "",
     questions: [
-      { name: "", type: "", answers: [{ name: "", is_correct: false }] },
+      {
+        name: "",
+        type: "",
+        answers: [{ name: "", is_correct: false }],
+        id: "",
+      },
     ],
     addTitle: (title: string) => {
       set((state) => {
@@ -24,6 +29,7 @@ const useTest = create(
     addQuestion: () => {
       set((state) => {
         const newQuestion = {
+          id: "",
           name: "",
           type: "",
           answers: [{ name: "", is_correct: false }],
@@ -72,7 +78,12 @@ const useTest = create(
       set((state) => {
         state.title = "";
         state.questions = [
-          { name: "", type: "", answers: [{ name: "", is_correct: false }] },
+          {
+            name: "",
+            type: "",
+            answers: [{ name: "", is_correct: false }],
+            id: "",
+          },
         ];
       });
     },
